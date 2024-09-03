@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Telemetry - Tyre Info</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .tyre-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tyre-card {
+            background-color: #2c2c2c;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="title">Tyre Information</h2>
+        <div class="tyre-info">
+            <div class="tyre-card" id="front-left-tyre">
+                <h3>Front Left Tyre</h3>
+                <p>Carcass Temp: <span id="fl-temp-carcass">0</span> °C</p>
+                <p>Surface Temp: <span id="fl-temp-surface">0</span> °C</p>
+                <p>Brake Temp: <span id="fl-temp-brakes">0</span> °C</p>
+                <p>Pressure: <span id="fl-pressure">0</span> PSI</p>
+                <p>Wear: <span id="fl-wear">0</span> %</p>
+            </div>
+            <div class="tyre-card" id="front-right-tyre">
+                <h3>Front Right Tyre</h3>
+                <p>Carcass Temp: <span id="fr-temp-carcass">0</span> °C</p>
+                <p>Surface Temp: <span id="fr-temp-surface">0</span> °C</p>
+                <p>Brake Temp: <span id="fr-temp-brakes">0</span> °C</p>
+                <p>Pressure: <span id="fr-pressure">0</span> PSI</p>
+                <p>Wear: <span id="fr-wear">0</span> %</p>
+            </div>
+            <div class="tyre-card" id="rear-left-tyre">
+                <h3>Rear Left Tyre</h3>
+                <p>Carcass Temp: <span id="rl-temp-carcass">0</span> °C</p>
+                <p>Surface Temp: <span id="rl-temp-surface">0</span> °C</p>
+                <p>Brake Temp: <span id="rl-temp-brakes">0</span> °C</p>
+                <p>Pressure: <span id="rl-pressure">0</span> PSI</p>
+                <p>Wear: <span id="rl-wear">0</span> %</p>
+            </div>
+            <div class="tyre-card" id="rear-right-tyre">
+                <h3>Rear Right Tyre</h3>
+                <p>Carcass Temp: <span id="rr-temp-carcass">0</span> °C</p>
+                <p>Surface Temp: <span id="rr-temp-surface">0</span> °C</p>
+                <p>Brake Temp: <span id="rr-temp-brakes">0</span> °C</p>
+                <p>Pressure: <span id="rr-pressure">0</span> PSI</p>
+                <p>Wear: <span id="rr-wear">0</span> %</p>
+            </div>
+        </div>
+        <div class="tyre-set-info">
+            <div>Compound: <span id="tyre-compound-visual">N/A</span> (<span id="tyre-compound">*</span>)</div>
+            <div>Laps on Tyre Set: <span id="tyre-set-laps-age">-</span></div>
+            <div>Max Laps: <span id="tyre-set-laps-max">-</span></div>
+            <div>Remaining Laps: <span id="tyre-set-laps-remaining">-</span></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchLatestTyreInfo() {
+            try {
+                const response = await fetch('/api/latest_tyre_info');
+                const tyreInfo = await response.json();
+                if (tyreInfo.error) {
+                    console.log(tyreInfo.error);
+                    return;
+                }
+
+                document.getElementById('fl-temp-carcass').innerText = tyreInfo.tyre_front_left.temperature_carcass;
+                document.getElementById('fl-temp-surface').innerText = tyreInfo.tyre_front_left.temperature_surface;
+                document.getElementById('fl-temp-brakes').innerText = tyreInfo.tyre_front_left.temperature_brakes;
+                document.getElementById('fl-pressure').innerText = tyreInfo.tyre_front_left.pressure_psi.toFixed();
+                document.getElementById('fl-wear').innerText = Math.round(tyreInfo.tyre_front_left.wear_percentage);
+
+                document.getElementById('fr-temp-carcass').innerText = tyreInfo.tyre_front_right.temperature_carcass;
+                document.getElementById('fr-temp-surface').innerText = tyreInfo.tyre_front_right.temperature_surface;
+                document.getElementById('fr-temp-brakes').innerText = tyreInfo.tyre_front_right.temperature_brakes;
+                document.getElementById('fr-pressure').innerText = tyreInfo.tyre_front_right.pressure_psi.toFixed();
+                document.getElementById('fr-wear').innerText = Math.round(tyreInfo.tyre_front_right.wear_percentage);
+
+                document.getElementById('rl-temp-carcass').innerText = tyreInfo.tyre_rear_left.temperature_carcass;
+                document.getElementById('rl-temp-surface').innerText = tyreInfo.tyre_rear_left.temperature_surface;
+                document.getElementById('rl-temp-brakes').innerText = tyreInfo.tyre_rear_left.temperature_brakes;
+                document.getElementById('rl-pressure').innerText = tyreInfo.tyre_rear_left.pressure_psi.toFixed();
+                document.getElementById('rl-wear').innerText = Math.round(tyreInfo.tyre_rear_left.wear_percentage);
+
+                document.getElementById('rr-temp-carcass').innerText = tyreInfo.tyre_rear_right.temperature_carcass;
+                document.getElementById('rr-temp-surface').innerText = tyreInfo.tyre_rear_right.temperature_surface;
+                document.getElementById('rr-temp-brakes').innerText = tyreInfo.tyre_rear_right.temperature_brakes;
+                document.getElementById('rr-pressure').innerText = tyreInfo.tyre_rear_right.pressure_psi.toFixed();
+                document.getElementById('rr-wear').innerText = Math.round(tyreInfo.tyre_rear_right.wear_percentage);
+
+                // Update the overall tyre set info
+                document.getElementById('tyre-compound').innerText = tyreInfo.tyre_compound;
+                document.getElementById('tyre-compound-visual').innerText = tyreInfo.tyre_compound_visual;
+                document.getElementById('tyre-set-laps-age').innerText = tyreInfo.tyre_set_laps_age;
+                document.getElementById('tyre-set-laps-max').innerText = tyreInfo.tyre_set_laps_max;
+                document.getElementById('tyre-set-laps-remaining').innerText = tyreInfo.tyre_set_laps_remaining;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        setInterval(fetchLatestTyreInfo, 200);  // Fetch latest data every 0,2 seconds
+    </script>
+</body>
+
+</html>
