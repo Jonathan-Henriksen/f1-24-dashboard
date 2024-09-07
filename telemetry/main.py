@@ -69,7 +69,6 @@ def handle_packet(data: bytes):
 					session_packet = unpack_session(packet_header, remaning_bytes)
 
 					multi_function_display.update_from_session_packet(session_packet)
-					multi_function_display.weather_panel().update_from_session(session_packet)
 
 				case PacketIDs.EVENT.value:
 					event_packet = unpack_event_packet(packet_header, remaning_bytes)
@@ -85,6 +84,9 @@ def handle_packet(data: bytes):
 
 					elif type(event) == SafetyCarEvent:
 						multi_function_display.update_from_safety_car_event(event)
+
+					elif type(event) == FastestLapEvent:
+						multi_function_display.update_from_fastest_lap_event(event)
 			
 			print(f"{to_json(multi_function_display.active_panel())}\n\n\n\n\n")
 

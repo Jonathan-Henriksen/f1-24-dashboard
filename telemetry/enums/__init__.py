@@ -12,6 +12,7 @@ from .rulesets import *
 from .pit_status import *
 from .session_types import *
 from .teams import *
+from .temperature_change import *
 from .tracks import *
 from .tyre_compunds import *
 from .weather import *

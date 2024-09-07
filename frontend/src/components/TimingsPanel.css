@@ -1,0 +1,11 @@
+.timings-panel {
+  @apply flex flex-col items-center bg-gray-800 rounded-lg border-2 border-gray-600 text-white w-full h-full p-6; /* Added sufficient padding */
+}
+
+.lap-info {
+  @apply w-full mb-6; /* Maintain space between the rows */
+}
+
+.car-deltas-row {
+  @apply flex justify-center items-center w-full h-auto;
+}

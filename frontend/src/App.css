@@ -1,0 +1,7 @@
+.app-container {
+  @apply h-screen flex flex-col bg-f1Grey text-white;
+}
+
+.panel-container {
+  @apply flex-grow flex items-center justify-center;
+}

@@ -1,0 +1,26 @@
+.navigation-bar {
+  @apply bg-f1Grey flex items-center justify-center;
+  margin: 1.5rem auto; /* Reduced margin for a more compact design */
+  padding: 1rem 0; /* Reduced padding to make navigation smaller */
+  max-width: 90%;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navigation-list {
+  @apply flex justify-between w-full;
+}
+
+.navigation-item {
+  @apply text-2xl uppercase tracking-wider cursor-pointer flex-grow text-center relative; /* Reduced text size to 2xl */
+  padding: 0.25rem 0.5rem;
+}
+
+.navigation-item:not(:last-child)::after {
+  content: '';
+  @apply absolute right-0 top-0 h-full w-px bg-gray-600;
+}
+
+.navigation-item.active {
+  @apply text-f1Highlight font-bold;
+}

@@ -5,6 +5,7 @@ from telemetry.packets import SessionPacket, TyreSetsPacket
 
 class StrategyPanel():
 	def __init__(self):
+		self.name = "Strategy"
 		self.lap_to_pit_recommended: int = 0
 		self.lap_to_pit_latest: int = 0
 		self.tyre_sets_current_wear_percentage: int = 0
@@ -27,7 +28,7 @@ class StrategyPanel():
 
 		self.tyre_sets_current_wear_percentage = fitted_tyre_set.wear
 		self.tyre_sets_current_laps_left = fitted_tyre_set.num_of_laps_left
-		self.tyre_comptyre_sets_current_compound_laps_maxound_max_laps = fitted_tyre_set.num_of_laps_max
+		self.tyre_sets_current_compound_laps_max = fitted_tyre_set.num_of_laps_max
 
 		# Available Tyres
 		self.tyre_sets_available.clear()

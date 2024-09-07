@@ -1,0 +1,25 @@
+/* CarDeltasGraphic.css */
+.car-container {
+    @apply flex flex-col items-center;
+}
+
+.car-image {
+    @apply w-24 transform;
+    transform: scaleX(-1); /* Flip car images */
+}
+
+.driver-name {
+    @apply text-white text-lg;
+}
+
+.delta-time {
+    @apply text-lg;
+}
+
+.delta-time-ahead {
+    @apply text-red-500;
+}
+
+.delta-time-behind {
+    @apply text-green-500;
+}

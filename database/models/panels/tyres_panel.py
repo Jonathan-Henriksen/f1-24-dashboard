@@ -3,6 +3,7 @@ from telemetry.packets import *
 
 class TyresPanel():
 	def __init__(self):
+		self.name = "Tyres"
 		self.tyre_compound: str = TyreCompounds.C3.name
 		self.tyre_compound_visual: str = TyreCompoundsVisual.MEDIUM.name
 		self.tyre_front_left: Tyre = Tyre()

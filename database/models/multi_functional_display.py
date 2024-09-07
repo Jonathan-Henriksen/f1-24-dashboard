@@ -15,31 +15,31 @@ class MultiFunctionDisplay:
 		self.pit_speed_limit: int = 0
 		self.pit_status: str = PitStatus.NONE.name
 		self.panels = [
-			DamagePanel(),
-			LeaderboardPanel(),
-			StrategyPanel(),
 			TimingsPanel(),
 			TyresPanel(),
-			WeatherPanel()
+			StrategyPanel(),
+			LeaderboardPanel(),		
+			WeatherPanel(),
+			DamagePanel()
 		]
 
 	# Getter Functions
-	def damage_panel(self) -> DamagePanel:
+	def timings_panel(self) -> TimingsPanel:
 		return self.panels[0]
 
-	def leaderboard_panel(self) -> LeaderboardPanel:
+	def tyres_panel(self) -> TyresPanel:
 		return self.panels[1]
-	
+
 	def strategy_panel(self) -> StrategyPanel:
 		return self.panels[2]
-	
-	def timings_panel(self) -> TimingsPanel:
+
+	def leaderboard_panel(self) -> LeaderboardPanel:
 		return self.panels[3]
-	
-	def tyres_panel(self) -> TyresPanel:
-		return self.panels[4]
 
 	def weather_panel(self) -> WeatherPanel:
+		return self.panels[4]
+
+	def damage_panel(self) -> DamagePanel:
 		return self.panels[5]
 
 	def active_panel(self) -> Union[DamagePanel, LeaderboardPanel, StrategyPanel, TimingsPanel, TyresPanel, WeatherPanel]:
@@ -57,30 +57,41 @@ class MultiFunctionDisplay:
 			self.active_panel_index = 0
 		else:
 			self.active_panel_index += 1
-	
-	# Packet Updates
 
-	## Safety Car Event
+	# Safety Car Event
 	def update_from_safety_car_event(self, event: SafetyCarEvent):
 		self.safety_car_type = SafetyCarTypes(event.safety_car_type).name
 		self.safety_car_status = SafetyCarStatus(event.event_type).name
 
-	## Lap Data
+	# Fastest Lap Event
+	def update_from_fastest_lap_event(self, event: FastestLapEvent):
+		fastest_lap_driver = self.leaderboard_panel().drivers.get(event.vehicle_index)
+
+		self.timings_panel().update_from_fastest_lap_event(event, fastest_lap_driver)
+
+	# Lap Data Packet
 	def update_from_lap_data_packet(self, lap_data_packet: LapDataPacket):
 		player_data = lap_data_packet.player_data()
 
 		self.pit_status = PitStatus(player_data.pit_status).name
 		self.current_lap_invalid = bool(player_data.current_lap_invalid)
 
-		self.timings_panel().update_from_lap_data(lap_data_packet)
 		self.leaderboard_panel().update_from_lap_data_packet(lap_data_packet)
 
-	## Car Damage
+		player = self.leaderboard_panel().get_driver_by_position(player_data.car_position)
+		teammate = next(driver for driver in self.leaderboard_panel().drivers.values() if driver.team == player.team and not driver.is_player)
+		driver_lead = self.leaderboard_panel().get_driver_by_position(1)
+		driver_in_front = self.leaderboard_panel().get_driver_by_position(player_data.car_position - 1)
+		driver_behind = self.leaderboard_panel().get_driver_by_position(player_data.car_position + 1)
+
+		self.timings_panel().update_from_lap_data(lap_data_packet, player, teammate, driver_lead, driver_in_front, driver_behind)
+
+	## Car Damage Packet
 	def update_from_car_damage_packet(self, car_damage_packet: CarDamagePacket):
 		self.damage_panel().update_from_car_damage_packet(car_damage_packet)
 		self.tyres_panel().update_from_car_damage_packet(car_damage_packet)
 
-	## Car Status
+	## Car Status Packet
 	def update_from_car_status_packet(self, car_status_packet: CarStatusPacket):
 		player_data = car_status_packet.player_data()
 
@@ -89,20 +100,20 @@ class MultiFunctionDisplay:
 
 		self.tyres_panel().update_from_car_status_packet(car_status_packet)
 
-	## Car Telemetry
+	## Car Telemetry Packet
 	def update_from_car_telemetry_packet(self, car_telemetry_packet: CarTelemetryPacket):
 		self.tyres_panel().update_from_car_telemetry_packet(car_telemetry_packet)
 
 	def update_from_participants_packet(self, participants_packet: ParticipantsPacket):
 		self.leaderboard_panel().update_from_participants_packet(participants_packet)
 
-	## Session
+	## Session Packet
 	def update_from_session_packet(self, session_packet: SessionPacket):
 		self.pit_speed_limit = session_packet.pit_speed_limit
 
 		self.weather_panel().update_from_session(session_packet)
 
-	# Tyre Sets
+	# Tyre Sets Packet
 	def update_from_tyre_sets_packet(self, tyre_sets_packet: TyreSetsPacket):
 		self.tyres_panel().update_from_tyre_sets_packet(tyre_sets_packet)
 		self.leaderboard_panel().update_from_tyre_sets_packet(tyre_sets_packet)

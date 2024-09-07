@@ -2,6 +2,7 @@ from telemetry.packets import CarDamagePacket
 
 class DamagePanel():
 	def __init__(self):
+		self.name = "Damage"
 		self.wing_front_left: int = 0
 		self.wing_front_right: int = 0
 		self.wing_rear: int = 0

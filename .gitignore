@@ -31,6 +31,9 @@ MANIFEST
 *.manifest
 *.spec
 
+# Node Modules
+frontend/node_modules/
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt

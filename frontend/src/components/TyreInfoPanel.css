@@ -1,0 +1,7 @@
+.timings-panel {
+  @apply flex flex-col items-center bg-gray-800 rounded-lg border-2 border-gray-600 text-white w-full h-full p-4; /* Added padding */
+}
+
+.lap-info {
+  @apply w-full; /* Full width, but padding is now managed by panel */
+}
