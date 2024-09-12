@@ -1,19 +1,20 @@
 /* CarDeltasGraphic.css */
 .car-container {
     @apply flex flex-col items-center;
+    @apply space-y-2; /* Add some spacing between car and name */
 }
 
 .car-image {
-    @apply w-24 transform;
-    transform: scaleX(-1); /* Flip car images */
+    @apply w-36 transform; /* Increase car size from w-24 to w-36 */
+    transform: scaleX(-1); /* Keep flipping the car image */
 }
 
 .driver-name {
-    @apply text-white text-lg;
+    @apply text-white text-2xl; /* Increase text size for driver names */
 }
 
 .delta-time {
-    @apply text-lg;
+    @apply text-2xl; /* Increase delta time text size */
 }
 
 .delta-time-ahead {
@@ -22,4 +23,8 @@
 
 .delta-time-behind {
     @apply text-green-500;
+}
+
+.car-deltas-container {
+    @apply w-full h-full flex justify-center items-center;
 }
