@@ -1,6 +1,6 @@
 // CarDeltasGraphic.jsx
 import React from 'react';
-import { formatTime, getCarImage, capitalizeName } from 'helpers/helpers';
+import { formatTime, getCarImage, getTeamColor, capitalizeName } from 'helpers/helpers';
 import './CarDeltasGraphic.css';
 
 const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
@@ -17,7 +17,7 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 					<div className="car-container">
 						<div className="driver-info">
 							<div className="driver-position">P{car.position}</div>
-							<div className="driver-name">{car.type === 'player' ? 'You' : capitalizeName(car.name)}</div>
+							<div className={`driver-name ${getTeamColor(car.team)}`}>{car.type === 'player' ? 'You' : capitalizeName(car.name)}</div>
 						</div>
 						<img src={getCarImage(car.team)} alt={car.name} className="car-image" />
 					</div>

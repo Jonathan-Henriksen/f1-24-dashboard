@@ -21,3 +21,24 @@ export const getCarImage = (teamName) => {
 export const capitalizeName = (name) => {
 	return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
 };
+
+/**
+ * Function to map team names to their Tailwind text color class
+ * @param {string} team - The name of the team (e.g., 'MERCEDES', 'FERRARI', 'RED_BULL_RACING', etc.)
+ * @returns {string} - The Tailwind color class for the team's color
+ */
+export const getTeamColor = (team) => {
+	switch (team.toUpperCase()) {
+		case 'MERCEDES': return 'text-mercedes';
+		case 'FERRARI': return 'text-ferrari';
+		case 'RED_BULL_RACING': return 'text-redbull';
+		case 'WILLIAMS': return 'text-williams';
+		case 'ASTON_MARTIN': return 'text-astonmartin';
+		case 'ALPINE': return 'text-alpine';
+		case 'RB': return 'text-rb'; // RB (previously AlphaTauri)
+		case 'HAAS': return 'text-haas';
+		case 'MCLAREN': return 'text-mclaren';
+		case 'SAUBER': return 'text-sauber'; // Sauber (previously Alfa Romeo)
+		default: return 'text-white'; // Default to white if no matching team
+	}
+};
