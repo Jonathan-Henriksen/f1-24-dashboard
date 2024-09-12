@@ -1,11 +1,13 @@
+/* TimingsPanel.css */
 .timings-panel {
-  @apply flex flex-col items-center bg-gray-800 rounded-lg border-2 border-gray-600 text-white w-full h-full p-6; /* Added sufficient padding */
+    @apply flex flex-col items-center bg-gray-800 rounded-lg border-2 border-gray-600 text-white w-full h-full p-6;
 }
 
 .lap-info {
-  @apply w-full mb-6; /* Maintain space between the rows */
+    @apply w-full mb-10; /* Increase the margin-bottom to create more space between rows */
 }
 
 .car-deltas-row {
-  @apply flex justify-center items-center w-full h-auto;
+    @apply flex justify-center items-center w-full h-auto;
+    margin-top: 20px; /* Add more space between the lap info and the car deltas graphic */
 }
