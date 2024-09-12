@@ -1,6 +1,6 @@
 .timings-panel {
     @apply flex flex-col justify-center items-center bg-gray-800 rounded-lg border-2 border-gray-600 text-white w-full h-full p-12;
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 20px;
 }
 
