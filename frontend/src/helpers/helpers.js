@@ -16,3 +16,8 @@ export const formatTime = (timeObj) => {
 export const getCarImage = (teamName) => {
 	return `/images/cars/${teamName.toLowerCase()}.png`;
 };
+
+// Helper function to capitalize driver names properly
+const capitalizeName = (name) => {
+	return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+};

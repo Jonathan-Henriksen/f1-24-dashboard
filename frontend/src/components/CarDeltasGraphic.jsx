@@ -1,5 +1,6 @@
+// CarDeltasGraphic.jsx
 import React from 'react';
-import { formatTime, getCarImage } from 'helpers/helpers';
+import { formatTime, getCarImage, capitalizeName } from 'helpers/helpers';
 import './CarDeltasGraphic.css';
 
 const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
@@ -14,14 +15,10 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 			{carsToRender.map((car, index) => (
 				<React.Fragment key={car.name}>
 					<div className="car-container">
+						<span className="driver-name">
+							{car.type === 'player' ? 'You' : capitalizeName(car.name)}
+						</span>
 						<img src={getCarImage(car.team)} alt={car.name} className="car-image" />
-						{car.type === 'player' ? (
-							<span className="driver-name">You</span>
-						) : (
-							<span className="driver-name">
-								{car.position}. {car.name}
-							</span>
-						)}
 					</div>
 
 					{index < carsToRender.length - 1 && (
