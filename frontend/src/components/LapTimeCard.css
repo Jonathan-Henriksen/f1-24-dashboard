@@ -29,5 +29,5 @@
 
 .fastest-driver {
   @apply text-gray-400 text-2xl text-center mt-2;
-  margin-bottom: -1rem;
+  margin-bottom: -2rem;
 }
