@@ -4,4 +4,5 @@
 
 .panel-container {
   @apply flex-grow flex items-center justify-center;
+  padding-bottom: 50px;
 }
