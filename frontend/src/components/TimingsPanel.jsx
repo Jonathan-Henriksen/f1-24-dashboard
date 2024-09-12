@@ -1,13 +1,14 @@
 import React from 'react';
 import CardRow from './CardRow';
 import CarDeltasGraphic from './CarDeltasGraphic';
+import { getTeamColor } from 'helpers/helpers';
 import './TimingsPanel.css';
 
 const TimingsPanel = ({ data }) => {
 	const topRowCards = [
 		{ title: 'Fastest Lap', data: data.lap_time_fastest_driver.lap_time_personal_best, driverName: data.lap_time_fastest_driver.name, driverTeam: data.lap_time_fastest_driver.team, color: 'purple', isFastest: true },
 		{ title: 'Personal Best', data: data.lap_time_personal_best, color: 'green' },
-		{ title: 'Teammate Best', data: data.lap_time_teammate_best, color: 'green' }
+		{ title: 'Teammate Best', data: data.lap_time_teammate_best, color: getTeamColor(data.player.team) }
 	];
 
 	const bottomRowCards = [
