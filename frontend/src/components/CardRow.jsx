@@ -12,6 +12,7 @@ const CardRow = ({ lapTimeCards = [] }) => {
 						time={card.data}
 						color={card.color}
 						driverName={card.driverName}
+						driverTeam={card.driverTeam}
 						isInvalid={card.isInvalid}
 						isFastest={card.isFastest}
 					/>
