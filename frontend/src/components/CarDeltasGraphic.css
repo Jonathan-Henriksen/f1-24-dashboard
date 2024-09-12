@@ -16,8 +16,8 @@
 }
 
 .driver-position {
-    @apply bg-red-500 text-white text-lg font-bold px-3 py-1 rounded-full mb-1; /* Background, padding, rounded corners */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    @apply bg-gray-700 bg-opacity-75 text-white text-lg font-bold px-3 py-1 rounded-full mb-1; /* Softer background with transparency */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .driver-name {

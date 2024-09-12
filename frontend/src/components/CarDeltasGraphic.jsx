@@ -16,7 +16,7 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 				<React.Fragment key={car.name}>
 					<div className="car-container">
 						<div className="driver-info">
-							<div className="driver-position">{car.position}</div> {/* Position Display */}
+							<div className="driver-position">P{car.position}</div>
 							<div className="driver-name">{car.type === 'player' ? 'You' : capitalizeName(car.name)}</div>
 						</div>
 						<img src={getCarImage(car.team)} alt={car.name} className="car-image" />
