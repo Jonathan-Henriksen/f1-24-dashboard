@@ -12,16 +12,16 @@
 }
 
 .driver-info {
-    @apply flex flex-col items-center mb-2; /* Container for position and name */
+    @apply flex flex-row items-center mb-2;
 }
 
 .driver-position {
-    @apply bg-gray-700 bg-opacity-75 text-white text-lg font-bold px-3 py-1 rounded-full mb-1; /* Softer background with transparency */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    @apply bg-gray-700 bg-opacity-75 text-white text-lg font-bold px-3 py-1 rounded-full mr-2;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .driver-name {
-    font-size: calc(1vw + 1vh); /* Scale text size */
+    font-size: calc(1vw + 1vh);
     text-transform: capitalize;
     @apply text-white;
 }
