@@ -15,9 +15,10 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 			{carsToRender.map((car, index) => (
 				<React.Fragment key={car.name}>
 					<div className="car-container">
-						<span className="driver-name">
-							{car.type === 'player' ? 'You' : capitalizeName(car.name)}
-						</span>
+						<div className="driver-info">
+							<div className="driver-position">{car.position}</div> {/* Position Display */}
+							<div className="driver-name">{car.type === 'player' ? 'You' : capitalizeName(car.name)}</div>
+						</div>
 						<img src={getCarImage(car.team)} alt={car.name} className="car-image" />
 					</div>
 

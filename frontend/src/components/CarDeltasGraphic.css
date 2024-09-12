@@ -1,24 +1,33 @@
 /* CarDeltasGraphic.css */
 .car-container {
-    @apply flex flex-col-reverse items-center; /* Use flex-col-reverse to move names above cars */
-    @apply flex-shrink; /* Adjust shrinking behavior */
+    @apply flex flex-col items-center;
+    @apply flex-shrink;
 }
 
 .car-image {
     @apply max-w-full;
     width: 80%;
     height: auto;
-    transform: scaleX(-1); /* Keep flipping the car image */
+    transform: scaleX(-1);
+}
+
+.driver-info {
+    @apply flex flex-col items-center mb-2; /* Container for position and name */
+}
+
+.driver-position {
+    @apply bg-red-500 text-white text-lg font-bold px-3 py-1 rounded-full mb-1; /* Background, padding, rounded corners */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .driver-name {
-    font-size: calc(0.8vw + 0.8vh); /* Scale text size */
-    text-transform: capitalize; /* Ensure names are capitalized */
-    @apply text-white mb-2; /* Add margin below the name */
+    font-size: calc(1vw + 1vh); /* Scale text size */
+    text-transform: capitalize;
+    @apply text-white;
 }
 
 .delta-time {
-    font-size: calc(0.8vw + 0.8vh); /* Scale delta time text size */
+    font-size: calc(0.8vw + 0.8vh);
     @apply text-white;
 }
 
@@ -31,5 +40,5 @@
 }
 
 .car-deltas-container {
-    @apply w-full h-full flex justify-center items-center space-x-8; /* Adjust spacing between cars */
+    @apply w-full h-full flex justify-center items-center space-x-8;
 }
