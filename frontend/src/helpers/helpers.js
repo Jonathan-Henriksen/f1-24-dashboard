@@ -18,6 +18,6 @@ export const getCarImage = (teamName) => {
 };
 
 // Helper function to capitalize driver names properly
-const capitalizeName = (name) => {
+export const capitalizeName = (name) => {
 	return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
 };
