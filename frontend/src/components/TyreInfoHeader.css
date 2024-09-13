@@ -1,0 +1,19 @@
+.tyre-info-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.compound-display {
+  @apply flex items-center;
+}
+
+.compound-icon {
+  @apply w-8 h-8 mr-2;
+}
+
+.compound-text {
+  @apply text-lg;
+}
+
+.wear-bar-container {
+  @apply w-48;
+}

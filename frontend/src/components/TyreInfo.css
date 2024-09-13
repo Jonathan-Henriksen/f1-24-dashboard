@@ -1,0 +1,19 @@
+.tyre-info {
+  @apply text-center p-2;
+}
+
+.tyre-front-left {
+  @apply absolute top-[18%] left-[5%];
+}
+
+.tyre-front-right {
+  @apply absolute top-[18%] right-[5%];
+}
+
+.tyre-rear-left {
+  @apply absolute bottom-[10%] left-[5%];
+}
+
+.tyre-rear-right {
+  @apply absolute bottom-[10%] right-[5%];
+}

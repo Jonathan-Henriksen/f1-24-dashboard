@@ -13,6 +13,7 @@ class TyresPanel():
 		self.tyre_set_laps_age: int = 0
 		self.tyre_set_laps_max: int = 0
 		self.tyre_set_laps_remaining: int = 0
+		self.tyre_set_total_wear_percentage: int = 0
 	
 	def update_from_car_telemetry_packet(self, car_telemetry_data: CarTelemetryPacket):
 
@@ -67,6 +68,7 @@ class TyresPanel():
 		self.tyre_compound_visual = TyreCompoundsVisual(fitted_tyre_set.compound_visual).name
 		self.tyre_set_laps_remaining = fitted_tyre_set.num_of_laps_left
 		self.tyre_set_laps_max = fitted_tyre_set.num_of_laps_max
+		self.tyre_set_total_wear_percentage = fitted_tyre_set.wear
 
 class Tyre():
 	def __init__(self):

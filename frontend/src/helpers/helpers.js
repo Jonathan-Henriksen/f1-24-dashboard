@@ -17,6 +17,15 @@ export const getCarImage = (teamName) => {
 	return `/images/cars/${teamName.toLowerCase()}.png`;
 };
 
+export const getCarTopViewImage = (teamName) => {
+	return `/images/carTopView/${teamName.toLowerCase()}.png`;
+};
+
+export const getTyreCompoundImage = (compoundVisual) => {
+	return `/images/carTopView/${compoundVisual.toLowerCase()}.png`
+}
+
+
 // Helper function to capitalize driver names properly
 export const capitalizeName = (name) => {
 	return name.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());

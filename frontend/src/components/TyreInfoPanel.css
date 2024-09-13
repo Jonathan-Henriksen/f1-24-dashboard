@@ -1,7 +1,11 @@
-.timings-panel {
-  @apply flex flex-col items-center bg-gray-800 rounded-lg border-2 border-gray-600 text-white w-full h-full p-4; /* Added padding */
+.tyre-info-panel {
+  @apply p-4 bg-gray-900 rounded-lg text-white;
 }
 
-.lap-info {
-  @apply w-full; /* Full width, but padding is now managed by panel */
+.car-container {
+  @apply flex justify-center mt-6 relative;
+}
+
+.car-image {
+  @apply w-full max-w-lg;
 }
