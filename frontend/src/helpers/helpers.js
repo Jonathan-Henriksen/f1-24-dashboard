@@ -18,6 +18,10 @@ export const formatTime = (timeObj) => {
  * @returns {string} - URL path to the car image
  */
 export const getCarImage = (teamName) => {
+	if (!teamName) {
+		teamName = 'redbull'
+	}
+
 	return `/images/cars/${teamName.toLowerCase()}.png`;
 };
 
