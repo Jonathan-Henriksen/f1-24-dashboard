@@ -4,6 +4,10 @@
  * @returns {string} - Formatted time string
  */
 export const formatTime = (timeObj) => {
+	if (!timeObj) {
+		return '0:00.000'
+	}
+
 	const { minutes, seconds, ms } = timeObj;
 	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}.${ms}`;
 };
