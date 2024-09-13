@@ -5,26 +5,35 @@ import { getTeamColor } from 'helpers/helpers';
 import './TimingsPanel.css';
 
 const TimingsPanel = ({ data, sessionType }) => {
-	const topRowCards = [
-		{ title: 'Fastest Lap', data: data.lap_time_fastest_driver.lap_time_personal_best, driverName: data.lap_time_fastest_driver.name, driverTeam: data.lap_time_fastest_driver.team, color: 'purple', isFastest: true },
-		{ title: 'Personal Best', data: data.lap_time_personal_best, color: 'green' },
-		{ title: 'Teammate Best', data: data.lap_time_teammate_best, color: getTeamColor(data.player.team) }
-	];
+	const fastestLapCard = { title: 'Fastest Lap', data: data.lap_time_fastest_driver.lap_time_personal_best, driverName: data.lap_time_fastest_driver.name, driverTeam: data.lap_time_fastest_driver.team, color: 'purple', isFastest: true }
 
-	const bottomRowCards = [
-		{ title: 'Current Lap', data: data.lap_time_current, color: 'white', isInvalid: data.lap_time_current_invalidated },
-		{ title: 'Previous Lap', data: data.lap_time_previous, color: 'white' }
-	];
+	const topRowCards = [fastestLapCard];
+	if (player) {
+		const personalBestCard = { title: 'Personal Best', data: data.lap_time_personal_best, color: 'green' }
+		const teammateBestCard = { title: 'Teammate Best', data: data.lap_time_teammate_best, color: getTeamColor(data.player.team) }
 
-	// Check if the session type contains PRACTICE or QUALIFYING, and replace 'Previous Lap' with 'Time Left' if true
-	if (sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING')) {
-		const timeLeftCard = {
-			title: 'Time Left',
-			data: data.session_time_left,
-			color: data.session_time_left.minutes < 2 ? 'red' : 'white'
-		};
+		topRowCards.push(personalBestCard)
+		topRowCards.push(teammateBestCard)
+	}
 
-		bottomRowCards[1] = timeLeftCard; // Replace the 'Previous Lap' card with the 'Time Left' card
+	// Bottom Row
+	const bottomRowCards = []
+
+	if (data.lap_time_current) {
+		const currentLapTimeCard = { title: 'Current Lap', data: data.lap_time_current, color: 'white', isInvalid: data.lap_time_current_invalidated }
+		bottomRowCards.push(currentLapTimeCard)
+	}
+
+	if (data.lap_time_previous) {
+		const previousLapCard = { title: 'Previous Lap', data: data.lap_time_previous, color: 'white' }
+
+		bottomRowCards.push(previousLapCard)
+	}
+
+	if (sessionType && (sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING'))) {
+		const timeLeftCard = { title: 'Time Left', data: data.session_time_left, color: data.session_time_left.minutes < 2 ? 'red' : 'white' };
+
+		bottomRowCards.push(timeLeftCard)
 	}
 
 	return (
