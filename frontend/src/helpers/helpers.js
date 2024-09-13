@@ -19,7 +19,7 @@ export const formatTime = (timeObj) => {
  */
 export const getCarImage = (teamName) => {
 	if (!teamName) {
-		teamName = 'redbull'
+		teamName = 'red_bull_racing'
 	}
 
 	return `/images/cars/${teamName.toLowerCase()}.png`;
