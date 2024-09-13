@@ -32,7 +32,7 @@ function App() {
 	// Render active panel based on active index
 	const renderActivePanel = () => {
 		switch (mfdData.active_panel_index) {
-			case 0: return <TimingsPanel data={activePanel} sessionType={data.session_type} />;
+			case 0: return <TimingsPanel data={activePanel} sessionType={mfdData.session_type} />;
 			case 1: return <TyreInfoPanel data={activePanel} />;
 			case 2: return <StrategyPanel data={activePanel} />;
 			case 3: return <LeaderboardPanel data={activePanel.drivers} />;
