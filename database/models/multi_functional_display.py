@@ -81,7 +81,7 @@ class MultiFunctionDisplay:
 		self.leaderboard_panel().update_from_lap_data_packet(lap_data_packet)
 
 		player = self.leaderboard_panel().get_driver_by_position(player_data.car_position)
-		teammate = next(driver for driver in self.leaderboard_panel().drivers.values() if driver and driver.team == player.team and not driver.is_player)
+		teammate = next(driver for driver in self.leaderboard_panel().drivers.values() if player and driver.team == player.team and not driver.is_player)
 		driver_lead = self.leaderboard_panel().get_driver_by_position(1)
 		driver_in_front = self.leaderboard_panel().get_driver_by_position(player_data.car_position - 1)
 		driver_behind = self.leaderboard_panel().get_driver_by_position(player_data.car_position + 1)
