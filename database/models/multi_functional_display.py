@@ -15,6 +15,7 @@ class MultiFunctionDisplay:
 		self.pit_speed_limit: int = 0
 		self.pit_status: str = PitStatus.NONE.name
 		self.session_type: str = ""
+		self.player: Driver = Driver()
 		self.panels = [
 			TimingsPanel(),
 			TyresPanel(),
@@ -85,6 +86,7 @@ class MultiFunctionDisplay:
 		driver_in_front = self.leaderboard_panel().get_driver_by_position(player_data.car_position - 1)
 		driver_behind = self.leaderboard_panel().get_driver_by_position(player_data.car_position + 1)
 
+		self.player = player
 		self.timings_panel().update_from_lap_data(lap_data_packet, player, teammate, driver_lead, driver_in_front, driver_behind)
 
 	## Car Damage Packet
