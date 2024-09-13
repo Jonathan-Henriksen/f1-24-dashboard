@@ -15,6 +15,7 @@ class TimingsPanel:
 		self.driver_in_front: Driver = Driver()
 		self.driver_behind: Driver = Driver()
 		self.delta_safety_car: Time = Time()
+		self.session_time_left: Time = Time()
 	
 	def update_from_lap_data(self, lap_data_packet: LapDataPacket, player: Driver, teammate: Driver, driver_lead: Driver, driver_in_front: Driver, driver_behind: Driver):
 		player_lap_data = lap_data_packet.player_data()
@@ -41,3 +42,6 @@ class TimingsPanel:
 			return
 		
 		self.lap_time_fastest_driver = fastest_lap_driver
+	
+	def update_from_session_packet(self, session_packet: SessionPacket):
+		self.session_time_left = Time(ms_part=int(session_packet.session_time_left * 1000))

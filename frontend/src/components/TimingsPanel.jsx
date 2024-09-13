@@ -4,7 +4,7 @@ import CarDeltasGraphic from './CarDeltasGraphic';
 import { getTeamColor } from 'helpers/helpers';
 import './TimingsPanel.css';
 
-const TimingsPanel = ({ data }) => {
+const TimingsPanel = ({ data, sessionType }) => {
 	const topRowCards = [
 		{ title: 'Fastest Lap', data: data.lap_time_fastest_driver.lap_time_personal_best, driverName: data.lap_time_fastest_driver.name, driverTeam: data.lap_time_fastest_driver.team, color: 'purple', isFastest: true },
 		{ title: 'Personal Best', data: data.lap_time_personal_best, color: 'green' },
@@ -17,7 +17,7 @@ const TimingsPanel = ({ data }) => {
 	];
 
 	// Check if the session type contains PRACTICE or QUALIFYING, and replace 'Previous Lap' with 'Time Left' if true
-	if (data.session_type.includes('PRACTICE') || data.session_type.includes('QUALIFYING')) {
+	if (sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING')) {
 		const timeLeftCard = {
 			title: 'Time Left',
 			data: data.session_time_left,
