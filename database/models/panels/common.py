@@ -1,4 +1,4 @@
-from telemetry.enums import Teams, PitStatus, DriverStatus
+from telemetry.enums import PitStatus, DriverStatus
 class Driver():
 	def __init__(self):
 		self.position: int = 0

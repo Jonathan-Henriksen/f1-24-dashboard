@@ -1,4 +1,4 @@
-from .common import Time
+from .common import Time, Driver
 from .damage_panel import DamagePanel
 from .leaderboard_panel import LeaderboardPanel
 from .strategy_panel import StrategyPanel

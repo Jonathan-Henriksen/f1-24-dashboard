@@ -1,6 +1,6 @@
 from enum import Enum
 
-class SessionTypeIDs(Enum):
+class SessionTypes(Enum):
 	UNKNOWN = 0
 	PRACTICE_1 = 1
 	PRACTICE_2 = 2

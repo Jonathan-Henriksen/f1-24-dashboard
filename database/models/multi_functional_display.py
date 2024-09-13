@@ -2,7 +2,7 @@ from .panels import *
 from typing import Union
 
 from telemetry.packets import *
-from telemetry.enums import SafetyCarTypes, SafetyCarStatus, PitStatus, FiaFlags
+from telemetry.enums import SafetyCarTypes, SafetyCarStatus, PitStatus, FiaFlags, SessionTypes
 
 class MultiFunctionDisplay:
 	def __init__(self):
@@ -14,6 +14,8 @@ class MultiFunctionDisplay:
 		self.safety_car_status: str = SafetyCarStatus.RESUME_RACE.name
 		self.pit_speed_limit: int = 0
 		self.pit_status: str = PitStatus.NONE.name
+		self.session_type: str = ""
+		self.session_time_left: Time = Time()
 		self.panels = [
 			TimingsPanel(),
 			TyresPanel(),
@@ -110,6 +112,8 @@ class MultiFunctionDisplay:
 	## Session Packet
 	def update_from_session_packet(self, session_packet: SessionPacket):
 		self.pit_speed_limit = session_packet.pit_speed_limit
+		self.session_type = SessionTypes(session_packet.session_type).name
+		self.session_time_left = Time(ms_part=int(session_packet.session_time_left * 1000))			
 
 		self.weather_panel().update_from_session(session_packet)
 

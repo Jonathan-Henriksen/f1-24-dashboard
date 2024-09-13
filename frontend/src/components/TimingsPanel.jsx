@@ -16,6 +16,17 @@ const TimingsPanel = ({ data }) => {
 		{ title: 'Previous Lap', data: data.lap_time_previous, color: 'white' }
 	];
 
+	// Check if the session type contains PRACTICE or QUALIFYING, and replace 'Previous Lap' with 'Time Left' if true
+	if (data.session_type.includes('PRACTICE') || data.session_type.includes('QUALIFYING')) {
+		const timeLeftCard = {
+			title: 'Time Left',
+			data: data.session_time_left,
+			color: data.session_time_left.minutes < 2 ? 'red' : 'white'
+		};
+
+		bottomRowCards[1] = timeLeftCard; // Replace the 'Previous Lap' card with the 'Time Left' card
+	}
+
 	return (
 		<div className="timings-panel">
 			<div className="lap-info">

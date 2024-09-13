@@ -1,5 +1,5 @@
 from telemetry.packets import *
-from .common import Driver, Time
+from .common import *
 
 class TimingsPanel:
 	def __init__(self):
