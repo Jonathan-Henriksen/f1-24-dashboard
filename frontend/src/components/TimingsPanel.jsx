@@ -8,7 +8,7 @@ const TimingsPanel = ({ data, sessionType }) => {
 	const topRowCards = [
 		{ title: 'Fastest Lap', data: data.lap_time_fastest_driver.lap_time_personal_best, driverName: data.lap_time_fastest_driver.name, driverTeam: data.lap_time_fastest_driver ? data.lap_time_fastest_driver.team : '', color: 'purple', isFastest: true },
 		{ title: 'Personal Best', data: data.lap_time_personal_best, color: 'green' },
-		{ title: 'Teammate Best', data: data.lap_time_teammate_best, color: getTeamColor(data.player.team) }
+		{ title: 'Teammate Best', data: data.lap_time_teammate_best, color: data.player ? getTeamColor(data.player.team) : 'white' }
 	];
 
 	const bottomRowCards = [
