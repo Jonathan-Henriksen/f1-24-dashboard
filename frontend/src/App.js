@@ -33,7 +33,7 @@ function App() {
 	const renderActivePanel = () => {
 		switch (mfdData.active_panel_index) {
 			case 0: return <TimingsPanel data={activePanel} sessionType={mfdData.session_type} />;
-			case 1: return <TyreInfoPanel data={activePanel} teamName={mfdData.player.team} />;
+			case 1: return <TyreInfoPanel data={activePanel} teamName={mfdData.player ? mfdData.player.team : ''} />;
 			case 2: return <StrategyPanel data={activePanel} />;
 			case 3: return <LeaderboardPanel data={activePanel.drivers} />;
 			case 4: return <WeatherPanel data={activePanel} />;
