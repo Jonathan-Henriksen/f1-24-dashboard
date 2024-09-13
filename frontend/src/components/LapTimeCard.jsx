@@ -17,9 +17,9 @@ const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, is
 		<div className={`lap-time-card ${animate ? 'fastest-lap-animation' : ''}`}>
 			<h2 className="lap-time-title">{title}</h2>
 			<p className={`lap-time-value ${color}`}>{formatTime(time)}</p>
-			{isFastest && (
+			{isFastest && driverName && driverTeam && (
 				<p className={`fastest-driver ${driverTeam ? getTeamColor(driverTeam) : ''}`}>
-					{driverName ? capitalizeName(driverName) : 'N/A'}
+					{capitalizeName(driverName)}
 				</p>
 			)}
 			{isInvalid && <p className="invalid-lap text-red-600">Invalid</p>}
