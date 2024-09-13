@@ -1,6 +1,7 @@
 from enum import Enum
 
 class TyreCompounds(Enum):
+	UNKNOWN = 0
 	INTER = 7
 	WET = 8
 	C5 = 16
@@ -11,6 +12,7 @@ class TyreCompounds(Enum):
 	C0  = 21,
 
 class TyreCompoundsVisual(Enum):
+	UNKNOWN = 0
 	INTER = 7
 	WET  = 8
 	SOFT = 16
