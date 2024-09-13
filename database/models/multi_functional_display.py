@@ -69,7 +69,7 @@ class MultiFunctionDisplay:
 	def update_from_fastest_lap_event(self, event: FastestLapEvent):
 		fastest_lap_driver = self.leaderboard_panel().drivers.get(event.vehicle_index)
 
-		self.timings_panel().update_from_fastest_lap_event(event, fastest_lap_driver)
+		self.timings_panel().update_from_fastest_lap_event(fastest_lap_driver)
 
 	# Lap Data Packet
 	def update_from_lap_data_packet(self, lap_data_packet: LapDataPacket):

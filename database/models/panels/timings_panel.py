@@ -23,10 +23,12 @@ class TimingsPanel:
 		# Player Lap times
 		self.lap_time_current = Time(ms_part=player_lap_data.current_lap_time_in_ms)
 		self.lap_time_previous = Time(ms_part=player_lap_data.last_lap_time_in_ms)
-		self.lap_time_personal_best = player.lap_time_personal_best
+
+		self.lap_time_personal_best = player.lap_time_personal_best if player else None
 
 		# Teammate Lap times
-		self.lap_time_teammate_best = teammate.lap_time_personal_best
+		self.lap_time_teammate_best = teammate.lap_time_personal_best if teammate else None
+
 
 		# Deltas for key cars
 		self.player = player
@@ -37,7 +39,7 @@ class TimingsPanel:
 		# Delta to safety car
 		self.delta_safety_car = Time(ms_part=player_lap_data.safety_car_delta_in_seconds * 1000)
 
-	def update_from_fastest_lap_event(self, fastest_lap_event: FastestLapEvent, fastest_lap_driver: Driver):
+	def update_from_fastest_lap_event(self, fastest_lap_driver: Driver):
 		if not fastest_lap_driver:
 			return
 		
