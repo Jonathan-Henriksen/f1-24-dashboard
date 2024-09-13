@@ -1,7 +1,8 @@
 // /frontend/src/services/api.js
 import axios from 'axios';
 
-const API_URL = "http://192.168.86.230:5000/api";
+// Dynamically determine the API base URL based on the current location
+const API_URL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/api`;
 
 export const fetchMFDData = async () => {
 	try {

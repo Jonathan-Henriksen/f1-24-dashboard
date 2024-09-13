@@ -1,7 +1,6 @@
-import os
 import json
 import sys
-from flask import Flask, send_from_directory, jsonify, render_template
+from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 
 sys.path.append('.')

@@ -37,7 +37,7 @@ RUN python3 -m pip install --no-cache-dir -r requirements.txt
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose the ports for backend and frontend servers
-EXPOSE 5000
+EXPOSE 5000 5000/udp
 
 # Start Supervisor to manage both processes
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
