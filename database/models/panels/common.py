@@ -23,6 +23,3 @@ class Time:
 
 	def to_milliseconds(self):
 		return (self.minutes * 60 * 1000) + (self.seconds * 1000) + self.ms
-
-	def __repr__(self):
-		return f"{self.minutes} minutes, {self.seconds} seconds, {self.ms} milliseconds"

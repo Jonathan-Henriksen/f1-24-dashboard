@@ -12,7 +12,7 @@ export const formatTime = (timeObj, options = {}) => {
 	}
 
 	const { minutes, seconds, ms } = timeObj;
-	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}${!options.excludeMs ? `.${ms}` : ''}`;
+	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}${!options.excludeMs ? `.${ms.toString().padEnd(3, '0')}` : ''}`;
 };
 
 /**
