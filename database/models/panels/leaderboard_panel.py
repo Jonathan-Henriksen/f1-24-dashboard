@@ -31,47 +31,44 @@ class LeaderboardPanel():
 
 			self.drivers[index] = leaderboard_player
 
-	def update_from_lap_data_packet(self, lap_data_packet: LapDataPacket):
-		player_data = lap_data_packet.player_data()
-
-		# Total delta to race leader for the player in milliseconds
-		player_delta_to_race_leader_total_ms = (
-			player_data.delta_to_race_leader_ms_part + 
-			(player_data.delta_to_race_leader_minutes_part * self.MILLISECONDS_IN_A_MINUTE)
-		)
+	def update_from_lap_data_packet(self, lap_data_packet: LapDataPacket, session_type: str):
+		player_lap_data = lap_data_packet.player_data()
+		self.drivers[lap_data_packet.header.player_car_index].is_player = True
 
 		# Update details for each driver
 		for car_index in self.drivers.keys():
-			if car_index == lap_data_packet.header.player_car_index:
-				self.drivers[car_index].is_player = True
+			lap_data = lap_data_packet.lap_data[car_index]
 
-			driver = lap_data_packet.lap_data[car_index]
+			# Deltas
+			if 'PRACTICE' in session_type or 'QUALIFYING' in session_type:
+				player_current_data = self.get_driver_by_position(player_lap_data.car_position)
+				other_driver_current_data = self.get_driver_by_position(lap_data.car_position)
 
-			# Total delta to race leader for the other driver in milliseconds
-			other_driver_delta_to_race_leader_total_ms = (
-				driver.delta_to_race_leader_ms_part + 
-				(driver.delta_to_race_leader_minutes_part * self.MILLISECONDS_IN_A_MINUTE)
-			)
+				delta_to_player_in_ms = abs(other_driver_current_data.lap_time_personal_best.to_milliseconds() - player_current_data.lap_time_personal_best.to_milliseconds())
+				
+				self.drivers[car_index].delta_to_player = Time(ms_part=delta_to_player_in_ms)
+			else:
+				player_delta_to_race_leader = Time(minutes_part=player_lap_data.delta_to_race_leader_minutes_part, ms_part=player_lap_data.delta_to_race_leader_ms_part)
+				other_driver_delta_to_race_leader = Time(minutes_part=lap_data.delta_to_race_leader_minutes_part, ms_part=lap_data.delta_to_race_leader_ms_part)
 
-			# Calculate delta to player
-			other_driver_delta_to_player = abs(other_driver_delta_to_race_leader_total_ms - player_delta_to_race_leader_total_ms)
+				delta_to_player_in_ms = abs(other_driver_delta_to_race_leader.to_milliseconds() - player_delta_to_race_leader)
 
-			self.drivers[car_index].delta_to_player = Time(ms_part=other_driver_delta_to_player)
+				self.drivers[car_index].delta_to_player = Time(ms_part=delta_to_player_in_ms)
 
 			# Update other driver details
-			self.drivers[car_index].position = driver.car_position
-			self.drivers[car_index].lap_time_current = Time(ms_part=driver.current_lap_time_in_ms)
-			self.drivers[car_index].lap_time_current_invalid = bool(driver.current_lap_invalid)
+			self.drivers[car_index].position = lap_data.car_position
+			self.drivers[car_index].lap_time_current = Time(ms_part=lap_data.current_lap_time_in_ms)
+			self.drivers[car_index].lap_time_current_invalid = bool(lap_data.current_lap_invalid)
 			
-			self.drivers[car_index].pit_status = PitStatus(driver.pit_status).name
-			self.drivers[car_index].penalty_seconds = driver.penalties
-			self.drivers[car_index].driver_status = DriverStatus(driver.driver_status).name
+			self.drivers[car_index].pit_status = PitStatus(lap_data.pit_status).name
+			self.drivers[car_index].penalty_seconds = lap_data.penalties
+			self.drivers[car_index].driver_status = DriverStatus(lap_data.driver_status).name
 
 			# Update personal best if previous lap was faster
 			driver_current_personal_best_in_ms = self.drivers[car_index].lap_time_personal_best.to_milliseconds()
-			
-			if driver.last_lap_time_in_ms > 0 and (driver_current_personal_best_in_ms == 0 or driver.last_lap_time_in_ms < driver_current_personal_best_in_ms):
-				self.drivers[car_index].lap_time_personal_best = Time(ms_part=driver.last_lap_time_in_ms)
+
+			if 0 < lap_data.last_lap_time_in_ms < driver_current_personal_best_in_ms or driver_current_personal_best_in_ms == 0:
+				self.drivers[car_index].lap_time_personal_best = Time(ms_part=lap_data.last_lap_time_in_ms)
 
 	def get_driver_by_position(self, car_position: int):
 		return next(

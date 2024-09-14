@@ -78,7 +78,7 @@ class MultiFunctionDisplay:
 		self.pit_status = PitStatus(player_data.pit_status).name
 		self.current_lap_invalid = bool(player_data.current_lap_invalid)
 
-		self.leaderboard_panel().update_from_lap_data_packet(lap_data_packet)
+		self.leaderboard_panel().update_from_lap_data_packet(lap_data_packet, self.session_type)
 
 		self.player = self.leaderboard_panel().get_driver_by_position(player_data.car_position)
 
