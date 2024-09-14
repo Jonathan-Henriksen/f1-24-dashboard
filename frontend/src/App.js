@@ -41,7 +41,7 @@ function App() {
 	};
 
 	return (
-		<div className="inline-flex flex-col h-dvh px-6 pt-4 pb-8 bg-gray-700 text-white">
+		<div className="inline-flex flex-col h-dvh w-screen px-6 pt-4 pb-6 bg-gray-700 text-white">
 			<div className="bg-gray-800 mb-4 h-1/6">
 				<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
 			</div>

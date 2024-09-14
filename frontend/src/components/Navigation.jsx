@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navigation = ({ panels, activePanelIndex }) => {
 	return (
-		<nav className="flex items-center justify-center">
+		<nav className="flex items-center justify-center h-full">
 			<ul className="flex justify-between w-full">
 				{panels.map((panel, index) => (
 					<li
