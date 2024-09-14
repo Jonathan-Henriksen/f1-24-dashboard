@@ -45,7 +45,7 @@ function App() {
 			<div className="bg-gray-800 mb-4 h-1/6">
 				<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
 			</div>
-			<div className="bg-gray-800 mt-4 h-5/6">
+			<div className="bg-gray-800 mt-4 h-4/6">
 				{renderActivePanel()}
 			</div>
 		</div>
