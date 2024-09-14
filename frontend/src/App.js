@@ -7,7 +7,6 @@ import TyreInfoPanel from './components/TyreInfoPanel';
 import LeaderboardPanel from './components/LeaderboardPanel';
 import WeatherPanel from './components/WeatherPanel';
 import DamagePanel from './components/DamagePanel';
-import './App.css';
 
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
 
 	const activePanel = mfdData.panels[mfdData.active_panel_index] || null;
 
-	// Render active panel based on active index
 	const renderActivePanel = () => {
 		switch (mfdData.active_panel_index) {
 			case 0: return <TimingsPanel data={activePanel} sessionType={mfdData.session_type} />;
@@ -43,11 +41,11 @@ function App() {
 	};
 
 	return (
-		<div className="app-container flex flex-col h-screen bg-f1Grey text-white">
-			<div className="nav-container">
+		<div className="inline-flex flex-col py-2 pt-2 pb-4 bg-gray-600 text-white">
+			<div className="bg-gray-800 pb-1 h-1/5">
 				<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
 			</div>
-			<div className="panel-container flex-grow">
+			<div className="bg-gray-700 border-gray-800 pt-1 h-4/5">
 				{renderActivePanel()}
 			</div>
 		</div>

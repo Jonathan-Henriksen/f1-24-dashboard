@@ -2,7 +2,6 @@ import React from 'react';
 import CardRow from './CardRow';
 import CarDeltasGraphic from './CarDeltasGraphic';
 import { getTeamColor } from 'helpers/helpers';
-import './TimingsPanel.css';
 
 const TimingsPanel = ({ data, sessionType }) => {
 	const topRowCards = [
@@ -29,14 +28,14 @@ const TimingsPanel = ({ data, sessionType }) => {
 	}
 
 	return (
-		<div className="timings-panel">
-			<div className="lap-info">
+		<div className="flex flex-col justify-center items-center rounded-lg border-2 w-full h-full p-12">
+			<div className="w-full mb-12">
 				<CardRow lapTimeCards={topRowCards} /> {/* Changed from cards to lapTimeCards */}
 			</div>
-			<div className="lap-info">
+			<div className="w-full mb-12">
 				<CardRow lapTimeCards={bottomRowCards} /> {/* Changed from cards to lapTimeCards */}
 			</div>
-			<div className="car-deltas-row">
+			<div className="flex justify-center items-center w-full h-auto mt-4">
 				<CarDeltasGraphic
 					behindCar={data.driver_behind}
 					playerCar={data.player}

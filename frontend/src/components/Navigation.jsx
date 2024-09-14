@@ -1,14 +1,13 @@
 import React from 'react';
-import './Navigation.css';
 
 const Navigation = ({ panels, activePanelIndex }) => {
 	return (
-		<nav className="navigation-bar">
-			<ul className="navigation-list">
+		<nav className="flex items-center justify-center">
+			<ul className="flex justify-between w-full">
 				{panels.map((panel, index) => (
 					<li
 						key={index}
-						className={`navigation-item ${index === activePanelIndex ? 'active' : ''}`}>
+						className={`text-2xl uppercase tracking-wider cursor-pointer flex-grow text-center relative ${index === activePanelIndex ? 'text-f1Highlight font-bold' : ''}`}>
 						{panel.name}
 					</li>
 				))}
