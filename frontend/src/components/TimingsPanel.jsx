@@ -21,7 +21,8 @@ const TimingsPanel = ({ data, sessionType }) => {
 		const timeLeftCard = {
 			title: 'Time Left',
 			data: data.session_time_left,
-			color: data.session_time_left.minutes < 2 ? 'red' : 'white'
+			color: data.session_time_left.minutes < 2 ? 'red' : 'white',
+			excludeMs: true
 		};
 
 		bottomRowCards[1] = timeLeftCard; // Replace the 'Previous Lap' card with the 'Time Left' card

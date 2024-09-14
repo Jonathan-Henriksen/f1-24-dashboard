@@ -15,6 +15,7 @@ const CardRow = ({ lapTimeCards = [] }) => {
 						driverTeam={card.driverTeam}
 						isInvalid={card.isInvalid}
 						isFastest={card.isFastest}
+						excludeMs={card.excludeMs}
 					/>
 				</div>
 			))}

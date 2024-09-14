@@ -3,13 +3,16 @@
  * @param {object} timeObj - Object containing minutes, seconds, and milliseconds
  * @returns {string} - Formatted time string
  */
-export const formatTime = (timeObj) => {
+export const formatTime = (timeObj, options = {}) => {
 	if (!timeObj) {
+		if (options.excludeMs)
+			return '0:00'
+
 		return '0:00.000'
 	}
 
 	const { minutes, seconds, ms } = timeObj;
-	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}.${ms}`;
+	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}${!options.excludeMs ? `.${ms}` : ''}`;
 };
 
 /**

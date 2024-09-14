@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { formatTime, capitalizeName, getTeamColor } from 'helpers/helpers';
 import './LapTimeCard.css';
 
-const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, isFastest }) => {
+const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, isFastest, excludeMs }) => {
 	const [animate, setAnimate] = useState(false);
 
 	useEffect(() => {
@@ -16,7 +16,7 @@ const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, is
 	return (
 		<div className={`lap-time-card ${animate ? 'fastest-lap-animation' : ''}`}>
 			<h2 className="lap-time-title">{title}</h2>
-			<p className={`lap-time-value ${color}`}>{formatTime(time)}</p>
+			<p className={`lap-time-value ${color}`}>{formatTime(time, { excludeMs: excludeMs })}</p>
 			{isFastest && driverName && driverTeam && (
 				<p className={`fastest-driver ${driverTeam ? getTeamColor(driverTeam) : ''}`}>
 					{capitalizeName(driverName)}
