@@ -1,5 +1,5 @@
 .lap-time-card {
-  @apply bg-gray-800 shadow-md rounded-lg px-3 pb-2 flex flex-col justify-center transition-transform duration-300 ease-in-out;
+  @apply bg-gray-800 shadow-lg rounded-lg px-3 flex flex-col justify-center transition-transform duration-300 ease-in-out;
   @apply w-full min-h-52;
 }
 
