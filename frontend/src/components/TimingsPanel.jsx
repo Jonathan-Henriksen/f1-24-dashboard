@@ -29,20 +29,14 @@ const TimingsPanel = ({ data, sessionType }) => {
 
 	return (
 		<div className="flex flex-col justify-center items-center rounded-lg">
-			<div className="w-full">
-				<CardRow lapTimeCards={topRowCards} />
-			</div>
-			<div className="w-full">
-				<CardRow lapTimeCards={bottomRowCards} />
-			</div>
-			<div className="w-full">
-				<CarDeltasGraphic
-					behindCar={data.driver_behind}
-					playerCar={data.player}
-					frontCar={data.driver_in_front}
-					leaderCar={data.race_leader}
-				/>
-			</div>
+			<CardRow lapTimeCards={topRowCards} />
+			<CardRow lapTimeCards={bottomRowCards} />
+			<CarDeltasGraphic
+				behindCar={data.driver_behind}
+				playerCar={data.player}
+				frontCar={data.driver_in_front}
+				leaderCar={data.race_leader}
+			/>
 		</div>
 	);
 };
