@@ -29,7 +29,6 @@ class TimingsPanel:
 		# Teammate Lap times
 		self.lap_time_teammate_best = teammate.lap_time_personal_best if teammate else None
 
-
 		# Deltas for key cars
 		self.player = player
 		self.race_leader = driver_lead

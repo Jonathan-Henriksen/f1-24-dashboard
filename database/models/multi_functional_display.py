@@ -80,16 +80,16 @@ class MultiFunctionDisplay:
 
 		self.leaderboard_panel().update_from_lap_data_packet(lap_data_packet)
 
-		player = self.leaderboard_panel().get_driver_by_position(player_data.car_position)
-		teammate = None
-		if player is not None:
-			teammate = next(driver for driver in self.leaderboard_panel().drivers.values() if driver.team == player.team and not driver.is_player)
-		driver_lead = self.leaderboard_panel().get_driver_by_position(1)
-		driver_in_front = self.leaderboard_panel().get_driver_by_position(player_data.car_position - 1)
-		driver_behind = self.leaderboard_panel().get_driver_by_position(player_data.car_position + 1)
+		self.player = self.leaderboard_panel().get_driver_by_position(player_data.car_position)
 
-		self.player = player
-		self.timings_panel().update_from_lap_data(lap_data_packet, player, teammate, driver_lead, driver_in_front, driver_behind)
+		if self.player:
+			teammate = next(driver for driver in self.leaderboard_panel().drivers.values() if driver.team == self.player.team and not driver.is_player)
+
+			driver_lead = self.leaderboard_panel().get_driver_by_position(1) if self.player.position != 1 else None
+			driver_in_front = self.leaderboard_panel().get_driver_by_position(player_data.car_position - 1) if self.player.position > 2 else None
+			driver_behind = self.leaderboard_panel().get_driver_by_position(player_data.car_position + 1)
+
+		self.timings_panel().update_from_lap_data(lap_data_packet, self.player, teammate, driver_lead, driver_in_front, driver_behind)
 
 	## Car Damage Packet
 	def update_from_car_damage_packet(self, car_damage_packet: CarDamagePacket):
