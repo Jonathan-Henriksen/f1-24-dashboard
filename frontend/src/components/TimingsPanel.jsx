@@ -15,7 +15,7 @@ const TimingsPanel = ({ data, sessionType }) => {
 		{ title: 'Previous Lap', data: data.lap_time_previous, color: 'white' }
 	];
 
-	// Check if the session type contains PRACTICE or QUALIFYING, and replace 'Previous Lap' with 'Time Left' if true
+	// Replace the 'Previous Lap' card with the 'Time Left' card if practice or quali
 	if (sessionType && (sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING'))) {
 		const timeLeftCard = {
 			title: 'Time Left',
@@ -24,18 +24,18 @@ const TimingsPanel = ({ data, sessionType }) => {
 			excludeMs: true
 		};
 
-		bottomRowCards[1] = timeLeftCard; // Replace the 'Previous Lap' card with the 'Time Left' card
+		bottomRowCards[1] = timeLeftCard;
 	}
 
 	return (
 		<div className="flex flex-col justify-center items-center rounded-lg border-2 w-full h-full p-12">
-			<div className="w-full mx-6">
-				<CardRow lapTimeCards={topRowCards} /> {/* Changed from cards to lapTimeCards */}
+			<div className="w-full my-6">
+				<CardRow lapTimeCards={topRowCards} />
 			</div>
-			<div className="w-full mx-6">
-				<CardRow lapTimeCards={bottomRowCards} /> {/* Changed from cards to lapTimeCards */}
+			<div className="w-full my-6">
+				<CardRow lapTimeCards={bottomRowCards} />
 			</div>
-			<div className="flex justify-center items-center w-full h-auto mx-6">
+			<div className="flex justify-center items-center w-full h-auto my-6">
 				<CarDeltasGraphic
 					behindCar={data.driver_behind}
 					playerCar={data.player}
