@@ -9,3 +9,8 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+/* Ensure the app takes up the full viewport */
+#root {
+  @apply h-full;
+}
