@@ -17,7 +17,7 @@ const TimingsPanel = ({ data, sessionType }) => {
 	];
 
 	// Check if the session type contains PRACTICE or QUALIFYING, and replace 'Previous Lap' with 'Time Left' if true
-	if (sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING')) {
+	if (sessionType && (sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING'))) {
 		const timeLeftCard = {
 			title: 'Time Left',
 			data: data.session_time_left,
