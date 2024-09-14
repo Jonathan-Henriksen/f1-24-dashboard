@@ -43,5 +43,5 @@
 }
 
 .car-deltas-container {
-    @apply w-full h-full flex justify-center items-center space-x-8;
+    @apply w-full h-full flex justify-center p-4 items-center space-x-8;
 }
