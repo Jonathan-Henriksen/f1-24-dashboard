@@ -42,8 +42,15 @@ function App() {
 
 	return (
 		<div className="app-container">
-			<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
-			{renderActivePanel()}
+
+			<div class="nav-container">
+				<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
+			</div>
+
+			<div className="panel-container">
+				{renderActivePanel()}
+			</div>
+
 		</div>
 	);
 }

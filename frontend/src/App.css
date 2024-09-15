@@ -7,15 +7,22 @@
   @apply flex flex-col justify-items-center items-stretch basis-24 py-4 px-16 shadow-xl rounded-lg
 }
 
+.panel-container {
+  @apply flex flex-col grow bg-gray-800 shadow-inner rounded-xl p-4 justify-stretch content-stretch
+}
+
+
+/* Navigation */
 .nav {
   @apply flex flex-row justify-around justify-items-stretch items-stretch
 }
 
-.panel-container {
-  @apply flex flex-col grow bg-gray-800 shadow-inner rounded-xl p-4 justify-start items-center
+
+/* Panels */
+
+.timings-panel {
+  @apply flex flex-col grow justify-start items-center
 }
-
-
 
 /* Card Row and Cards */
 .card-row {
