@@ -4,7 +4,7 @@
 }
 
 .nav-container {
-  @apply flex flex-col justify-stretch items-stretch py-4 px-16 rounded-lg shadow-lg shadow-gray-900/50
+  @apply flex flex-col justify-stretch items-stretch pt-4 pb-8 px-16
 }
 
 .panel-container {
@@ -18,7 +18,7 @@
 }
 
 .nav-list {
-  @apply flex justify-between w-full py-6 shadow-lg shadow-zinc-900 rounded-lg divide-x divide-neutral-300/50
+  @apply flex justify-between w-full py-6 shadow-lg shadow-zinc-900/30 rounded-lg divide-x divide-neutral-300/50
 }
 
 .nav-list-element {
