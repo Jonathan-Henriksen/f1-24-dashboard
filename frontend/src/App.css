@@ -18,7 +18,7 @@
 }
 
 .nav-list {
-  @apply flex justify-between w-full
+  @apply flex justify-between w-full py-2
 }
 
 .nav-list-element {
@@ -28,6 +28,7 @@
 .nav-list-element.active {
   @apply text-f1Highlight font-bold
 }
+
 
 /* Panels */
 .timings-panel {
