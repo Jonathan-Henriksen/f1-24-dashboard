@@ -1,10 +1,10 @@
 /* Main Styling ( Navigation and Panel ) */
 .app-container {
-  @apply inline-flex flex-col h-dvh w-screen pt-6 pb-12 bg-f1Grey text-white
+  @apply inline-flex flex-col h-dvh w-screen pt-4 pb-12 bg-f1Grey text-white
 }
 
 .nav-container {
-  @apply flex flex-col justify-items-center items-stretch basis-24 py-4 px-16 shadow-xl rounded-lg
+  @apply flex flex-col justify-stretch items-stretch py-4 px-16 rounded-lg shadow-lg shadow-gray-900/50
 }
 
 .panel-container {
@@ -14,7 +14,7 @@
 
 /* Navigation */
 .nav {
-  @apply flex flex-row justify-around justify-items-stretch items-stretch
+  @apply flex flex-row justify-stretch items-stretch
 }
 
 
