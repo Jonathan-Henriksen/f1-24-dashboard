@@ -3,7 +3,7 @@ import React from 'react';
 const Navigation = ({ panels, activePanelIndex }) => {
 	return (
 		<div class="nav-container">
-			<nav className="flex items-center justify-center h-1/6 shadow-lg rounded-lg mx-8 mb-4">
+			<nav className="flex flex-row justify-stretch justify-items-stretch items-center">
 				<ul className="flex justify-between w-full">
 					{panels.map((panel, index) => (
 						<li
