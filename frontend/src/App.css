@@ -95,9 +95,9 @@
 }
 
 .delta-time-ahead {
-    @apply text-f1DeltaRed text-lg;
+    @apply text-f1DeltaRed text-xl;
 }
 
 .delta-time-behind {
-    @apply text-f1Green text-lg;
+    @apply text-f1Green text-xl;
 }
