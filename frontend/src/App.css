@@ -1,6 +1,6 @@
 /* Main Styling ( Navigation and Panel ) */
 .app-container {
-  @apply inline-flex flex-col h-dvh w-screen pt-6 pb-12 bg-f1Grey text-white
+  @apply inline-flex flex-col h-dvh w-screen pt-4 pb-12 bg-f1Grey text-white
 }
 
 .nav-container {
@@ -18,7 +18,7 @@
 }
 
 .nav-list {
-  @apply flex justify-between w-full py-2
+  @apply flex justify-between w-full py-4 shadow-lg rounded-lg
 }
 
 .nav-list-element {
