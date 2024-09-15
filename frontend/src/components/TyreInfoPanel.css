@@ -2,10 +2,10 @@
   @apply p-4 bg-gray-900 rounded-lg text-white;
 }
 
-.car-container {
+.tyre-info-car-container {
   @apply flex justify-center mt-6 relative;
 }
 
-.car-image {
+.tyre-info-car-image {
   @apply w-full max-w-lg;
 }

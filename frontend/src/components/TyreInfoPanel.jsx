@@ -14,8 +14,8 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			/>
 
 			{/* Car Image with Tyre Details (Bottom Row) */}
-			<div className="car-container">
-				<img src={getCarTopViewImage(teamName)} alt="Car top view" className="car-image" />
+			<div className="tyre-info-car-container">
+				<img src={getCarTopViewImage(teamName)} alt="Car top view" className="tyre-info-car-image" />
 
 				{/* Tyre Details rendered in respective positions */}
 				<TyreInfo tyre={data.tyre_front_left} position="front-left" />
