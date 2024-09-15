@@ -27,7 +27,7 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col shadow-xl rounded-xl px-2 justify-center;
+  @apply flex flex-col shadow-xl rounded-xl p-4 justify-center;
 }
 
 .lap-time-title {
