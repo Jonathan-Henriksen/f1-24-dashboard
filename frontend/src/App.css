@@ -55,8 +55,10 @@
 
 .invalid-lap {
   @apply text-f1DeltaRed text-lg;
+  margin-bottom: -1.75rem;
 }
 
 .fastest-driver {
   @apply text-gray-400 text-2xl text-center;
+  margin-bottom: -2rem;
 }
