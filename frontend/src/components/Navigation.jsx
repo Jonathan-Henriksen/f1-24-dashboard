@@ -3,11 +3,11 @@ import React from 'react';
 const Navigation = ({ panels, activePanelIndex }) => {
 	return (
 		<nav className="nav">
-			<ul className="flex justify-between w-full">
+			<ul className="nav-list">
 				{panels.map((panel, index) => (
 					<li
 						key={index}
-						className={`text-2xl uppercase tracking-wider cursor-pointer flex-grow text-center relative ${index === activePanelIndex ? 'text-f1Highlight font-bold' : ''}`}>
+						className={`nav-list-element ${index === activePanelIndex ? 'active' : ''}`}>
 						{panel.name}
 					</li>
 				))}

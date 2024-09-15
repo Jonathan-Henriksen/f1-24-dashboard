@@ -1,6 +1,6 @@
 /* Main Styling ( Navigation and Panel ) */
 .app-container {
-  @apply inline-flex flex-col h-dvh w-screen pt-4 pb-12 bg-f1Grey text-white
+  @apply inline-flex flex-col h-dvh w-screen pt-6 pb-12 bg-f1Grey text-white
 }
 
 .nav-container {
@@ -17,6 +17,17 @@
   @apply flex flex-row justify-stretch items-stretch
 }
 
+.nav-list {
+  @apply flex justify-between w-full
+}
+
+.nav-list-element {
+  @apply text-2xl uppercase tracking-wider cursor-pointer flex-grow text-center relative
+}
+
+.nav-list-element.active {
+  @apply text-f1Highlight font-bold
+}
 
 /* Panels */
 .timings-panel {
@@ -26,7 +37,7 @@
 
 /* Card Row and Cards */
 .card-row {
-  @apply flex justify-center p-4 gap-24 w-full;
+  @apply flex justify-center p-4 gap-28 w-full;
 }
 
 .lap-time-card {
