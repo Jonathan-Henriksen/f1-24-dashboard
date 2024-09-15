@@ -39,7 +39,7 @@
 /* Card Row and Cards */
 .card-row {
   @apply flex justify-center p-4 w-full;
-  @apply sm:gap-16 lg:gap-24 2xl:gap-32
+  @apply sm:gap-8 md:gap-16 lg:gap-24 2xl:gap-32
 }
 
 .lap-time-card {
