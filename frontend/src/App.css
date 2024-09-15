@@ -42,11 +42,17 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-lg shadow-gray-900/40 rounded-2xl px-8 py-4 justify-center;
+  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-lg shadow-gray-900/60 rounded-2xl px-8 py-4 justify-center;
 }
 
 .lap-time-title {
   @apply text-3xl text-gray-400 tracking-wide text-center capitalize;
+}
+
+@screen sm {
+  .lap-time-title {
+    @apply text-red-600
+  }
 }
 
 .lap-time-value {
