@@ -19,11 +19,11 @@
 
 /* Card Row and Cards */
 .card-row {
-  @apply flex justify-center p-4 gap-24 w-full;
+  @apply flex justify-evenly p-4 gap-24 w-full;
 }
 
 .lap-time-card {
-  @apply flex flex-col shadow-xl rounded-xl px-4 py-8 justify-center;
+  @apply flex flex-col shadow-xl rounded-xl px-4 pt-8 justify-start;
 }
 
 .lap-time-title {
