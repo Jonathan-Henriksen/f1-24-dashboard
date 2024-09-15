@@ -23,15 +23,15 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col min-h-44 min-w-[200px] max-w-[300px] w-full shadow-xl rounded-2xl px-8 pt-4 pb-6 justify-start;
+  @apply flex flex-col min-h-4 min-w-[200px] max-w-[300px] w-full shadow-xl rounded-2xl px-8 py-4 justify-start;
 }
 
 .lap-time-title {
-  @apply text-3xl text-gray-400 tracking-wide pb-1 text-center capitalize;
+  @apply text-3xl text-gray-400 tracking-wide text-center capitalize;
 }
 
 .lap-time-value {
-  @apply text-6xl font-semibold text-center pb-1 tracking-wider;
+  @apply text-6xl font-semibold text-center tracking-wider;
 }
 
 .lap-time-value.purple {
