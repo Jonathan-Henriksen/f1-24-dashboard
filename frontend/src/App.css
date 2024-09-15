@@ -1,3 +1,4 @@
+/* Main Styling ( Navigation and Panel ) */
 .app-container {
   @apply inline-flex flex-col h-dvh w-screen py-6 bg-f1Grey text-white
 }
@@ -12,4 +13,48 @@
 
 .panel-container {
   @apply flex flex-col grow bg-gray-800 shadow-inner rounded-xl p-4 justify-start items-center
+}
+
+
+
+/* Card Row and Cards */
+.card-row {
+  @apply flex justify-center p-4 gap-24 w-full;
+}
+
+.card-container {
+  @apply flex-1 min-w-[200px] max-w-[300px];
+}
+
+.lap-time-card {
+  @apply flex flex-col shadow-xl rounded-xl px-2 justify-center;
+}
+
+.lap-time-title {
+  @apply text-3xl text-gray-400 tracking-wide mb-1 text-center capitalize;
+}
+
+.lap-time-value {
+  @apply text-6xl font-semibold text-center tracking-wider;
+}
+
+.lap-time-value.purple {
+  @apply text-f1Purple;
+}
+
+.lap-time-value.green {
+  @apply text-f1Green;
+}
+
+.lap-time-value.white {
+  @apply text-white;
+}
+
+.invalid-lap {
+  @apply text-f1DeltaRed text-lg mt-2;
+}
+
+.fastest-driver {
+  @apply text-gray-400 text-2xl text-center mt-2;
+  margin-bottom: -2rem;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { formatTime, capitalizeName, getTeamColor } from 'helpers/helpers';
-import './LapTimeCard.css';
 
 const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, isFastest, excludeMs }) => {
 	const [animate, setAnimate] = useState(false);

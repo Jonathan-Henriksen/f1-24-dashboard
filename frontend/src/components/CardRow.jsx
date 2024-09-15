@@ -1,6 +1,5 @@
 import React from 'react';
 import LapTimeCard from './LapTimeCard';
-import './CardRow.css';
 
 const CardRow = ({ lapTimeCards = [] }) => {
 	return (
