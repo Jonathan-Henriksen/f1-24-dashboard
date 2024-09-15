@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { formatTime, capitalizeName, getTeamColor } from 'helpers/helpers';
 
-const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, isFastest, excludeMs }) => {
+const LapTimeCard = ({ index, title, time, color, driverName, driverTeam, isInvalid, isFastest, excludeMs }) => {
 	const [animate, setAnimate] = useState(false);
 
 	useEffect(() => {
@@ -13,7 +13,7 @@ const LapTimeCard = ({ title, time, color, driverName, driverTeam, isInvalid, is
 	}, [time, isFastest]);
 
 	return (
-		<div className={`lap-time-card ${animate ? 'fastest-lap-animation' : ''}`}>
+		<div key={index} className={`lap-time-card ${animate ? 'fastest-lap-animation' : ''}`}>
 			<h2 className="lap-time-title">{title}</h2>
 			<p className={`lap-time-value ${color}`}>{formatTime(time, { excludeMs: excludeMs })}</p>
 			{isFastest && driverName && driverTeam && (

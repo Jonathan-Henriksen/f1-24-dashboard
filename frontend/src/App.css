@@ -22,12 +22,8 @@
   @apply flex justify-center p-4 gap-24 w-full;
 }
 
-.card-container {
-  @apply flex-1 min-w-[200px] max-w-[300px];
-}
-
 .lap-time-card {
-  @apply flex flex-col shadow-xl rounded-xl p-4 justify-center;
+  @apply flex flex-col shadow-xl rounded-xl px-4 py-8 justify-center;
 }
 
 .lap-time-title {

@@ -5,18 +5,17 @@ const CardRow = ({ lapTimeCards = [] }) => {
 	return (
 		<div className="card-row">
 			{lapTimeCards.map((card, index) => (
-				<div key={index} className="card-container">
-					<LapTimeCard
-						title={card.title}
-						time={card.data}
-						color={card.color}
-						driverName={card.driverName}
-						driverTeam={card.driverTeam}
-						isInvalid={card.isInvalid}
-						isFastest={card.isFastest}
-						excludeMs={card.excludeMs}
-					/>
-				</div>
+				<LapTimeCard
+					index={index}
+					title={card.title}
+					time={card.data}
+					color={card.color}
+					driverName={card.driverName}
+					driverTeam={card.driverTeam}
+					isInvalid={card.isInvalid}
+					isFastest={card.isFastest}
+					excludeMs={card.excludeMs}
+				/>
 			))}
 		</div>
 	);
