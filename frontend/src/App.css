@@ -8,7 +8,7 @@
 }
 
 .panel-container {
-  @apply flex flex-col grow bg-gray-800 shadow-inner shadow-gray-900/80 rounded-xl p-4 justify-stretch content-stretch
+  @apply flex flex-col grow bg-gray-800 shadow-inner shadow-gray-900/80 rounded-xl p-4 justify-stretch content-stretch border-b-2 border-b-gray-900/80
 }
 
 
