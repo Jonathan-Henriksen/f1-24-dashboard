@@ -24,7 +24,7 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 					</div>
 
 					{index < carsToRender.length - 1 && (
-						<span className={`delta-time ${car.type === 'behind' ? 'delta-time-behind' : 'delta-time-ahead'}`}>
+						<span className={`delta-time ${car.type === 'behind' ? 'behind' : 'ahead'}`}>
 							{car.delta_to_player ? formatTime(car.delta_to_player) : null}
 						</span>
 					)}

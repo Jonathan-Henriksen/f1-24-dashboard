@@ -21,7 +21,7 @@ const LapTimeCard = ({ index, title, time, color, driverName, driverTeam, isInva
 					{capitalizeName(driverName)}
 				</p>
 			)}
-			{isInvalid && <p className="invalid-lap text-red-600">Invalid</p>}
+			{isInvalid && <p className="invalid-lap">Invalid</p>}
 		</div>
 	);
 };

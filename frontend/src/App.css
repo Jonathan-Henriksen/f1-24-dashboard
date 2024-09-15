@@ -30,7 +30,7 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-xl rounded-2xl px-8 py-4 justify-center;
+  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-xl shadow-gray-800 rounded-2xl px-8 py-4 justify-center;
 }
 
 .lap-time-title {
@@ -65,7 +65,7 @@
 
 /* Car Deltas Graphic */
 .car-deltas-container {
-    @apply w-full h-full flex justify-center p-4 items-center space-x-1;
+    @apply w-full h-full flex justify-center p-4 items-center;
 }
 
 .car-container {
@@ -87,17 +87,17 @@
 }
 
 .driver-name {
-    @apply capitalize text-lg;
+    @apply capitalize text-xl;
 }
 
 .delta-time {
-    @apply text-lg
+    @apply text-xl shadow-inner
 }
 
-.delta-time-ahead {
-    @apply text-f1DeltaRed text-xl;
+.delta-time.ahead {
+    @apply text-f1DeltaRed;
 }
 
-.delta-time-behind {
-    @apply text-f1Green text-xl;
+.delta-time.behind {
+    @apply text-f1Green;
 }
