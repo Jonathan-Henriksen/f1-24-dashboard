@@ -3,7 +3,7 @@
 }
 
 .nav-container {
-  @apply flex flex-row justify-center justify-items-stretch items-center basis-24 p-4 shadow-xl rounded-lg
+  @apply flex flex-row justify-stretch justify-items-stretch items-center basis-24 py-4 px-16 shadow-xl rounded-lg
 }
 
 .panel-container {
