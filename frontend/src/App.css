@@ -1,6 +1,6 @@
 /* Main Styling ( Navigation and Panel ) */
 .app-container {
-  @apply inline-flex flex-col h-dvh w-screen py-6 bg-f1Grey text-white
+  @apply inline-flex flex-col h-dvh w-screen pt-6 pb-12 bg-f1Grey text-white
 }
 
 .nav-container {
@@ -65,7 +65,7 @@
 
 /* Car Deltas Graphic */
 .car-deltas-container {
-    @apply w-full h-full flex justify-center p-4 items-center space-x-4;
+    @apply w-full h-full flex justify-center p-4 items-center space-x-1;
 }
 
 .car-container {
