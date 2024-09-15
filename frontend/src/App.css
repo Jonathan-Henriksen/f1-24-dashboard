@@ -23,7 +23,7 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col min-w-[200px] max-w-[300px] shadow-xl rounded-2xl p-12 justify-center;
+  @apply flex flex-col min-w-[200px] max-w-[300px] shadow-xl rounded-2xl p-8 justify-center;
 }
 
 .lap-time-title {
