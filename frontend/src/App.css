@@ -64,6 +64,10 @@
 }
 
 /* Car Deltas Graphic */
+.car-deltas-container {
+    @apply w-full h-full flex justify-center p-4 items-center space-x-4;
+}
+
 .car-container {
     @apply flex flex-col items-center;
     @apply flex-shrink;
@@ -96,8 +100,4 @@
 
 .delta-time-behind {
     @apply text-f1Green text-lg;
-}
-
-.car-deltas-container {
-    @apply w-full h-full flex justify-center p-4 items-center space-x-8;
 }
