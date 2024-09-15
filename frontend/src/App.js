@@ -7,7 +7,7 @@ import TyreInfoPanel from './components/TyreInfoPanel';
 import LeaderboardPanel from './components/LeaderboardPanel';
 import WeatherPanel from './components/WeatherPanel';
 import DamagePanel from './components/DamagePanel';
-
+import './App.css'
 
 function App() {
 	const [mfdData, setMfdData] = useState(null);
@@ -41,13 +41,9 @@ function App() {
 	};
 
 	return (
-		<div className="inline-flex flex-col h-dvh w-screen pt-4 pb-8 bg-f1Grey text-white">
-			<div className="shadow-lg rounded-lg mx-8 mb-4 h-1/6">
-				<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
-			</div>
-			<div className="bg-gray-800 shadow-lg rounded-xl mt-4 p-4 h-full">
-				{renderActivePanel()}
-			</div>
+		<div className="app-container">
+			<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
+			{renderActivePanel()}
 		</div>
 	);
 }

@@ -28,7 +28,7 @@ const TimingsPanel = ({ data, sessionType }) => {
 	}
 
 	return (
-		<div className="flex flex-col justify-center items-center rounded-lg">
+		<div className="panel-container">
 			<CardRow lapTimeCards={topRowCards} />
 			<CardRow lapTimeCards={bottomRowCards} />
 			<CarDeltasGraphic
