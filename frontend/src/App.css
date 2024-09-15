@@ -4,7 +4,7 @@
 }
 
 .nav-container {
-  @apply flex flex-col justify-stretch items-stretch pt-4 pb-8 px-16
+  @apply flex flex-col justify-stretch items-stretch pt-2 pb-6 px-16
 }
 
 .panel-container {
