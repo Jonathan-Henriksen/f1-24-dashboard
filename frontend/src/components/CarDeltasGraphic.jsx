@@ -1,7 +1,6 @@
 // CarDeltasGraphic.jsx
 import React from 'react';
 import { formatTime, getCarImage, getTeamColor, capitalizeName } from 'helpers/helpers';
-import './CarDeltasGraphic.css';
 
 const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 	const carsToRender = [];

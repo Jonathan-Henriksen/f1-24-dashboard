@@ -62,3 +62,42 @@
   @apply text-gray-400 text-2xl text-center;
   margin-bottom: -2rem;
 }
+
+/* Car Deltas Graphic */
+.car-container {
+    @apply flex flex-col items-center;
+    @apply flex-shrink;
+}
+
+.car-image {
+    @apply max-w-full scale-x-[-1];
+}
+
+.driver-info {
+    @apply flex flex-row items-center;
+}
+
+.driver-position {
+    @apply bg-gray-700 bg-opacity-75 text-lg font-bold rounded-full shadow-l mr-2;
+    @apply w-12 h-10 flex justify-center items-center;
+}
+
+.driver-name {
+    @apply capitalize text-lg;
+}
+
+.delta-time {
+    @apply text-lg
+}
+
+.delta-time-ahead {
+    @apply text-f1DeltaRed text-lg;
+}
+
+.delta-time-behind {
+    @apply text-f1Green text-lg;
+}
+
+.car-deltas-container {
+    @apply w-full h-full flex justify-center p-4 items-center space-x-8;
+}
