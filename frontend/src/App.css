@@ -30,7 +30,7 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-xl shadow-gray-800 rounded-2xl px-8 py-4 justify-center;
+  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-xl shadow-gray-900 rounded-2xl px-8 py-4 justify-center;
 }
 
 .lap-time-title {
