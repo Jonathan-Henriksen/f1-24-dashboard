@@ -19,10 +19,10 @@
 
 
 /* Panels */
-
 .timings-panel {
   @apply flex flex-col grow justify-start items-center
 }
+
 
 /* Card Row and Cards */
 .card-row {
@@ -30,7 +30,7 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col min-h-40 min-w-[200px] max-w-[300px] w-full shadow-xl rounded-2xl px-8 py-4 justify-start;
+  @apply flex flex-col min-h-40 min-w-48 max-w-72 w-full shadow-xl rounded-2xl px-8 pt-6 pb-2 justify-start;
 }
 
 .lap-time-title {
