@@ -3,7 +3,7 @@
 }
 
 .nav-container {
-  @apply flex flex-col justify-items-center items-strech basis-24 py-4 px-16 shadow-xl rounded-lg
+  @apply flex flex-col justify-items-center items-stretch basis-24 py-4 px-16 shadow-xl rounded-lg
 }
 
 .nav {
