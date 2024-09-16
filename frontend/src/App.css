@@ -7,7 +7,8 @@
 
 .nav-container {
   @apply flex flex-col justify-stretch items-stretch;
-  @apply pt-2 pb-6 px-16
+  @apply pt-2 pb-6 px-16 border-b-2;
+  @apply border-b-mainBorder/25
 }
 
 .panel-container {
@@ -19,12 +20,13 @@
 
 /* Navigation */
 .nav {
-  @apply flex flex-row justify-stretch items-stretch  
+  @apply flex flex-row justify-stretch items-stretch;
+  @apply rounded-lg shadow-lg border-2 border-mainBorder/25
 }
 
 .nav-list {
   @apply flex justify-between w-full divide-x;
-  @apply py-4 shadow-lg rounded-lg;
+  @apply py-4;
   @apply bg-mainLight divide-mainWhite/50
 }
 
@@ -53,7 +55,7 @@
   @apply flex flex-col justify-center px-8 py-4;
   @apply shadow-xl border-2 rounded-2xl;
   @apply min-h-48 min-w-48 max-w-72 w-full;
-  @apply bg-mainDark border-mainBorder/25 shadow-mainDark/75
+  @apply bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75
 }
 
 .lap-time-title {
