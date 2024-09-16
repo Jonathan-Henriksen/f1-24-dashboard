@@ -114,8 +114,10 @@
 }
 
 .driver-position {
-    @apply bg-mainDark/50 lg:text-lg text-xl font-bold rounded-full shadow-lg shadow-mainDark/50 mr-2;
-    @apply w-12 h-10 flex justify-center items-center;
+    @apply flex justify-center items-center;
+    @apply w-12 h-10 mr-2 rounded-full border-1 shadow-lg;
+    @apply lg:text-lg text-xl font-bold;
+    @apply bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 
 }
 
 .driver-name {
@@ -123,7 +125,7 @@
 }
 
 .delta-time {
-    @apply md:text-lg xl:text-xl text-2xl shadow-inner
+    @apply md:text-lg xl:text-xl text-2xl shadow-inner shadow-mainDark/50
 }
 
 .delta-time.ahead {
