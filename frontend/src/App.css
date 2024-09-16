@@ -27,7 +27,7 @@
 .nav-list {
   @apply flex justify-between w-full divide-x;
   @apply py-4;
-  @apply bg-mainLight divide-mainWhite/50
+  @apply bg-mainLight/95 divide-mainWhite/50
 }
 
 .nav-list-element {
@@ -54,14 +54,15 @@
 }
 
 .lap-time-card {
-  @apply flex flex-col justify-center px-8 py-4;
-  @apply shadow-xl border-2 rounded-2xl;
+  @apply flex flex-col justify-center px-8 pt-3 pb-4;
+  @apply shadow-xl border-2 rounded-3xl;
   @apply min-h-48 min-w-48 max-w-72 w-full;
   @apply bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75
 }
 
 .lap-time-title {
-  @apply text-mainWhite text-center capitalize;
+  @apply text-mainWhite/75 text-center capitalize;
+  @apply pb-1
   @apply sm:text-sm md:text-base lg:text-xl xl:text-2xl text-3xl;
   @apply lg:tracking-normal tracking-wide
 }
@@ -73,11 +74,11 @@
 }
 
 .lap-time-value.purple {
-  @apply text-f1Purple;
+  @apply text-f1Purple/90;
 }
 
 .lap-time-value.green {
-  @apply text-f1Green;
+  @apply text-f1Green/90;
 }
 
 .lap-time-value.white {
@@ -85,7 +86,7 @@
 }
 
 .invalid-lap {
-  @apply text-f1DeltaRed -mb-7;
+  @apply text-f1DeltaRed/90 -mb-7;
   @apply sm:text-sm lg:text-base text-xl
 }
 
@@ -113,22 +114,22 @@
 }
 
 .driver-position {
-    @apply bg-mainDark/75 lg:text-lg text-xl font-bold rounded-full shadow-lg shadow-mainDark/50 mr-2;
+    @apply bg-mainDark/50 lg:text-lg text-xl font-bold rounded-full shadow-lg shadow-mainDark/50 mr-2;
     @apply w-12 h-10 flex justify-center items-center;
 }
 
 .driver-name {
-    @apply capitalize md:text-lg text-xl;
+    @apply capitalize xl:text-xl text-3xl;
 }
 
 .delta-time {
-    @apply md:text-lg text-xl shadow-inner
+    @apply md:text-lg xl:text-xl text-2xl shadow-inner
 }
 
 .delta-time.ahead {
-    @apply text-f1DeltaRed;
+    @apply text-f1DeltaRed/90;
 }
 
 .delta-time.behind {
-    @apply text-f1Green;
+    @apply text-f1Green/90;
 }
