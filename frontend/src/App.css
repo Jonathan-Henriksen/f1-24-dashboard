@@ -62,7 +62,7 @@
 
 .lap-time-title {
   @apply text-mainWhite/75 text-center capitalize;
-  @apply pb-1
+  @apply pb-1;
   @apply sm:text-sm md:text-base lg:text-xl xl:text-2xl text-3xl;
   @apply lg:tracking-normal tracking-wide
 }
