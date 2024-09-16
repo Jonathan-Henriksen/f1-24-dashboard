@@ -13,23 +13,23 @@
 .panel-container {
   @apply flex flex-col grow justify-stretch content-stretch;
   @apply shadow-inner border-b-2 rounded-xl p-4;
-  @apply bg-mainLight shadow-mainDark border-b-mainBorder/75
+  @apply bg-mainLight shadow-mainDark border-y-mainBorder/75
 }
 
 
 /* Navigation */
 .nav {
-  @apply flex flex-row justify-stretch items-stretch
+  @apply flex flex-row justify-stretch items-stretch  
 }
 
 .nav-list {
   @apply flex justify-between w-full divide-x;
-  @apply py-6 shadow-lg rounded-lg;
+  @apply py-4 shadow-lg rounded-lg;
   @apply bg-mainLight divide-mainWhite/50
 }
 
 .nav-list-element {
-  @apply grow text-2xl uppercase tracking-wider text-center relative
+  @apply grow text-3xl uppercase tracking-wider text-center relative
 }
 
 .nav-list-element.active {
