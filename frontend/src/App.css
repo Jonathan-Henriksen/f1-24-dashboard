@@ -37,13 +37,13 @@
 }
 
 .nav-list-element.active {
-  @apply text-mainBlue/90 font-bold
+  @apply text-mainRed/85 font-bold
 }
 
 
 /* Panels */
 .timings-panel {
-  @apply flex flex-col py-4 space-y-4 grow justify-start items-center 
+  @apply flex flex-col pb-4 pt-12 space-y-4 grow justify-start items-center 
 }
 
 

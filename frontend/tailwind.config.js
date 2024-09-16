@@ -9,9 +9,10 @@ module.exports = {
         // Main Colors
         mainDark: '#282927',
         mainLight: '#383937',
+        mainBorder: '#696A6B',
+        mainRed: '#D0021B',
         mainBlue: '#3EBEF7',
         mainWhite: '#FFFFFF',
-        mainBorder: '#696A6B',
         // F1 Colors
         f1Grey: '#2E2E2E',
         f1Highlight: '#D0021B',
