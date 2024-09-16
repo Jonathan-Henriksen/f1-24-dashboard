@@ -13,7 +13,7 @@
 .panel-container {
   @apply flex flex-col grow justify-stretch content-stretch;
   @apply shadow-inner border-b-2 rounded-xl p-4;
-  @apply bg-mainLight shadow-mainDark/80 border-b-mainDark/80
+  @apply bg-mainLight shadow-mainDark border-b-mainBorder/75
 }
 
 
@@ -33,7 +33,7 @@
 }
 
 .nav-list-element.active {
-  @apply text-mainBlue font-bold
+  @apply text-mainBlue/90 font-bold
 }
 
 
@@ -51,9 +51,9 @@
 
 .lap-time-card {
   @apply flex flex-col justify-center px-8 py-4;
-  @apply shadow-lg border-2 rounded-2xl;
+  @apply shadow-xl border-2 rounded-2xl;
   @apply min-h-48 min-w-48 max-w-72 w-full;
-  @apply bg-mainDark border-mainBorder shadow-mainDark/40
+  @apply bg-mainDark border-mainBorder/25 shadow-mainDark/75
 }
 
 .lap-time-title {
