@@ -2,7 +2,7 @@
 .app-container {
   @apply inline-flex flex-col h-dvh w-screen;
   @apply pt-4 pb-12;
-  @apply bg-jetBlack text-softWhite
+  @apply bg-mainDark text-mainWhite
 }
 
 .nav-container {
@@ -13,7 +13,7 @@
 .panel-container {
   @apply flex flex-col grow justify-stretch content-stretch;
   @apply shadow-inner border-b-2 rounded-xl p-4;
-  @apply bg-darkGrapite shadow-darkGrapiteShadow/80 border-b-darkGrapiteShadow/80
+  @apply bg-mainLight shadow-mainDark/80 border-b-mainDark/80
 }
 
 
@@ -25,7 +25,7 @@
 .nav-list {
   @apply flex justify-between w-full divide-x;
   @apply py-6 shadow-lg rounded-lg;
-  @apply bg-steelGray shadow-steelGrayShadow/30 divide-softWhiteShadow/50
+  @apply bg-mainLight divide-mainWhite/50
 }
 
 .nav-list-element {
@@ -33,7 +33,7 @@
 }
 
 .nav-list-element.active {
-  @apply text-f1Highlight font-bold
+  @apply text-mainBlue font-bold
 }
 
 
@@ -51,13 +51,13 @@
 
 .lap-time-card {
   @apply flex flex-col justify-center px-8 py-4;
-  @apply shadow-lg  rounded-2xl;
+  @apply shadow-lg border-2 rounded-2xl;
   @apply min-h-48 min-w-48 max-w-72 w-full;
-  @apply shadow-steelGrayShadow
+  @apply bg-mainDark border-mainBorder shadow-mainDark/40
 }
 
 .lap-time-title {
-  @apply text-softWhite text-center capitalize;
+  @apply text-mainWhite text-center capitalize;
   @apply sm:text-sm md:text-base lg:text-xl xl:text-2xl text-3xl;
   @apply lg:tracking-normal tracking-wide
 }
@@ -77,7 +77,7 @@
 }
 
 .lap-time-value.white {
-  @apply text-softWhite;
+  @apply text-mainWhite;
 }
 
 .invalid-lap {
@@ -87,7 +87,7 @@
 
 .fastest-driver {
   @apply text-gray-400 text-2xl text-center;
-  margin-bottom: -2rem;
+  @apply -mb-8
 }
 
 /* Car Deltas Graphic */
@@ -109,16 +109,16 @@
 }
 
 .driver-position {
-    @apply bg-steelGray bg-opacity-75 text-xl font-bold rounded-full shadow-lg shadow-steelGrayShadow mr-2;
+    @apply bg-mainDark/75 lg:text-lg text-xl font-bold rounded-full shadow-lg shadow-mainDark/50 mr-2;
     @apply w-12 h-10 flex justify-center items-center;
 }
 
 .driver-name {
-    @apply capitalize text-xl;
+    @apply capitalize md:text-lg text-xl;
 }
 
 .delta-time {
-    @apply text-xl shadow-inner
+    @apply md:text-lg text-xl shadow-inner
 }
 
 .delta-time.ahead {

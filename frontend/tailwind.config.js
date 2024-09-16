@@ -6,14 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        jetBlack: '#101010',
-        jetBlackShadow: '#080808',
-        darkGrapite: '#1A1A1A',
-        darkGrapiteShadow: '#141414',
-        steelGray: '#2E2E2E',
-        steelGrayShadow: '#1F1F1F',
-        softWhite: '#F2F2F2',
-        softWhiteShadow: '#B8B8B8',
+        // Main Colors
+        mainDark: '#282927',
+        mainLight: '#383937',
+        mainBlue: '#3EBEF7',
+        mainWhite: '#FFFFFF',
+        mainBorder: '#696A6B',
         // F1 Colors
         f1Grey: '#2E2E2E',
         f1Highlight: '#D0021B',
