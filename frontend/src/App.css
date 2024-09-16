@@ -109,7 +109,7 @@
 }
 
 .driver-position {
-    @apply bg-gray-700 bg-opacity-75 text-lg font-bold rounded-full shadow-lg mr-2;
+    @apply bg-steelGray bg-opacity-75 text-xl font-bold rounded-full shadow-lg shadow-steelGrayShadow mr-2;
     @apply w-12 h-10 flex justify-center items-center;
 }
 
