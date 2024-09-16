@@ -1,14 +1,19 @@
 /* Main Styling ( Navigation and Panel ) */
 .app-container {
-  @apply inline-flex flex-col h-dvh w-screen pt-4 pb-12 bg-zinc-800 text-white
+  @apply inline-flex flex-col h-dvh w-screen
+  @apply pt-4 pb-12
+  @apply bg-jetBlack text-softWhite
 }
 
 .nav-container {
-  @apply flex flex-col justify-stretch items-stretch pt-2 pb-6 px-16
+  @apply flex flex-col justify-stretch items-stretch
+  @apply pt-2 pb-6 px-16
 }
 
 .panel-container {
-  @apply flex flex-col grow bg-gray-800 shadow-inner shadow-gray-900/80 rounded-xl p-4 justify-stretch content-stretch border-b-2 border-b-gray-900/80
+  @apply flex flex-col grow justify-stretch content-stretch
+  @apply shadow-inner border-b-2 rounded-xl p-4
+  @apply bg-darkGrapite shadow-darkGrapiteShadow/80 border-b-darkGrapiteShadow/80
 }
 
 
@@ -18,11 +23,13 @@
 }
 
 .nav-list {
-  @apply flex justify-between w-full py-6 shadow-lg shadow-zinc-900/30 rounded-lg divide-x divide-neutral-300/50
+  @apply flex justify-between w-full divide-x
+  @apply py-6 shadow-lg rounded-lg
+  @apply bg-steelGray shadow-steelGrayShadow/30 divide-softWhiteShadow/50
 }
 
 .nav-list-element {
-  @apply text-2xl uppercase tracking-wider flex-grow text-center relative
+  @apply grow text-2xl uppercase tracking-wider text-center relative
 }
 
 .nav-list-element.active {
@@ -39,15 +46,19 @@
 /* Card Row and Cards */
 .card-row {
   @apply flex justify-center p-4 w-full;
-  @apply sm:gap-8 md:gap-16 lg:gap-24 2xl:gap-32
+  @apply sm:gap-8 md:gap-16 lg:gap-24 gap-32
 }
 
 .lap-time-card {
-  @apply flex flex-col min-h-48 min-w-48 max-w-72 w-full shadow-lg shadow-gray-900/60 rounded-2xl px-8 py-4 justify-center;
+  @apply flex flex-col justify-center px-8 py-4;
+  @apply shadow-lg  rounded-2xl
+  @apply min-h-48 min-w-48 max-w-72 w-full
+  @apply shadow-steelGrayShadow
 }
 
 .lap-time-title {
-  @apply text-3xl text-gray-400 tracking-wide text-center capitalize;
+  @apply text-3xl text-softWhite tracking-wide text-center capitalize;
+  @apply m
 }
 
 .lap-time-value {
@@ -63,7 +74,7 @@
 }
 
 .lap-time-value.white {
-  @apply text-white;
+  @apply text-softWhite;
 }
 
 .invalid-lap {
