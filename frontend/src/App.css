@@ -58,13 +58,13 @@
 
 .lap-time-title {
   @apply text-softWhite text-center capitalize;
-  @apply sm:text-lg md:text-xl lg:text-xl, xl:text-2xl text-3xl;
+  @apply sm:text-sm md:text-base lg:text-xl, xl:text-2xl text-3xl;
   @apply lg:tracking-normal tracking-wide
 }
 
 .lap-time-value {
   @apply font-semibold text-center;
-  @apply sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-6xl;
+  @apply sm:text-sm md:text-base lg:text-2xl xl:text-4xl text-6xl;
   @apply lg:tracking-normal tracking-wide
 }
 
@@ -82,7 +82,7 @@
 
 .invalid-lap {
   @apply text-f1DeltaRed -mb-7;
-  @apply sm:text-sm lg:text-base text-lg
+  @apply sm:text-sm lg:text-base text-xl
 }
 
 .fastest-driver {
