@@ -117,7 +117,7 @@
     @apply flex justify-center items-center;
     @apply w-12 h-10 mr-2 rounded-full border-2 shadow-lg;
     @apply lg:text-lg text-xl font-bold;
-    @apply bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 
+    @apply text-mainWhite/75 bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50
 }
 
 .driver-name {
