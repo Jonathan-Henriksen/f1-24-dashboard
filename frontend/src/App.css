@@ -1,18 +1,18 @@
 /* Main Styling ( Navigation and Panel ) */
 .app-container {
-  @apply inline-flex flex-col h-dvh w-screen
-  @apply pt-4 pb-12
+  @apply inline-flex flex-col h-dvh w-screen;
+  @apply pt-4 pb-12;
   @apply bg-jetBlack text-softWhite
 }
 
 .nav-container {
-  @apply flex flex-col justify-stretch items-stretch
+  @apply flex flex-col justify-stretch items-stretch;
   @apply pt-2 pb-6 px-16
 }
 
 .panel-container {
-  @apply flex flex-col grow justify-stretch content-stretch
-  @apply shadow-inner border-b-2 rounded-xl p-4
+  @apply flex flex-col grow justify-stretch content-stretch;
+  @apply shadow-inner border-b-2 rounded-xl p-4;
   @apply bg-darkGrapite shadow-darkGrapiteShadow/80 border-b-darkGrapiteShadow/80
 }
 
@@ -23,8 +23,8 @@
 }
 
 .nav-list {
-  @apply flex justify-between w-full divide-x
-  @apply py-6 shadow-lg rounded-lg
+  @apply flex justify-between w-full divide-x;
+  @apply py-6 shadow-lg rounded-lg;
   @apply bg-steelGray shadow-steelGrayShadow/30 divide-softWhiteShadow/50
 }
 
@@ -51,18 +51,21 @@
 
 .lap-time-card {
   @apply flex flex-col justify-center px-8 py-4;
-  @apply shadow-lg  rounded-2xl
-  @apply min-h-48 min-w-48 max-w-72 w-full
+  @apply shadow-lg  rounded-2xl;
+  @apply min-h-48 min-w-48 max-w-72 w-full;
   @apply shadow-steelGrayShadow
 }
 
 .lap-time-title {
-  @apply text-3xl text-softWhite tracking-wide text-center capitalize;
-  @apply m
+  @apply text-softWhite text-center capitalize;
+  @apply sm:text-lg md:text-xl lg:text-xl, xl:text-2xl text-3xl;
+  @apply lg:tracking-normal tracking-wide
 }
 
 .lap-time-value {
-  @apply text-6xl font-semibold text-center tracking-wider;
+  @apply font-semibold text-center;
+  @apply sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-6xl;
+  @apply lg:tracking-normal tracking-wide
 }
 
 .lap-time-value.purple {
@@ -78,8 +81,8 @@
 }
 
 .invalid-lap {
-  @apply text-f1DeltaRed text-lg;
-  margin-bottom: -1.75rem;
+  @apply text-f1DeltaRed -mb-7;
+  @apply sm:text-sm lg:text-base text-lg
 }
 
 .fastest-driver {
