@@ -14,7 +14,7 @@
 .panel-container {
   @apply flex flex-col grow justify-stretch content-stretch;
   @apply shadow-inner border-b-2 rounded-xl p-4;
-  @apply bg-mainLight shadow-mainDark border-y-mainBorder/75
+  @apply bg-mainLight shadow-mainDark border-y-mainBorder/25
 }
 
 
