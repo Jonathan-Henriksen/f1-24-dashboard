@@ -53,9 +53,15 @@
   @apply grow grid grid-cols-8 grid-rows-8 gap-4 px-8 py-4
 }
 
-.tyre-info-panel .header-container {
+.tyre-info-panel .header-grid-element {
   @apply col-start-2 col-span-6;
   @apply row-start-1 row-span-2;
+  @apply bg-mainDark/50 border-2 border-mainBorder/25
+}
+
+.tyre-info-panel .car-image-grid-element {
+  @apply col-start-4 col-span-2;
+  @apply row-start-3 row-span-6;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
@@ -78,12 +84,6 @@
 
 .tyre-info-panel .right {
   @apply col-start-6
-}
-
-.tyre-info-panel .car-image-grid-element {
-  @apply col-start-3 col-span-4;
-  @apply row-start-3 row-span-6;
-  @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
 /* Card Row and Cards */

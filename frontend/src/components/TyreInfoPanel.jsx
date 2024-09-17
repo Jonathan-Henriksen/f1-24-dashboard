@@ -3,6 +3,7 @@ import React from "react";
 const TyreInfoPanel = ({ panelData, teamName }) => {
 	return (
 		<div className="tyre-info-panel">
+			<div className="header-grid-element"></div>
 			<div className="temperature-grid-element front left"></div>
 			<div className="temperature-grid-element front right"></div>
 			<div className="car-image-grid-element"></div>
