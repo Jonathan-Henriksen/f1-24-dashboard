@@ -54,8 +54,8 @@
 }
 
 .tyre-info-panel .header-container {
-  @apply col-start-2 col-span-6
-  @apply row-start-1 row-span-2
+  @apply col-start-2 col-span-6;
+  @apply row-start-1 row-span-2;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
