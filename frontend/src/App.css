@@ -50,7 +50,13 @@
 
 /* Tyre Info Panel */
 .tyre-info-panel {
-  @apply grow grid grid-cols-8 grid-rows-6 gap-8 px-16 py-8
+  @apply grow grid grid-cols-8 grid-rows-8 gap-4 px-8 py-4
+}
+
+.tyre-info-panel .header-container {
+  @apply col-start-2 col-span-6
+  @apply row-start-1 row-span-2
+  @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
 .tyre-info-panel .temperature-grid-element {
@@ -59,24 +65,24 @@
 }
 
 .tyre-info-panel .front {
-  @apply row-start-1
+  @apply row-start-3
 }
 
 .tyre-info-panel .rear {
-  @apply row-start-5
+  @apply row-start-7
 }
 
 .tyre-info-panel .left {
-  @apply col-start-1
+  @apply col-start-2
 }
 
 .tyre-info-panel .right {
-  @apply col-start-7
+  @apply col-start-6
 }
 
 .tyre-info-panel .car-image-grid-element {
   @apply col-start-3 col-span-4;
-  @apply row-start-1 row-span-6;
+  @apply row-start-3 row-span-6;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
