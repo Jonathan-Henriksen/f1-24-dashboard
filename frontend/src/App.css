@@ -54,7 +54,7 @@
 }
 
 .tyre-info-temps-container {
-  @apply col-span-2 row-span-2
+  @apply col-span-2 row-span-2;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
@@ -75,8 +75,8 @@
 }
 
 .tyre-info-car-image-container {
-  @apply col-start-3 col-end-6
-  @apply row-start-1 row-end-6
+  @apply col-start-3 col-end-6;
+  @apply row-start-1 row-end-6;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
