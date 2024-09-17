@@ -43,7 +43,7 @@
 
 
 /* Panels */
-.timings-panel {
+.timings-panel {  
   @apply flex flex-col py-8 grow justify-start items-center 
 }
 
@@ -75,8 +75,8 @@
 }
 
 .tyre-info-car-image-container {
-  @apply col-start-3 col-end-6;
-  @apply row-start-1 row-end-6;
+  @apply col-start-3 col-span-4;
+  @apply row-start-1 row-span-6;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
