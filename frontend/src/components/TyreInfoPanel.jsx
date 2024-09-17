@@ -3,11 +3,11 @@ import React from "react";
 const TyreInfoPanel = ({ panelData, teamName }) => {
 	return (
 		<div className="tyre-info-panel">
-			<div className="tyre-info-temps front left"></div>
-			<div className="tyre-info-temps front right"></div>
-			<div className="tyre-info-car-image-container"></div>
-			<div className="tyre-info-temps rear right"></div>
-			<div className="tyre-info-temps rear right"></div>
+			<div className="temperature-grid-element front left"></div>
+			<div className="temperature-grid-element front right"></div>
+			<div className="car-image-grid-element"></div>
+			<div className="temperature-grid-element rear left"></div>
+			<div className="temperature-grid-element rear right"></div>
 		</div>
 	);
 };

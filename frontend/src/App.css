@@ -53,28 +53,28 @@
   @apply grid grid-cols-8 grid-rows-6 gap-4
 }
 
-.tyre-info-temps-container {
+.tyre-info-panel .temperature-grid-element {
   @apply col-span-2 row-span-2;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
 }
 
-.tyre-info-temps-container.front {
+.tyre-info-panel .front {
   @apply row-start-1
 }
 
-.tyre-info-temps-container.rear {
+.tyre-info-panel .rear {
   @apply row-start-5
 }
 
-.tyre-info-temps-container.left {
+.tyre-info-panel .left {
   @apply col-start-1
 }
 
-.tyre-info-temps-container.right {
+.tyre-info-panel .right {
   @apply col-start-7
 }
 
-.tyre-info-car-image-container {
+.tyre-info-panel .car-image-grid-element {
   @apply col-start-3 col-span-4;
   @apply row-start-1 row-span-6;
   @apply bg-mainDark/50 border-2 border-mainBorder/25
