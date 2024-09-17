@@ -44,9 +44,9 @@ class LeaderboardPanel():
 				player_current_data = self.get_driver_by_position(player_lap_data.car_position)
 				other_driver_current_data = self.get_driver_by_position(lap_data.car_position)
 
-				if player_current_data.lap_time_personal_best and other_driver_current_data.lap_time_personal_best:
+				if player_current_data and player_current_data.lap_time_personal_best and other_driver_current_data and other_driver_current_data.lap_time_personal_best:
 					delta_to_player_in_ms = abs(other_driver_current_data.lap_time_personal_best.to_milliseconds() - player_current_data.lap_time_personal_best.to_milliseconds())
-					
+
 					self.drivers[car_index].delta_to_player = Time(ms_part=delta_to_player_in_ms)
 			else:
 				player_delta_to_race_leader = Time(minutes_part=player_lap_data.delta_to_race_leader_minutes_part, ms_part=player_lap_data.delta_to_race_leader_ms_part)
