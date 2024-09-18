@@ -62,3 +62,10 @@ export const getTeamColor = (team) => {
 		default: return 'text-white'; // Default to white if no matching team
 	}
 };
+
+export function calculatePercentage(scaleStart, scaleEnd, value) {
+	if (scaleEnd === scaleStart) {
+		throw new Error("Scale start and end cannot be the same.");
+	}
+	return ((value - scaleStart) / (scaleEnd - scaleStart)) * 100;
+}
