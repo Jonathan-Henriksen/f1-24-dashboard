@@ -7,7 +7,7 @@ const Navigation = ({ panels, activePanelIndex }) => {
 				{panels.map((panel, index) => (
 					<li
 						key={index}
-						className={`grow text-center text-3xl uppercase tracking-wider relative ${index === activePanelIndex ? 'text-mainRed/90' : 'text-mainWhite/95'}`}>
+						className={`grow text-center text-3xl uppercase tracking-wider relative ${index === activePanelIndex ? 'text-mainRed' : 'text-mainWhite/95'}`}>
 						{panel.name}
 					</li>
 				))}
