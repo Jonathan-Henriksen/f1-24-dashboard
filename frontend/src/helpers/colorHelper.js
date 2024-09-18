@@ -35,9 +35,3 @@ export function getColorFromList(colorList, percentage) {
 
 	return blendColors(colorList[segmentIndex], colorList[segmentIndex + 1], segmentPercentage);
 }
-
-// Example usage:
-let colors = ["#0000FF", "#00FF00", "#FF0000"]; // Blue, Green, Red
-console.log(getColorFromList(colors, 25)); // Should return a color between Blue and Green
-console.log(getColorFromList(colors, 50)); // Should return Green
-console.log(getColorFromList(colors, 75)); // Should return a color between Green and Red

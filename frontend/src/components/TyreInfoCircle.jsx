@@ -23,7 +23,7 @@ const TyreInfoCircle = ({ tyre }) => {
 				showPercentage={false}
 				trackColor={getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_carcass))}
 				radius="4.5rem"
-				text={`${Math.trunc(tyre.wear_percentage)}%`}
+				text={`${Math.trunc(tyre.temperature_carcass)}°C`}
 				startDelay={10}
 			/>
 		</CircularProgressBar >
