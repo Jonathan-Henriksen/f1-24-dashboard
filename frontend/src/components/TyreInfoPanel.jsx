@@ -10,7 +10,7 @@ const TyreInfoPanel = ({ panelData, teamName }) => {
 			<div className="col-start-6 row-start-3 col-span-2 row-span-2 border-2 bg-mainDark/50  border-mainBorder/25"></div>
 
 			{/* Car Image */}
-			<div className="flex items-center grow col-start-4 col-span-2 row-start-3 row-span-6">
+			<div className="flex justify-center grow col-start-4 col-span-2 row-start-3 row-span-6">
 				<img src={getCarTopViewImage(teamName)} alt={teamName} className="max-w-full" />
 			</div>
 
