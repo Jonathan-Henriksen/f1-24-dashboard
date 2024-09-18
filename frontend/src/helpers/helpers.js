@@ -67,5 +67,5 @@ export function calculatePercentage(scaleStart, scaleEnd, value) {
 	if (scaleEnd === scaleStart) {
 		throw new Error("Scale start and end cannot be the same.");
 	}
-	return ((value - scaleStart) / (scaleEnd - scaleStart)) * 100;
+	return Math.trunc(((value - scaleStart) / (scaleEnd - scaleStart)) * 100);
 }
