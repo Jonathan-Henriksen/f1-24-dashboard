@@ -1,37 +1,32 @@
 import { CircularProgressBar } from "react-percentage-bar";
 import { calculatePercentage } from "helpers/helpers";
+import { getColorFromList } from "helpers/colorHelper";
 import React from "react";
+
+const colorScale = [
+	'#3EBEF7',
+	'#00D369',
+	'#D0021B'
+]
 
 const TyreInfoCircle = ({ tyre }) => {
 	return (
 		<CircularProgressBar
-			percentage={calculatePercentage(30, 120, tyre.temperature_surface)}
+			percentage={0}
 			showPercentage={false}
-			startPosition={180}
-			color={[
-				'#3EBEF7',
-				'#00D369',
-				'#D0021B'
-			]}
+			trackColor={getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_surface))}
 			radius="6rem"
 			startDelay={10}
-			trackColor="#D8D8D866"
 		>
 			<CircularProgressBar
-				percentage={calculatePercentage(30, 120, tyre.temperature_carcass)}
-				showPercentage={true}
-				startPosition={180}
-				antiClockWise={true}
-				color={[
-					'#3EBEF7',
-					'#00D369',
-					'#D0021B'
-				]}
+				percentage={0}
+				showPercentage={false}
+				trackColor={getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_carcass))}
 				radius="4.5rem"
+				text={`${Math.trunc(tyre.wear_percentage)}%`}
 				startDelay={10}
-				trackColor="#D8D8D866"
 			/>
-		</CircularProgressBar>
+		</CircularProgressBar >
 	);
 };
 
