@@ -12,7 +12,6 @@ const TyreInfoCircle = ({ tyre }) => {
 				'#7149c6'
 			]}
 			radius="6rem"
-			shadow={true}
 			startDelay={10}
 			trackColor="#D8D8D866"
 		>
@@ -25,7 +24,6 @@ const TyreInfoCircle = ({ tyre }) => {
 					'#7149c6'
 				]}
 				radius="4.5rem"
-				shadow={true}
 				startDelay={10}
 				trackColor="#D8D8D866"
 			/>
