@@ -3,7 +3,7 @@ import React from "react";
 
 const TyreInfoPanel = ({ panelData, teamName }) => {
 	return (
-		<div className="grow grid grid-cols-8 grid-rows-8 gap-4 px-8 py-4 aspect-square">
+		<div className="grow grid grid-cols-8 grid-rows-8 gap-4 px-96 py-4 aspect-square">
 			<div className="col-start-2 col-span-6 row-start-1 row-span-2"></div>
 
 			{/* Front Left Temperatures */}
