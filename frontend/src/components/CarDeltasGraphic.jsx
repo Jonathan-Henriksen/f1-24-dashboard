@@ -10,21 +10,21 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 	if (behindCar) carsToRender.push({ type: 'behind', ...behindCar });
 
 	return (
-		<div className="car-deltas-container">
+		<div className="flex grow justify-center p-4 items-center">
 			{carsToRender.map((car, index) => (
 				<React.Fragment key={car.name}>
-					<div className="car-container">
-						<div className="driver-info">
-							<div className="driver-position">P{car.position}</div>
-							<div className={`driver-name ${car.type === 'player' ? '' : getTeamColor(car.team)}`}>
+					<div className="flex flex-shrink flex-col items-center">
+						<div className="flex flex-row items-center">
+							<div className="flex justify-center items-center lg:text-lg text-xl font-bold w-12 h-10 mr-2 rounded-full border-2 shadow-lg text-mainWhite/75 bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">P{car.position}</div>
+							<div className={`capitalize xl:text-xl text-3xl ${getTeamColor(car.team)}`}>
 								{car.type === 'player' ? 'You' : capitalizeName(car.name)}
 							</div>
 						</div>
-						<img src={getCarImage(car.team)} alt={car.name} className="car-image" />
+						<img src={getCarImage(car.team)} alt={car.name} className="max-w-full scale-x-[-1]" />
 					</div>
 
 					{index < carsToRender.length - 1 && (
-						<span className={`delta-time ${car.type === 'behind' ? 'behind' : 'ahead'}`}>
+						<span className={`md:text-lg xl:text-xl text-2xl shadow-inner shadow-mainDark/50  text-${car.type === 'behind' ? 'f1Green' : 'f1DeltaRed'}/90`}>
 							{car.delta_to_player ? formatTime(car.delta_to_player) : null}
 						</span>
 					)}

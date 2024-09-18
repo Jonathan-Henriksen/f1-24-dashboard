@@ -2,12 +2,12 @@ import React from 'react';
 
 const Navigation = ({ panels, activePanelIndex }) => {
 	return (
-		<nav className="nav">
-			<ul className="nav-list">
+		<nav className="flex flex-row justify-stretch items-stretch rounded-xl shadow-lg border-2 overflow-hidden bg-mainLight/95  border-mainBorder/25">
+			<ul className="flex justify-between divide-x w-full py-4 divide-mainWhite/50">
 				{panels.map((panel, index) => (
 					<li
 						key={index}
-						className={`nav-list-element ${index === activePanelIndex ? 'active' : ''}`}>
+						className={`grow text-center text-3xl uppercase tracking-wider relative text-mainWhite/95 ${index === activePanelIndex ? 'text-mainRed' : ''}`}>
 						{panel.name}
 					</li>
 				))}

@@ -28,7 +28,7 @@ const TimingsPanel = ({ data, sessionType }) => {
 	}
 
 	return (
-		<div className="timings-panel">
+		<div className="flex grow flex-col justify-start items-center py-8">
 			<CardRow lapTimeCards={topRowCards} />
 			<CardRow lapTimeCards={bottomRowCards} />
 			<CarDeltasGraphic

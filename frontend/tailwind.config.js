@@ -13,6 +13,10 @@ module.exports = {
         mainRed: '#D0021B',
         mainBlue: '#3EBEF7',
         mainWhite: '#FFFFFF',
+        lapTime: {
+          green: '#00D369',
+          purple: '#9B30FF'
+        },
         // F1 Colors
         f1Grey: '#2E2E2E',
         f1Highlight: '#D0021B',

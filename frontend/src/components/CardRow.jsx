@@ -3,7 +3,7 @@ import LapTimeCard from './LapTimeCard';
 
 const CardRow = ({ lapTimeCards = [] }) => {
 	return (
-		<div className="card-row">
+		<div className="flex justify-center w-full px-4 py-8 gap-32">
 			{lapTimeCards.map((card, index) => (
 				<LapTimeCard
 					index={index}
