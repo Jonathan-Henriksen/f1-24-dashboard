@@ -2,7 +2,7 @@ import React from "react";
 
 const TyreInfoCircle = ({ tyre }) => {
 	return (
-		<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25">
+		<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25 aspect-square">
 			<span>{tyre.temperature_surface}C</span>
 			<div className="flex flex-col justify-start rounded-full p-8 border-4 bg-f1Green border-mainBorder/25">
 				<span>{<span>{tyre.temperature_carcass}C</span>}C</span>
