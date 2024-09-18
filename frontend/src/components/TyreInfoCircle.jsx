@@ -8,8 +8,9 @@ const TyreInfoCircle = ({ tyre }) => {
 			percentage={calculatePercentage(30, 120, tyre.temperature_surface)}
 			showPercentage={false}
 			color={[
-				'#fc2947',
-				'#7149c6'
+				'#3EBEF7',
+				'#00D369',
+				'#D0021B'
 			]}
 			radius="6rem"
 			startDelay={10}
@@ -20,8 +21,9 @@ const TyreInfoCircle = ({ tyre }) => {
 				showPercentage={true}
 				antiClockWise={true}
 				color={[
-					'#fc2947',
-					'#7149c6'
+					'#3EBEF7',
+					'#00D369',
+					'#D0021B'
 				]}
 				radius="4.5rem"
 				startDelay={10}
