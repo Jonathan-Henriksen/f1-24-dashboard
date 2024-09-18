@@ -1,3 +1,4 @@
+import { CircularProgressBar } from "react-percentage-bar";
 import { calculatePercentage } from "helpers/helpers";
 import React from "react";
 
