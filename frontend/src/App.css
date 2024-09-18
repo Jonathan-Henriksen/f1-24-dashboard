@@ -47,45 +47,6 @@
   @apply flex flex-col py-8 grow justify-start items-center 
 }
 
-
-/* Tyre Info Panel */
-.tyre-info-panel {
-  @apply grow grid grid-cols-8 grid-rows-8 gap-4 px-8 py-4
-}
-
-.tyre-info-panel .header-grid-element {
-  @apply col-start-2 col-span-6;
-  @apply row-start-1 row-span-2;
-  @apply bg-mainDark/50 border-2 border-mainBorder/25
-}
-
-.tyre-info-panel .car-image-grid-element {
-  @apply col-start-4 col-span-2;
-  @apply row-start-3 row-span-6;
-  @apply bg-mainDark/50 border-2 border-mainBorder/25
-}
-
-.tyre-info-panel .temperature-grid-element {
-  @apply col-span-2 row-span-2;
-  @apply bg-mainDark/50 border-2 border-mainBorder/25
-}
-
-.tyre-info-panel .front {
-  @apply row-start-3
-}
-
-.tyre-info-panel .rear {
-  @apply row-start-7
-}
-
-.tyre-info-panel .left {
-  @apply col-start-2
-}
-
-.tyre-info-panel .right {
-  @apply col-start-6
-}
-
 /* Card Row and Cards */
 .card-row {
   @apply flex justify-center px-4 py-8 w-full;

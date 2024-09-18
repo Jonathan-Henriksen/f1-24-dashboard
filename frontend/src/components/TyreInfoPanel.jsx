@@ -2,15 +2,15 @@ import React from "react";
 
 const TyreInfoPanel = ({ panelData, teamName }) => {
 	return (
-		<div className="tyre-info-panel">
-			<div className="header-grid-element"></div>
-			<div className="temperature-grid-element front left"></div>
-			<div className="temperature-grid-element front right"></div>
-			<div className="car-image-grid-element"></div>
-			<div className="temperature-grid-element rear left"></div>
-			<div className="temperature-grid-element rear right"></div>
+		<div className="grow grid grid-cols-8 grid-rows-8 gap-4 px-8 py-4">
+			<div className="col-start-2 col-span-6 row-start-1 row-span-2 border-2 bg-mainDark/50  border-mainBorder/25"></div>
+			<div className="col-start-2 row-start-3 col-span-2 row-span-2 border-2 bg-mainDark/50  border-mainBorder/25"></div>
+			<div className="col-start-6 row-start-3 col-span-2 row-span-2 border-2 bg-mainDark/50  border-mainBorder/25"></div>
+			<div className="col-start-4 col-span-2 row-start-3 row-span-6 border-2 bg-mainDark/50  border-mainBorder/25"></div>
+			<div className="col-start-2 row-start-7 col-span-2 row-span-2 border-2 bg-mainDark/50  border-mainBorder/25"></div>
+			<div className="col-start-6 row-start-7 col-span-2 row-span-2 border-2 bg-mainDark/50  border-mainBorder/25"></div>
 		</div>
 	);
-};
+}
 
 export default TyreInfoPanel;
