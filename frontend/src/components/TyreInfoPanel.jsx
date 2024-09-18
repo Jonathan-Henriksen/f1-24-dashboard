@@ -5,21 +5,21 @@ const TyreInfoPanel = ({ panelData, teamName }) => {
 	return (
 		<div className="flex grow justify-center">
 			{/* Left Tyres */}
-			<div className="flex flex-col justify-between">
+			<div className="flex flex-col justify-center">
 
 				{/* Front */}
 				<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25">
-					<span>88C</span>
+					<span>{panelData.tyre_front_left.temperature_surface}C</span>
 					<div className="grow rounded-full p-8 border-2 bg-mainBlue/80 border-mainBorder/25">
-						<span>27%</span>
+						<span>{panelData.tyre_front_left.wear_percentage}%</span>
 					</div>
 				</div>
 
 				{/* Rear */}
 				<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25">
-					<span>88C</span>
+					<span>{panelData.tyre_rear_left.temperature_surface}C</span>
 					<div className="grow rounded-full p-8 border-2 bg-mainBlue/80 border-mainBorder/25">
-						<span>27%</span>
+						<span>{panelData.tyre_rear_left.wear_percentage}%</span>
 					</div>
 				</div>
 			</div>
@@ -34,17 +34,17 @@ const TyreInfoPanel = ({ panelData, teamName }) => {
 
 				{/* Front */}
 				<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25">
-					<span>88C</span>
+					<span>{panelData.tyre_front_right.temperature_surface}C</span>
 					<div className="grow rounded-full p-8 border-2 bg-mainBlue/80 border-mainBorder/25">
-						<span>27%</span>
+						<span>{panelData.tyre_front_right.wear_percentage}%</span>
 					</div>
 				</div>
 
 				{/* Rear */}
 				<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25">
-					<span>88C</span>
+					<span>{panelData.tyre_front_right.temperature_surface}C</span>
 					<div className="grow rounded-full p-8 border-2 bg-mainBlue/80 border-mainBorder/25">
-						<span>27%</span>
+						<span>{panelData.tyre_front_right.wear_percentage}%</span>
 					</div>
 				</div>
 			</div>
