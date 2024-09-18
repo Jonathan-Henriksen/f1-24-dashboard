@@ -7,7 +7,7 @@ const TyreInfoCircle = ({ tyre }) => {
 		<CircularProgressBar
 			percentage={calculatePercentage(30, 120, tyre.temperature_surface)}
 			showPercentage={false}
-			startPosition="180"
+			startPosition="50"
 			color={[
 				'#3EBEF7',
 				'#00D369',
@@ -20,7 +20,7 @@ const TyreInfoCircle = ({ tyre }) => {
 			<CircularProgressBar
 				percentage={calculatePercentage(30, 120, tyre.temperature_carcass)}
 				showPercentage={true}
-				startPosition="180"
+				startPosition="50"
 				antiClockWise={true}
 				color={[
 					'#3EBEF7',
