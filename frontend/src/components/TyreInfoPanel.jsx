@@ -4,7 +4,7 @@ import TyreInfoCircle from "./TyreInfoCircle";
 
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
-		<div className="flex grow flex-col justify-start">
+		<div className="flex grow flex-col space-y-4 justify-start">
 
 			{/* Header */}
 			<div className="flex justify-center items-center p-16 border-2 bg-mainDark/50 border-mainBorder/25">
