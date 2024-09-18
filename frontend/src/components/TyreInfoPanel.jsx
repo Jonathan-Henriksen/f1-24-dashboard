@@ -3,9 +3,9 @@ import React from "react";
 
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
-		<div className="flex grow justify-center">
+		<div className="flex grow justify-center p-8">
 			{/* Left Tyres */}
-			<div className="flex flex-col justify-center">
+			<div className="flex flex-col justify-between">
 
 				{/* Front */}
 				<div className="flex flex-col justify-start rounded-full p-8 border-2 bg-f1Green border-mainBorder/25">
@@ -25,7 +25,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			</div>
 
 			{/* Car Image */}
-			<div className="flex justify-center grow col-start-4 col-span-2 row-start-3 row-span-6">
+			<div className="flex justify-center col-start-4 col-span-2 row-start-3 row-span-6">
 				<img src={getCarTopViewImage(teamName)} alt={teamName} className="max-h-full" />
 			</div>
 
