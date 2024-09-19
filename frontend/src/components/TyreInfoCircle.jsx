@@ -13,7 +13,7 @@ const TyreData = ({ tyre, inverted }) => (
 			<span className="grow text-center text-xl uppercase">Wear</span>
 		</div>
 		{/* Values */}
-		<div className="flex flex-col justify-evenly justify-items-start items-start pl-4">
+		<div className="flex flex-col justify-evenly justify-items-center items-start pl-4">
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span>
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span>
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span>
