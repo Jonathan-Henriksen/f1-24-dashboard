@@ -31,7 +31,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 				))}
 			</div>
 
-			<div className="flex flex-col justify-between items-center pl-2">
+			<div className="flex flex-col justify-between items-center px-2">
 				{tempRange().map((temp, index) => (
 					<div>
 						{temp % 10 === 0 && (
