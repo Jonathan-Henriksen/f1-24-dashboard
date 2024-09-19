@@ -44,9 +44,12 @@ const ColorLegend = () => (
 
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
-		<div className="flex grow justify-between px-16 py-12">
+		<div className="flex grow justify-center px-16 py-12">
 
-			<ColorLegend />
+			<div className="pr-8">
+				<ColorLegend />
+			</div>
+
 
 			{/* Left Tyres */}
 			<div className="flex flex-col justify-between">
