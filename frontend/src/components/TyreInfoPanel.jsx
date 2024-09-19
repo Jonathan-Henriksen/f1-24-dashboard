@@ -24,27 +24,31 @@ const tempRange = () => {
 	return arr;
 }
 
-const ColorLegend = () => (
-	<div className="flex justify-self-start">
-		<div className="flex flex-col justify-center items-center p-1 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/50 shadow-mainDark/50">
-			{tempRange().map((temp, index) => (
-				<div key={index} className={`flex grow px-3 py-1 ${index == 0 ? 'rounded-t-lg' : ''}`} style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
-				</div>
-			))}
-		</div>
+const ColorLegend = ({ tyreCompound }) => (
+	<div className="flex flex-col justify-start justify-self-start">
+		<span>{tyreCompound}</span>
+		<div className="flex grow">
+			<div className="flex flex-col justify-center items-center p-1 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/50 shadow-mainDark/50">
+				{tempRange().map((temp, index) => (
+					<div key={index} className={`flex grow px-3 py-1 ${index == 0 ? 'rounded-t-lg' : ''}`} style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
+					</div>
+				))}
+			</div>
 
-		<div className="flex flex-col justify-between items-center px-2">
-			{tempRange().map((temp, index) => (
-				<div>
-					{temp % 10 === 0 && (
-						<>
-							<span className="text-center font-bold bg-transparent">- {temp}°</span>
-						</>
-					)}
-				</div>
-			))}
+			<div className="flex flex-col justify-between items-center px-2">
+				{tempRange().map((temp, index) => (
+					<div key={index} >
+						{temp % 10 === 0 && (
+							<>
+								<span className="text-center font-bold bg-transparent">- {temp}°</span>
+							</>
+						)}
+					</div>
+				))}
+			</div>
 		</div>
 	</div>
+
 );
 
 const TyreInfoPanel = ({ data, teamName }) => {
@@ -52,7 +56,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 		<div className="flex grow justify-start px-16 py-12">
 
 			<div className="flex ">
-				<ColorLegend />
+				<ColorLegend tyreCompound={data.tyre_compound} />
 			</div>
 
 			<div className="flex grow justify-center">
