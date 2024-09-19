@@ -3,10 +3,13 @@ import { getCarTopViewImage } from "helpers/helpers";
 import TyreInfoCircle from "./TyreInfoCircle";
 import { getColorFromList } from "helpers/colorHelper";
 
+// C3 Range
 const colorRange = [
 	{ color: '#3EBEF7', value: 40 },  // Blue
-	{ color: '#2BDD1A', value: 90 },  // Green
-	{ color: '#EC3B26', value: 120 }  // Red 
+	{ color: '#2BDD1A', value: 85 },  // Green
+	{ color: '#2BDD1A', value: 95 },  // Green
+	{ color: '#FBCD4C', value: 110 },  // Yellow
+	{ color: '#EC3B26', value: 130 }  // Red
 ];
 
 const tempRange = () => {
