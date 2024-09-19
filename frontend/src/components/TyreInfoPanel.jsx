@@ -23,7 +23,7 @@ const tempRange = () => {
 const LegendElement = (value, index) => {
 	let color = getColorFromList(colorRange, value)
 	return (
-		<div key={index} className={`flex h-1 w-4 bg-${color}`}>
+		<div key={index} className={`flex h-1 w-4 bg-[${color}]`}>
 		</div>
 	)
 }
