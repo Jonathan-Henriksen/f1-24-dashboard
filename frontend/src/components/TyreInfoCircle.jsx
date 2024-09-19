@@ -23,7 +23,7 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 						text={`${tyre.temperature_carcass}°C`}
 						textStyle={{
 							color: 'white',
-							fontSize: '3rem',
+							fontSize: '2.5rem',
 							fontStyle: 'bold'
 						}}
 					/>
