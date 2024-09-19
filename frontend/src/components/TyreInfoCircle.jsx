@@ -7,16 +7,16 @@ const TyreData = ({ tyre, inverted }) => (
 
 		{/* Titles */}
 		<div className="flex flex-col justify-start justify-items-stretch">
-			<span className="grow text-center text-xl uppercase">Break</span>
-			<span className="grow text-center text-xl uppercase">Carcass</span>
 			<span className="grow text-center text-xl uppercase">Surface</span>
+			<span className="grow text-center text-xl uppercase">Carcass</span>
+			<span className="grow text-center text-xl uppercase">Break</span>
 			<span className="grow text-center text-xl uppercase">Wear</span>
 		</div>
 		{/* Values */}
 		<div className="flex flex-col justify-start justify-items-stretch pl-2">
-			<span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span>
-			<span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span>
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span>
+			<span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span>
+			<span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span>
 			<span className="grow text-center text-lg font-bold">{Math.trunc(tyre.wear_percentage)}%</span>
 		</div>
 	</div>
