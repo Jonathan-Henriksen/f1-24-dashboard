@@ -4,7 +4,7 @@ import TyreInfoCircle from "./TyreInfoCircle";
 
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
-		<div className="flex grow justify-center p-24">
+		<div className="flex grow justify-center p-12">
 
 			{/* Left Tyres */}
 			<div className="flex flex-col justify-between">
