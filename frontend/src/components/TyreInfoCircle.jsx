@@ -26,7 +26,7 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 			</div>
 
 			{/* Tyre Graphic */}
-			<div className="opacity-60">
+			<div className="opacity-70">
 				<CircularProgressBar
 					percentage={0}
 					showPercentage={false}

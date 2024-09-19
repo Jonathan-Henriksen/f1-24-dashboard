@@ -27,6 +27,20 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			<div className="flex flex-col justify-center w-10 items-center p-2 border-2 bg-mainDark/50 border-mainBorder/25">
 				{tempRange().map((temp, index) => (
 					<div key={index} className={"flex grow px-3 py-1"} style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
+						{/* Check if the temperature is divisible by 10 */}
+						{temp % 10 === 0 && (
+							<>
+								{/* First column for the dash */}
+								<div className="flex justify-center items-center w-4">
+									<span className="text-gray-500">-</span>
+								</div>
+
+								{/* Second column for the temperature value */}
+								<div className="flex justify-center items-center w-4">
+									<span className="text-white">{temp}°</span>
+								</div>
+							</>
+						)}
 					</div>
 				))}
 			</div>
