@@ -10,14 +10,14 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 			<div className="flex flex-col justify-center pr-2 divide-y-2 gap-2 divide-mainWhite/50">
 
 				{/* Titles */}
-				<div className="flex justify-evenly justify-items-stretch">
+				<div className="flex justify-evenly justify-items-stretch gap-2">
 					<span className="grow text-center text-xl uppercase">Break</span>
 					<span className="grow text-center text-xl uppercase">Carcass</span>
 					<span className="grow text-center text-xl uppercase">Surface</span>
 					<span className="grow text-center text-xl uppercase">Wear</span>
 				</div>
 				{/* Values */}
-				<div className="flex justify-evenly justify-items-stretch">
+				<div className="flex justify-evenly justify-items-stretch gap-2">
 					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span></span>
 					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span></span>
 					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span></span>
