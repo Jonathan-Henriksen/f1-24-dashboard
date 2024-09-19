@@ -7,7 +7,7 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 		<div className="flex justify-center p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
 
 			{/* Tyre Data */}
-			<div className="flex flex-col justify-center divide-y-2 gap-2 divide-mainWhite/50 ">
+			<div className="flex flex-col justify-center pr-2 divide-y-2 gap-2 divide-mainWhite/50">
 
 				{/* Titles */}
 				<div className="flex justify-evenly justify-items-stretch">
