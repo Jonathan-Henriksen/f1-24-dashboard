@@ -7,17 +7,33 @@ const TyreData = ({ tyre, inverted }) => (
 
 		{/* Titles */}
 		<div className="flex flex-col justify-evenly justify-items-center items-start">
-			<span className="flex grow content-center text-center text-xl font-bold uppercase">Surface</span>
-			<span className="flex grow content-center text-center text-xl font-bold uppercase">Carcass</span>
-			<span className="flex grow content-center text-center text-xl font-bold uppercase">Break</span>
-			<span className="flex grow content-center text-center text-xl font-bold uppercase">Wear</span>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-bold uppercase">Surface</p>
+			</div>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-bold uppercase">Carcass</p>
+			</div>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-bold uppercase">Break</p>
+			</div>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-bold uppercase">Wear</p>
+			</div>
 		</div>
 		{/* Values */}
 		<div className="flex flex-col justify-evenly justify-items-center items-start pl-4">
-			<span className="flex grow content-center text-center text-xl font-bold">{tyre.temperature_surface}°C</span>
-			<span className="flex grow content-center text-center text-xl font-bold">{tyre.temperature_carcass}°C</span>
-			<span className="flex grow content-center text-center text-xl font-bold">{tyre.temperature_brakes}°C</span>
-			<span className="flex grow content-center text-center text-xl font-bold">{Math.trunc(tyre.wear_percentage)}%</span>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-semibold">{tyre.temperature_surface}°C</p>
+			</div>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-semibold">{tyre.temperature_carcass}°C</p>
+			</div>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-semibold">{tyre.temperature_brakes}°C</p>
+			</div>
+			<div className="flex items-center justify-center">
+				<p className="text-center text-xl font-semibold">{Math.trunc(tyre.wear_percentage)}%</p>
+			</div>
 		</div>
 	</div>
 )
