@@ -2,8 +2,8 @@ import { CircularProgressBar } from "react-percentage-bar";
 import { getColorFromList } from "helpers/colorHelper";
 import React from "react";
 
-const TyreData = ({ tyre }) => (
-	<div className="flex justify-center pr-4 divide-x-2 gap-4 divide-mainWhite/50">
+const TyreData = ({ tyre, inverted }) => (
+	<div className={`flex justify-center divide-x-2 gap-4 divide-mainWhite/50 ${inverted ? 'pl-4' : 'pr-4'}`}>
 
 		{/* Titles */}
 		<div className="flex flex-col justify-start justify-items-stretch">
@@ -58,7 +58,7 @@ const TyreInfoCard = ({ colorRange, tyre, inverted = false }) => {
 			{inverted ? (
 				<>
 					<TyreGraphic tyre={tyre} colorRange={colorRange} />
-					<TyreData tyre={tyre} />
+					<TyreData tyre={tyre} inverted={inverted} />
 				</>
 			) : (
 				<>
