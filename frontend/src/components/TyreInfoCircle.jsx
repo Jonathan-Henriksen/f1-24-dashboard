@@ -10,18 +10,18 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 			<div className="flex flex-col justify-center divide-y-2 gap-2 divide-mainWhite/50 ">
 
 				{/* Titles */}
-				<div className="flex justify-stretch">
-					<span className="grow text-center text-4xl uppercase tracking-wider">Break</span>
-					<span className="grow text-center text-4xl uppercase tracking-wider">Carcass</span>
-					<span className="grow text-center text-4xl uppercase tracking-wider">Surface</span>
-					<span className="grow text-center text-4xl uppercase tracking-wider">Wear</span>
+				<div className="flex justify-evenly justify-items-stretch">
+					<span className="grow text-center text-2xl uppercase tracking-wider">Break</span>
+					<span className="grow text-center text-2xl uppercase tracking-wider">Carcass</span>
+					<span className="grow text-center text-2xl uppercase tracking-wider">Surface</span>
+					<span className="grow text-center text-2xl uppercase tracking-wider">Wear</span>
 				</div>
 				{/* Values */}
-				<div className="flex justify-stretch">
-					<span> <span className="grow text-center text-2xl">0C</span></span>
-					<span> <span className="grow text-center text-2xl">0C</span></span>
-					<span> <span className="grow text-center text-2xl">0C</span></span>
-					<span> <span className="grow text-center text-2xl">0%</span></span>
+				<div className="flex justify-evenly justify-items-stretch">
+					<span> <span className="grow text-center text-xl">0C</span></span>
+					<span> <span className="grow text-center text-xl">0C</span></span>
+					<span> <span className="grow text-center text-xl">0C</span></span>
+					<span> <span className="grow text-center text-xl">0%</span></span>
 				</div>
 			</div>
 
