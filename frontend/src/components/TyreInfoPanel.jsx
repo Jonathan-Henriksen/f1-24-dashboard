@@ -44,37 +44,39 @@ const ColorLegend = () => (
 
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
-		<div className="flex grow justify-center px-16 py-12">
+		<div className="flex grow justify-start px-16 py-12">
 
-			<div className="flex justify-self-start">
+			<div className="flex ">
 				<ColorLegend />
 			</div>
 
+			<div className="flex grow justify-center">
+				{/* Left Tyres */}
+				<div className="flex flex-col justify-between">
 
-			{/* Left Tyres */}
-			<div className="flex flex-col justify-between">
+					{/* Front */}
+					<TyreInfoCircle tyre={data.tyre_front_left} colorRange={colorRange} />
 
-				{/* Front */}
-				<TyreInfoCircle tyre={data.tyre_front_left} colorRange={colorRange} />
+					{/* Rear */}
+					<TyreInfoCircle tyre={data.tyre_rear_left} colorRange={colorRange} />
+				</div>
 
-				{/* Rear */}
-				<TyreInfoCircle tyre={data.tyre_rear_left} colorRange={colorRange} />
+				{/* Car Image */}
+				<div className="flex justify-center">
+					<img src={getCarTopViewImage(teamName)} alt={teamName} className="max-h-full" />
+				</div>
+
+				{/* Right Tyres */}
+				<div className="flex flex-col justify-between">
+
+					{/* Front */}
+					<TyreInfoCircle tyre={data.tyre_front_right} colorRange={colorRange} />
+
+					{/* Rear */}
+					<TyreInfoCircle tyre={data.tyre_rear_right} colorRange={colorRange} />
+				</div>
 			</div>
 
-			{/* Car Image */}
-			<div className="flex justify-center">
-				<img src={getCarTopViewImage(teamName)} alt={teamName} className="max-h-full" />
-			</div>
-
-			{/* Right Tyres */}
-			<div className="flex flex-col justify-between">
-
-				{/* Front */}
-				<TyreInfoCircle tyre={data.tyre_front_right} colorRange={colorRange} />
-
-				{/* Rear */}
-				<TyreInfoCircle tyre={data.tyre_rear_right} colorRange={colorRange} />
-			</div>
 		</div>
 	);
 }
