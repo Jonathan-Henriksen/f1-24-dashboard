@@ -15,6 +15,7 @@ const tempRange = () => {
 	for (let i = 40; i <= 115; i++) {
 		arr.push(i);
 	}
+	console.log(`Temp Range = ${arr}`)
 
 	return arr;
 }
