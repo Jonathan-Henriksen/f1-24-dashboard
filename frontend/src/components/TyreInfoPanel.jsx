@@ -46,7 +46,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 	return (
 		<div className="flex grow justify-center px-16 py-12">
 
-			<div className="flex">
+			<div className="flex justify-self-start">
 				<ColorLegend />
 			</div>
 
