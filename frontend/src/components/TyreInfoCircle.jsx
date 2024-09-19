@@ -36,8 +36,8 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 							}}
 							styles="pie-chart"
 						/>
-						<CircularProgressBar />
-					</CircularProgressBar >
+					</CircularProgressBar>
+				</CircularProgressBar >
 			</div>
 		</div>
 	);
