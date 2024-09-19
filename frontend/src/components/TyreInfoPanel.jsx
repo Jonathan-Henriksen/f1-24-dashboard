@@ -4,10 +4,9 @@ import TyreInfoCircle from "./TyreInfoCircle";
 import { getColorFromList } from "helpers/colorHelper";
 
 const colorRange = [
-	{ color: '#3EBEF7', value: 40 },  // Blue at 40
-	{ color: '#2BDD1A', value: 85 },  // Green at 85
-	{ color: '#FBCD4C', value: 95 },  // Yellow at 95
-	{ color: '#EC3B26', value: 120 }  // Red at 110
+	{ color: '#3EBEF7', value: 40 },  // Blue
+	{ color: '#2BDD1A', value: 90 },  // Green
+	{ color: '#EC3B26', value: 120 }  // Red 
 ];
 
 const tempRange = () => {
