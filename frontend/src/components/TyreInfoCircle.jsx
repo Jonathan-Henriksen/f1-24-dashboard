@@ -26,7 +26,7 @@ const TyreInfoCircle = ({ tyre }) => {
 						trackColor={getColorFromList(colorRange, tyre.temperature_carcass)}
 						radius="8rem"
 						size="3rem"
-						padding="5px"
+						padding="24px"
 						text={`${tyre.temperature_carcass}°C`}
 						textStyle={{
 							color: 'white',
