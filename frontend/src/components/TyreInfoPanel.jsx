@@ -13,8 +13,11 @@ const colorRange = [
 ];
 
 const tempRange = () => {
+	const minValue = Math.min(...colorRange.map(item => item.value));
+	const maxValue = Math.max(...colorRange.map(item => item.value));
+
 	const arr = [];
-	for (let i = 120; i >= 40; i--) {
+	for (let i = maxValue; i >= minValue; i--) {
 		arr.push(i);
 	}
 
