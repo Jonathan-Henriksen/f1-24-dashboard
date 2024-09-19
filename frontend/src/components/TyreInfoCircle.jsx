@@ -22,7 +22,7 @@ const TyreData = (tyre) => (
 	</div>
 )
 
-const TyreGraphic = (tyre, colorRange) => (
+const TyreGraphic = ({ colorRange, tyre }) => (
 	<div className="opacity-70">
 		<CircularProgressBar
 			percentage={0}
