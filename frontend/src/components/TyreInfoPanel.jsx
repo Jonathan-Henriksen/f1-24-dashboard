@@ -7,12 +7,12 @@ const colorRange = [
 	{ color: '#3EBEF7', value: 40 },  // Blue at 40
 	{ color: '#2BDD1A', value: 85 },  // Green at 85
 	{ color: '#FBCD4C', value: 95 },  // Yellow at 95
-	{ color: '#EC3B26', value: 115 }  // Red at 110
+	{ color: '#EC3B26', value: 120 }  // Red at 110
 ];
 
 const tempRange = () => {
 	const arr = [];
-	for (let i = 115; i >= 40; i--) {
+	for (let i = 120; i >= 40; i--) {
 		arr.push(i);
 	}
 
@@ -26,7 +26,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			{/* Color Legend */}
 			<div className="flex flex-col justify-center items-center p-1 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/50 shadow-mainDark/50">
 				{tempRange().map((temp, index) => (
-					<div key={index} className="flex grow px-3 py-1" style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
+					<div key={index} className={`flex grow px-3 py-1 ${index == 0 ? 'rounded-t-lg' : ''}`} style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
 					</div>
 				))}
 			</div>
