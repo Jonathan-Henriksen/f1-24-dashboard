@@ -12,7 +12,7 @@ const colorRange = [
 const TyreInfoCircle = ({ tyre }) => {
 	return (
 		<div className="flex justify-center p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
-			<div className="opacity-85">
+			<div className="opacity-75">
 				<CircularProgressBar
 					percentage={0}
 					showPercentage={false}
