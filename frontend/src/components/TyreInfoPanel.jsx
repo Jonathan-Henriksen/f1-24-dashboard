@@ -21,7 +21,7 @@ const tempRange = () => {
 
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
-		<div className="flex grow justify-center p-12">
+		<div className="flex grow justify-center divide-x p-12 divide-mainWhite/50">
 
 			{/* Color Legend */}
 			<div className="flex flex-col justify-center w-10 items-center p-2 border-2 bg-mainDark/50 border-mainBorder/25">
@@ -32,7 +32,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			</div>
 
 			{/* Left Tyres */}
-			<div className="flex flex-col justify-between">
+			<div className="flex flex-col justify-between divide-y divide-mainWhite/50">
 
 				{/* Front */}
 				<TyreInfoCircle tyre={data.tyre_front_left} colorRange={colorRange} />
@@ -47,7 +47,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			</div>
 
 			{/* Right Tyres */}
-			<div className="flex flex-col justify-between">
+			<div className="flex flex-col justify-between divide-y divide-mainWhite/50">
 
 				{/* Front */}
 				<TyreInfoCircle tyre={data.tyre_front_right} colorRange={colorRange} />
