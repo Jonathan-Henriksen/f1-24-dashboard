@@ -26,7 +26,7 @@ const blendColors = (color1, color2, percentage) => {
 };
 
 // Updated function to handle color-value pairs
-const getColorFromList = (colorRange, value) => {
+export const getColorFromList = (colorRange, value) => {
 	// Sort the color range based on the value
 	colorRange.sort((a, b) => a.value - b.value);
 
