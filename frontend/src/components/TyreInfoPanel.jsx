@@ -26,7 +26,7 @@ const tempRange = () => {
 
 const ColorLegend = ({ tyreCompound }) => (
 	<div className="flex flex-col justify-start items-center justify-self-start">
-		<span className="text-center text-3xl font-semibold rounded-full shadow-lg px-6 py-2 border-2 -mt-4 bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25">{tyreCompound}</span>
+		<span className="text-center text-3xl font-semibold rounded-full shadow-inner px-6 py-2 border-2 mb-2 -mt-6 border-mainBorder/25">{tyreCompound}</span>
 		<div className="flex grow">
 			<div className="flex flex-col justify-center items-center p-1 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/50 shadow-mainDark/50">
 				{tempRange().map((temp, index) => (
