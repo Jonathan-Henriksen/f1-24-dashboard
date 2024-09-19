@@ -20,14 +20,6 @@ const tempRange = () => {
 	return arr;
 }
 
-const LegendElement = (value, index) => {
-	let color = getColorFromList(colorRange, value)
-	return (
-		<div key={index} className={`flex h-1 w-4 bg-[${color}]`}>
-		</div>
-	)
-}
-
 const TyreInfoPanel = ({ data, teamName }) => {
 	return (
 		<div className="flex grow justify-center p-12">
@@ -35,7 +27,8 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			{/* Color Legend */}
 			<div className="flex flex-col justify-center items-center p-2 border-2 bg-mainDark/50 border-mainBorder/25">
 				{tempRange().map((temp, index) => (
-					<LegendElement in value={temp} index={index} />
+					<div key={index} className={`flex h-1 w-4 bg-[${getColorFromList(colorRange, temp)}]`}>
+					</div>
 				))}
 			</div>
 
