@@ -12,7 +12,7 @@ const colorRange = [
 
 const tempRange = () => {
 	const arr = [];
-	for (let i = 40; i <= 115; i++) {
+	for (let i = 115; i >= 40; i--) {
 		arr.push(i);
 	}
 
