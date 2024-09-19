@@ -21,7 +21,7 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span></span>
 					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span></span>
 					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span></span>
-					<span> <span className="grow text-center text-lg font-bold">{tyre.wear_percentage}%</span></span>
+					<span> <span className="grow text-center text-lg font-bold">{Math.trunc(tyre.wear_percentage)}%</span></span>
 				</div>
 			</div>
 
