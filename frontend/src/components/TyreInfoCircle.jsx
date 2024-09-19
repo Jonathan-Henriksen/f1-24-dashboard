@@ -7,17 +7,17 @@ const TyreData = ({ tyre, inverted }) => (
 
 		{/* Titles */}
 		<div className="flex flex-col justify-evenly justify-items-center items-start">
-			<span className="grow text-center text-xl uppercase">Surface</span>
-			<span className="grow text-center text-xl uppercase">Carcass</span>
-			<span className="grow text-center text-xl uppercase">Break</span>
-			<span className="grow text-center text-xl uppercase">Wear</span>
+			<span className="flex grow content-center text-center text-xl font-bold uppercase">Surface</span>
+			<span className="flex grow content-center text-center text-xl font-bold uppercase">Carcass</span>
+			<span className="flex grow content-center text-center text-xl font-bold uppercase">Break</span>
+			<span className="flex grow content-center text-center text-xl font-bold uppercase">Wear</span>
 		</div>
 		{/* Values */}
 		<div className="flex flex-col justify-evenly justify-items-center items-start pl-4">
-			<span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span>
-			<span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span>
-			<span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span>
-			<span className="grow text-center text-lg font-bold">{Math.trunc(tyre.wear_percentage)}%</span>
+			<span className="flex grow content-center text-center text-xl font-bold">{tyre.temperature_surface}°C</span>
+			<span className="flex grow content-center text-center text-xl font-bold">{tyre.temperature_carcass}°C</span>
+			<span className="flex grow content-center text-center text-xl font-bold">{tyre.temperature_brakes}°C</span>
+			<span className="flex grow content-center text-center text-xl font-bold">{Math.trunc(tyre.wear_percentage)}%</span>
 		</div>
 	</div>
 )
