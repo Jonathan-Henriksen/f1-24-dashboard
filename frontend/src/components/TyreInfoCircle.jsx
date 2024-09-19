@@ -5,33 +5,49 @@ import React from "react";
 const TyreInfoCircle = ({ colorRange, tyre }) => {
 	return (
 		<div className="flex justify-center p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
+
+			{/* Tyre Data */}
+			<div className="flex flex-col justify-center divide-y-2 gap-2 divide-mainWhite/50 ">
+
+				{/* Titles */}
+				<div className="flex justify-stretch">
+					<span className="grow text-center text-4xl uppercase tracking-wider">Break</span>
+					<span className="grow text-center text-4xl uppercase tracking-wider">Carcass</span>
+					<span className="grow text-center text-4xl uppercase tracking-wider">Surface</span>
+					<span className="grow text-center text-4xl uppercase tracking-wider">Wear</span>
+				</div>
+				{/* Values */}
+				<div className="flex justify-stretch">
+					<span> <span className="grow text-center text-2xl">0C</span></span>
+					<span> <span className="grow text-center text-2xl">0C</span></span>
+					<span> <span className="grow text-center text-2xl">0C</span></span>
+					<span> <span className="grow text-center text-2xl">0%</span></span>
+				</div>
+			</div>
+
+			{/* Tyre Graphic */}
 			<div className="opacity-75">
 				<CircularProgressBar
 					percentage={0}
 					showPercentage={false}
 					trackColor={getColorFromList(colorRange, tyre.temperature_surface)}
-					radius="9.5rem"
+					radius="8rem"
 					size="1.5rem"
 				>
 					<CircularProgressBar
 						percentage={0}
 						showPercentage={false}
 						trackColor={getColorFromList(colorRange, tyre.temperature_carcass)}
-						radius="8rem"
-						size="3rem"
+						radius="6.5rem"
+						size="2.5rem"
 					>
 						<CircularProgressBar
 							chartValue={{
 								[tyre.wear_percentage]: '#282927',
 								'100': getColorFromList(colorRange, tyre.temperature_carcass)
 							}}
+							radius="4rem"
 							styles="pie-chart"
-							text={`${tyre.temperature_carcass}°C`}
-							textStyle={{
-								color: 'white',
-								fontSize: '2rem',
-								fontStyle: 'bold'
-							}}
 						/>
 					</CircularProgressBar>
 				</CircularProgressBar >
