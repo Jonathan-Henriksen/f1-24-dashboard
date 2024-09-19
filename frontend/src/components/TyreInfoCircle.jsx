@@ -4,9 +4,12 @@ import { getColorFromList } from "helpers/colorHelper";
 import React from "react";
 
 const colorScale = [
-	'#3EBEF7',
-	'#00D369',
-	'#D0021B'
+	'#3EBEF7', // Blue
+	'#3EBEF7', // Blue
+	'#2BDD1A', // Green
+	'#FBCD4C', // Yellow
+	'#FE5823', // Orange
+	'#EC3B26' // Red
 ]
 
 const colorScale2 = [
@@ -27,7 +30,7 @@ const TyreInfoCircle = ({ tyre }) => {
 					percentage={0}
 					showPercentage={false}
 					trackColor={surfaceColor}
-					radius="10rem"
+					radius="9.5rem"
 					size="1.5rem"
 				>
 					<CircularProgressBar
