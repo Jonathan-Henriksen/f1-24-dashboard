@@ -51,7 +51,7 @@ const TyreGraphic = ({ colorRange, tyre }) => (
 	</div>
 )
 
-const TyreInfoCircle = ({ colorRange, tyre, inverted = false }) => {
+const TyreInfoCard = ({ colorRange, tyre, inverted = false }) => {
 	console.log(`Color Range = ${colorRange}`);
 	return (
 		<div className="flex justify-center p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
@@ -71,4 +71,4 @@ const TyreInfoCircle = ({ colorRange, tyre, inverted = false }) => {
 };
 
 
-export default TyreInfoCircle;
+export default TyreInfoCard;

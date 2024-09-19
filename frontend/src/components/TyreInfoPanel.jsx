@@ -1,6 +1,6 @@
 import React from "react";
 import { getCarTopViewImage } from "helpers/helpers";
-import TyreInfoCircle from "./TyreInfoCircle";
+import TyreInfoCard from "./TyreInfoCircle";
 import { getColorFromList } from "helpers/colorHelper";
 
 // C3 Range
@@ -64,10 +64,10 @@ const TyreInfoPanel = ({ data, teamName }) => {
 				<div className="flex flex-col justify-between">
 
 					{/* Front */}
-					<TyreInfoCircle tyre={data.tyre_front_left} colorRange={colorRange} />
+					<TyreInfoCard tyre={data.tyre_front_left} colorRange={colorRange} inverted={true} />
 
 					{/* Rear */}
-					<TyreInfoCircle tyre={data.tyre_rear_left} colorRange={colorRange} />
+					<TyreInfoCard tyre={data.tyre_rear_left} colorRange={colorRange} inverted={true} />
 				</div>
 
 				{/* Car Image */}
@@ -79,10 +79,10 @@ const TyreInfoPanel = ({ data, teamName }) => {
 				<div className="flex flex-col justify-between">
 
 					{/* Front */}
-					<TyreInfoCircle tyre={data.tyre_front_right} colorRange={colorRange} />
+					<TyreInfoCard tyre={data.tyre_front_right} colorRange={colorRange} />
 
 					{/* Rear */}
-					<TyreInfoCircle tyre={data.tyre_rear_right} colorRange={colorRange} />
+					<TyreInfoCard tyre={data.tyre_rear_right} colorRange={colorRange} />
 				</div>
 			</div>
 
