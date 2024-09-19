@@ -2,7 +2,7 @@ import { CircularProgressBar } from "react-percentage-bar";
 import { getColorFromList } from "helpers/colorHelper";
 import React from "react";
 
-const TyreData = (tyre) => (
+const TyreData = ({ tyre }) => (
 	<div className="flex justify-center pr-2 divide-x-2 gap-4 divide-mainWhite/50">
 
 		{/* Titles */}
