@@ -3,7 +3,7 @@ import { getColorFromList } from "helpers/colorHelper";
 import React from "react";
 
 const TyreData = ({ tyre, inverted }) => (
-	<div className={`flex justify-center divide-x-2 gap-4 divide-mainWhite/50 ${inverted ? 'pl-4' : 'pr-4'}`}>
+	<div className="flex justify-center gap-4 px-4 shadow-inner rounded-xl border-2 bg-mainLight border-mainBorder/25 divide-x-2 divide-mainWhite/50">
 
 		{/* Titles */}
 		<div className="flex flex-col justify-evenly justify-items-center items-start">
@@ -39,7 +39,7 @@ const TyreData = ({ tyre, inverted }) => (
 )
 
 const TyreGraphic = ({ colorRange, tyre }) => (
-	<div className="opacity-70">
+	<div className="opacity-70 ">
 		<CircularProgressBar
 			percentage={0}
 			showPercentage={false}
