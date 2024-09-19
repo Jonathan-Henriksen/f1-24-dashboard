@@ -9,12 +9,19 @@ const colorScale = [
 	'#D0021B'
 ]
 
+const colorScale2 = [
+	'#3EBEF7', // Blue
+	'#2BDD1A', // Green
+	'#EC3B26' // Red
+
+]
+
 const TyreInfoCircle = ({ tyre }) => {
-	let surfaceColor = getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_surface))
-	let carcassColor = getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_carcass))
+	let surfaceColor = getColorFromList(colorScale2, calculatePercentage(40, 130, tyre.temperature_surface))
+	let carcassColor = getColorFromList(colorScale2, calculatePercentage(40, 130, tyre.temperature_carcass))
 
 	return (
-		<div className="p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
+		<div className="flex justify-center p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
 			<CircularProgressBar
 				percentage={0}
 				showPercentage={false}
