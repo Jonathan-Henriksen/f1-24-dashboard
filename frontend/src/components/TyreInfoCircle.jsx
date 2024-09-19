@@ -6,14 +6,14 @@ const TyreData = ({ tyre, inverted }) => (
 	<div className={`flex justify-center divide-x-2 gap-4 divide-mainWhite/50 ${inverted ? 'pl-4' : 'pr-4'}`}>
 
 		{/* Titles */}
-		<div className="flex flex-col justify-start justify-items-stretch">
+		<div className="flex flex-col justify-start justify-items-start">
 			<span className="grow text-center text-xl uppercase">Surface</span>
 			<span className="grow text-center text-xl uppercase">Carcass</span>
 			<span className="grow text-center text-xl uppercase">Break</span>
 			<span className="grow text-center text-xl uppercase">Wear</span>
 		</div>
 		{/* Values */}
-		<div className="flex flex-col justify-start justify-items-stretch pl-2">
+		<div className="flex flex-col justify-start justify-items-start pl-2">
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span>
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span>
 			<span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span>
