@@ -26,7 +26,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			{/* Color Legend */}
 			<div className="flex flex-col justify-center w-10 items-center p-2 border-2 bg-mainDark/50 border-mainBorder/25">
 				{tempRange().map((temp, index) => (
-					<div key={index} className={`flex w-max h-2 border-[${getColorFromList(colorRange, temp)}] bg-[${getColorFromList(colorRange, temp)}]`}>
+					<div key={index} className={`min-w-max h-2 border-[${getColorFromList(colorRange, temp)}] bg-[${getColorFromList(colorRange, temp)}]`}>
 					</div>
 				))}
 			</div>
