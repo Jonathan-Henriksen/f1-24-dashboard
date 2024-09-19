@@ -5,7 +5,7 @@ import { getColorFromList } from "helpers/colorHelper";
 
 // C3 Range
 const colorRange = [
-	{ color: '#3EBEF7', value: 40 },  // Blue
+	{ color: '#3EBEF7', value: 50 },  // Blue
 	{ color: '#2BDD1A', value: 85 },  // Green
 	{ color: '#2BDD1A', value: 95 },  // Green
 	{ color: '#FBCD4C', value: 110 },  // Yellow
