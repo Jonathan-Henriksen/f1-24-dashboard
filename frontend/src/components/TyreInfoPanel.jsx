@@ -24,7 +24,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 		<div className="flex grow justify-center p-12">
 
 			{/* Color Legend */}
-			<div className="flex flex-col justify-center items-center p-2 border-2 bg-mainDark/50 border-mainBorder/25">
+			<div className="flex flex-col justify-center items-center p-1 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/50 shadow-mainDark/50">
 				{tempRange().map((temp, index) => (
 					<div key={index} className="flex grow px-3 py-1" style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
 					</div>
