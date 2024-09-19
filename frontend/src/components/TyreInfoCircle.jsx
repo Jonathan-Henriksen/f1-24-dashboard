@@ -11,17 +11,17 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 
 				{/* Titles */}
 				<div className="flex justify-evenly justify-items-stretch">
-					<span className="grow text-center text-2xl uppercase tracking-wider">Break</span>
-					<span className="grow text-center text-2xl uppercase tracking-wider">Carcass</span>
-					<span className="grow text-center text-2xl uppercase tracking-wider">Surface</span>
-					<span className="grow text-center text-2xl uppercase tracking-wider">Wear</span>
+					<span className="grow text-center text-xl uppercase">Break</span>
+					<span className="grow text-center text-xl uppercase">Carcass</span>
+					<span className="grow text-center text-xl uppercase">Surface</span>
+					<span className="grow text-center text-xl uppercase">Wear</span>
 				</div>
 				{/* Values */}
 				<div className="flex justify-evenly justify-items-stretch">
-					<span> <span className="grow text-center text-xl">0C</span></span>
-					<span> <span className="grow text-center text-xl">0C</span></span>
-					<span> <span className="grow text-center text-xl">0C</span></span>
-					<span> <span className="grow text-center text-xl">0%</span></span>
+					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_brakes}°C</span></span>
+					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_carcass}°C</span></span>
+					<span> <span className="grow text-center text-lg font-bold">{tyre.temperature_surface}°C</span></span>
+					<span> <span className="grow text-center text-lg font-bold">{tyre.wear_percentage}%</span></span>
 				</div>
 			</div>
 
