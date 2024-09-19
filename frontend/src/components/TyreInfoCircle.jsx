@@ -26,27 +26,27 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 			</div>
 
 			{/* Tyre Graphic */}
-			<div className="opacity-75">
+			<div className="opacity-60">
 				<CircularProgressBar
 					percentage={0}
 					showPercentage={false}
 					trackColor={getColorFromList(colorRange, tyre.temperature_surface)}
-					radius="8rem"
+					radius="6rem"
 					size="1.5rem"
 				>
 					<CircularProgressBar
 						percentage={0}
 						showPercentage={false}
 						trackColor={getColorFromList(colorRange, tyre.temperature_carcass)}
-						radius="6.5rem"
-						size="2.5rem"
+						radius="4.5rem"
+						size="2rem"
 					>
 						<CircularProgressBar
 							chartValue={{
 								[tyre.wear_percentage]: '#282927',
 								'100': getColorFromList(colorRange, tyre.temperature_carcass)
 							}}
-							radius="4rem"
+							radius="2.5rem"
 							styles="pie-chart"
 						/>
 					</CircularProgressBar>
