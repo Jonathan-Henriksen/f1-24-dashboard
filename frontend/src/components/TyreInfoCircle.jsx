@@ -30,8 +30,6 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 						<CircularProgressBar
 							chartValue={{
 								[tyre.wear_percentage]: 'transparent',
-								'30': 'blue',
-								'80': 'green',
 								'100': getColorFromList(colorRange, tyre.temperature_carcass)
 							}}
 							styles="pie-chart"
