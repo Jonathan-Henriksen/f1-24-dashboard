@@ -18,8 +18,6 @@ module.exports = {
           purple: '#9B30FF'
         },
         // F1 Colors
-        f1Grey: '#2E2E2E',
-        f1Highlight: '#D0021B',
         f1Green: '#00D369',
         f1Purple: '#9B30FF',
         f1DeltaRed: '#FF0000',

@@ -10,21 +10,28 @@ const colorScale = [
 ]
 
 const TyreInfoCircle = ({ tyre }) => {
+	let surfaceColor = getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_surface))
+	let carcassColor = getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_carcass))
+
 	return (
 		<CircularProgressBar
 			percentage={0}
 			showPercentage={false}
-			trackColor={getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_surface))}
-			radius="6rem"
-			startDelay={10}
+			trackColor={surfaceColor}
+			size="2rem"
+			radius="16rem"
 		>
 			<CircularProgressBar
 				percentage={0}
 				showPercentage={false}
-				trackColor={getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_carcass))}
-				radius="4.5rem"
-				text={`${Math.trunc(tyre.temperature_carcass)}°C`}
-				startDelay={10}
+				trackColor={carcassColor}
+				size="4rem"
+				radius="6rem"
+				backgroundColor={carcassColor}
+				text={`${tyre.temperature_carcass}°C`}
+				textStyle={{
+					fontStyle: 'bold'
+				}}
 			/>
 		</CircularProgressBar >
 	);
