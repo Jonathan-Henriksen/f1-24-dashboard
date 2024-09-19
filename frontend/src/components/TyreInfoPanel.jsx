@@ -29,7 +29,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 					<div key={index} className={"flex grow justify-start px-3 py-1"} style={{ backgroundColor: getColorFromList(colorRange, temp) }}>
 						{temp % 10 === 0 && (
 							<>
-								<span className="text-center font-bold bg-transparent">- {temp}°</span>
+								<span className="text-center font-bold bg-transparent">-{temp}°</span>
 							</>
 						)}
 					</div>
