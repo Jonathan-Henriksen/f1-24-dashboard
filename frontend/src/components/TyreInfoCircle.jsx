@@ -18,15 +18,19 @@ const TyreInfoCircle = ({ tyre }) => {
 			percentage={0}
 			showPercentage={false}
 			trackColor={surfaceColor}
-			radius="8rem"
+			radius="8.5rem"
+			size="1.5rem"
 		>
 			<CircularProgressBar
 				percentage={0}
 				showPercentage={false}
 				trackColor={carcassColor}
-				radius="8.5rem"
+				radius="8rem"
+				size="3rem"
 				text={`${tyre.temperature_carcass}°C`}
 				textStyle={{
+					color: 'white',
+					fontSize: '4rem',
 					fontStyle: 'bold'
 				}}
 			/>
