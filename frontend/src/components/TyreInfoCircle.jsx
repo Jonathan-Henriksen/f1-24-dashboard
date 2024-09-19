@@ -34,7 +34,7 @@ const TyreInfoCircle = ({ tyre }) => {
 						percentage={0}
 						showPercentage={false}
 						trackColor={carcassColor}
-						radius="8rem"
+						radius="7rem"
 						size="3rem"
 						text={`${tyre.temperature_carcass}°C`}
 						textStyle={{
