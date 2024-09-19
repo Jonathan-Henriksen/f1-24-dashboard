@@ -14,7 +14,7 @@ const TyreInfoCircle = ({ tyre }) => {
 	let carcassColor = getColorFromList(colorScale, calculatePercentage(50, 110, tyre.temperature_carcass))
 
 	return (
-		<div className="p-4 b-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
+		<div className="p-4 border-2 rounded-xl shadow-lg bg-mainDark/50 border-mainBorder/25 shadow-mainDark/75">
 			<CircularProgressBar
 				percentage={0}
 				showPercentage={false}
