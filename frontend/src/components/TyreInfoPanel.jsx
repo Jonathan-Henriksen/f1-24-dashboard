@@ -59,7 +59,7 @@ const TyreInfoPanel = ({ data, teamName }) => {
 			</div>
 
 			{/* Car Image */}
-			<div className="flex justify-center col-start-4 col-span-2 row-start-3 row-span-6">
+			<div className="flex justify-center">
 				<img src={getCarTopViewImage(teamName)} alt={teamName} className="max-h-full" />
 			</div>
 
