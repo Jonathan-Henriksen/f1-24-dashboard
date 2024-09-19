@@ -19,13 +19,6 @@ const TyreInfoCircle = ({ colorRange, tyre }) => {
 						trackColor={getColorFromList(colorRange, tyre.temperature_carcass)}
 						radius="8rem"
 						size="3rem"
-						padding="1rem"
-						text={`${tyre.temperature_carcass}°C`}
-						textStyle={{
-							color: 'white',
-							fontSize: '2.5rem',
-							fontStyle: 'bold'
-						}}
 					>
 						<CircularProgressBar
 							chartValue={{
