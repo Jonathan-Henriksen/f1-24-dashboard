@@ -133,7 +133,7 @@ const WeatherCard = ({ weatherData }) => (
 			<span className="text-3xl">Now</span>
 		</div>
 
-		{weatherData.forecasts.map((forecast, index) => (
+		{weatherData.weather_forecasts.map((forecast, index) => (
 			<div key={index} className="flex flex-col justify-center items-start">
 				<WeatherIcon weather={forecast.weather} />
 				<span className="text 4xl border-t-2 border-mainBorder/25">Air {forecast.temperature_air}°C</span>
