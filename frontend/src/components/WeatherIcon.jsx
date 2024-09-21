@@ -12,16 +12,16 @@ import { ReactComponent as HeavyRainNight } from "../icons/weather/heavy_rain_ni
 
 const WeatherIcon = (weather, isDay = true) => {
 	console.log(weather)
-	switch (weather.toLowerCase()) {
-		case "clear":
+	switch (weather) {
+		case "CLEAR":
 			return isDay ? Clear : ClearNight;
-		case "light_cloud":
+		case "LIGHT_CLOUD":
 			return isDay ? LightCloud : LightCloudNight;
-		case "overcast":
+		case "OVERCAST":
 			return isDay ? Overcast : OvercastNight;
-		case "light_rain":
+		case "LIGHT_RAIN":
 			return isDay ? LightRain : LightRainNight;
-		case "heavy_rain":
+		case "HEAVY_RAIN":
 			return isDay ? HeavyRain : HeavyRainNight;
 		default:
 			return isDay ? Clear : ClearNight;
