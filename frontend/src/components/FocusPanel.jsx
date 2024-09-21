@@ -133,17 +133,17 @@ const WeatherCard = ({ weatherData }) => (
 
 			<WeatherIcon weather={weatherData.weather} />
 
-			<div className="flex grow justify-stretch justify-items-start items-center">
+			<div className="flex grow justify-stretch justify-items-start items-center gap-2">
 				<span className="text-3xl">Air</span>
 				<span className="text-3xl">{weatherData.temperature_air}°C</span>
 			</div>
 
-			<div className="flex grow justify-stretch justify-items-start items-center">
+			<div className="flex grow justify-stretch justify-items-start items-center gap-2">
 				<span className="text-3xl">Track</span>
 				<span className="text-3xl">{weatherData.temperature_track}°C</span>
 			</div>
 
-			<span className="text-2xl ">Now</span>
+			<span className="text-2xl pt-10">Now</span>
 
 		</div>
 
@@ -155,12 +155,12 @@ const WeatherCard = ({ weatherData }) => (
 
 				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-semibold">Air</span>
-					<span className="text-3xl">{forecast.temperature_air}°C</span>
+					<span className="text-3xl">{forecast.temperatur_air}°C</span>
 				</div>
 
 				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-semibold">Track</span>
-					<span className="text-3xl">{forecast.temperature_track}°C</span>
+					<span className="text-3xl">{forecast.temperatur_track}°C</span>
 				</div>
 
 				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
