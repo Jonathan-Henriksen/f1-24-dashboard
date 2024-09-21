@@ -11,6 +11,7 @@ import { ReactComponent as LightRainNight } from "../icons/weather/light_rain_ni
 import { ReactComponent as HeavyRainNight } from "../icons/weather/heavy_rain_night.svg";
 
 const WeatherIcon = (weather, isDay = true) => {
+	console.log(weather)
 	switch (weather.toLowerCase()) {
 		case "clear":
 			return isDay ? Clear : ClearNight;
