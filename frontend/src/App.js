@@ -44,7 +44,7 @@ function App() {
 		<div className="inline-flex grow h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
 
 			{mfdData.focus_mode ? (
-				<div classname="flex grow justify-center items-center">
+				<div classname="flex grow place-self-center justify-center items-center">
 					<FocusPanel generalData={mfdData} timingsData={mfdData.panels[0]} tyreData={mfdData.panels[1]} strategyData={mfdData.panels[2]} weatherData={mfdData.panels[4]} />
 				</div>
 

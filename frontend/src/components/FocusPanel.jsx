@@ -4,28 +4,28 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 const TimingsCard = ({ timingsData }) => (
-	<div className="flex justify-stretch items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex justify-stretch items-center p-4 divide-x-4 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
 
 		{/* Fastest Lap*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2 divide-y-2 divide-mainBorder/50">
-			<span className="text-center text-2xl font-semibold border-b-2">Fastest Lap</span>
+		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
+			<span className="text-center text-2xl font-semibold">Fastest Lap</span>
 			<span className="text-center text-4xl font-bold text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2 divide-y-2 divide-mainBorder/50">
+		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
 			<span className="text-center text-2xl font-semibold">Personal Best</span>
 			<span className="text-center text-4xl font-bold text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2 divide-y-2 divide-mainBorder/50">
+		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
 			<span className={"text-center text-2xl font-semibold"}>Teammate Best</span>
 			<span className={`text-center text-4xl font-bold ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
 		{/* Current Lap*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2 divide-y-2 divide-mainBorder/50">
+		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
 			<span className="text-center text-2xl font-semibold">Current Lap</span>
 			<span className={`text-center text-4xl font-bold ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
@@ -52,31 +52,31 @@ const DeltasCard = ({ timingsData }) => {
 
 			{raceLeader && raceLeader.position != player.position && (
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
-					<span className="text-3xl font-bold">P{raceLeader.position}</span>
-					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(raceLeader.team)}`}>P{raceLeader.name}</span>
-					<span className="text-3xl text-mainRed">+{formatTime(raceLeader.delta_to_player)}</span>
+					<span className="text-4xl font-bold">P{raceLeader.position}</span>
+					<span className={`text-4xl br-2 border-mainBorder/25 ${getTeamColor(raceLeader.team)}`}>{raceLeader.name}</span>
+					<span className="text-2xl text-mainRed">+{formatTime(raceLeader.delta_to_player)}</span>
 				</div>
 			)}
 
 			{driverInFront && (
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
-					<span className="text-3xl font-bold">P{driverInFront.position}</span>
-					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(driverInFront.team)}`}>P{driverInFront.name}</span>
-					<span className="text-3xl text-mainRed">+{formatTime(driverInFront.delta_to_player)}</span>
+					<span className="text-4xl font-bold">P{driverInFront.position}</span>
+					<span className={`text-4xl br-2 border-mainBorder/25 ${getTeamColor(driverInFront.team)}`}>{driverInFront.name}</span>
+					<span className="text-2xl text-mainRed">+{formatTime(driverInFront.delta_to_player)}</span>
 				</div>
 			)}
 
 			{player && (
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
-					<span className="text-3xl font-bold">P{driverInFront.position}</span>
-					<span className="text-3xl br-2 border-mainBorder/25">P{driverInFront.name}</span>
+					<span className="text-4xl font-bold">P{player.position}</span>
+					<span className="text-4xl br-2 border-mainBorder/25">{player.name}</span>
 				</div>
 			)}
 
 			{driverBehind && (
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-bold">P{driverBehind.position}</span>
-					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(driverBehind.team)}`}>P{driverBehind.name}</span>
+					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(driverBehind.team)}`}>{driverBehind.name}</span>
 					<span className="text-3xl text-lapTime-green">-{formatTime(driverBehind.delta_to_player)}</span>
 				</div>
 			)}
@@ -87,17 +87,17 @@ const DeltasCard = ({ timingsData }) => {
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 	<div className="flex flex-col justify-center items-stretch p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/50">
 
-		<div className="flex justify-stretch justify-items-start items-center">
+		<div className="flex justify-stretch justify-items-start items-center gap-4">
 			<span className="text-3xl font-bold">ERS Deploy Mode</span>
 			<span className="text-3xl capitalize">{ersDeployMode}</span>
 		</div>
 
-		<div className="flex justify-stretch justify-items-start items-center">
+		<div className="flex justify-stretch justify-items-start items-center gap-4">
 			<span className="text-3xl font-bold">Brake Bias</span>
 			<span className="text-3xl">{brakeBias}%</span>
 		</div>
 
-		<div className="flex justify-stretch justify-items-start items-center">
+		<div className="flex justify-stretch justify-items-start items-center gap-4">
 			<span className="text-3xl font-bold">Differential</span>
 			<span className="text-3xl">{differential}%</span>
 		</div>
@@ -149,7 +149,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	let sessionType = generalData.session_type;
 
 	return (
-		<div classname="flex grow justify-center items-center">
+		<div classname="flex grow justify-center items-center gap-8">
 
 			<DeltasCard timingsData={timingsData} />
 
@@ -163,7 +163,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 
 			<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
-			<WeatherCard weatherData={weatherData} />
+			{/* <WeatherCard weatherData={weatherData} /> */}
 		</div >
 	)
 }
