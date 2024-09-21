@@ -4,7 +4,7 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 const TimingsCard = ({ timingsData }) => (
-	<div className="flex justify-stretch items-center p-4 divide-x-4 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
+	<div className="flex grow justify-stretch items-center p-4 divide-x-4 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
 
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
@@ -33,7 +33,7 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<div className="flex justify-center items-center divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/40">
+	<div className="flex grow justify-center items-center divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/40">
 		<div className="flex grow flex-col p-2 gap-2">
 			<span className="text-center text-2xl font-semibold">Time Left</span>
 			<span className={`text-center text-4xl font-bold ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
@@ -48,7 +48,7 @@ const DeltasCard = ({ timingsData }) => {
 	let player = timingsData.player
 
 	return (
-		<div className="flex flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/50">
+		<div className="flex grow flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{raceLeader && raceLeader.position != player.position && (
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
@@ -85,7 +85,7 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<div className="flex flex-col justify-center items-stretch p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex grow flex-col justify-center items-stretch p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 		<div className="flex justify-stretch justify-items-start items-center gap-4">
 			<span className="text-3xl font-bold">ERS Deploy Mode</span>
@@ -105,7 +105,7 @@ const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 )
 
 const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosition }) => (
-	<div className="flex flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex grow flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 		<div className="flex grow flex-col justify-center items-center">
 			<span className="text-center text-3xl">Recommended Lap to Pit</span>
@@ -125,7 +125,7 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<div className="flex justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex grow justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 		<div className="flex flex-col justify-center items-start">
 			<WeatherIcon weather={weatherData.weather} />
 			<span className="text-4xl border-t-2 border-mainBorder/25">Air {weatherData.temperature_air}°C</span>
