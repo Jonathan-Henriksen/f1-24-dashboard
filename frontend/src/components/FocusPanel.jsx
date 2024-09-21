@@ -48,10 +48,10 @@ const DeltasCard = ({ timingsData }) => {
 	let player = timingsData.player
 
 	return (
-		<div className="flex grow flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+		<div className="flex grow flex-col justify-center items-start p-4 gap-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{raceLeader && raceLeader.position != player.position && (
-				<div className="flex justify-stretch justify-items-start items-center gap-2">
+				<div className="flex justify-center justify-items-start items-center gap-2">
 					<span className="text-4xl font-bold">P{raceLeader.position}</span>
 					<span className={`text-4xl br-2 border-mainBorder/25 ${getTeamColor(raceLeader.team)}`}>{raceLeader.name}</span>
 					<span className="text-2xl text-mainRed">+{formatTime(raceLeader.delta_to_player)}</span>
@@ -59,7 +59,7 @@ const DeltasCard = ({ timingsData }) => {
 			)}
 
 			{driverInFront && (
-				<div className="flex justify-stretch justify-items-start items-center gap-2">
+				<div className="flex justify-center justify-items-start items-center gap-2 pt-4">
 					<span className="text-4xl font-bold">P{driverInFront.position}</span>
 					<span className={`text-4xl br-2 border-mainBorder/25 ${getTeamColor(driverInFront.team)}`}>{driverInFront.name}</span>
 					<span className="text-2xl text-mainRed">+{formatTime(driverInFront.delta_to_player)}</span>
@@ -67,14 +67,14 @@ const DeltasCard = ({ timingsData }) => {
 			)}
 
 			{player && (
-				<div className="flex justify-stretch justify-items-start items-center gap-2">
+				<div className="flex justify-center justify-items-start items-center gap-2 pt-4">
 					<span className="text-4xl font-bold">P{player.position}</span>
 					<span className="text-4xl br-2 border-mainBorder/25">{player.name}</span>
 				</div>
 			)}
 
 			{driverBehind && (
-				<div className="flex justify-stretch justify-items-start items-center gap-2">
+				<div className="flex justify-center justify-items-start items-center gap-2 pt-4">
 					<span className="text-3xl font-bold">P{driverBehind.position}</span>
 					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(driverBehind.team)}`}>{driverBehind.name}</span>
 					<span className="text-3xl text-lapTime-green">-{formatTime(driverBehind.delta_to_player)}</span>
