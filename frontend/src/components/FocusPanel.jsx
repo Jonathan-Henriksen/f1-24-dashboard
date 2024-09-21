@@ -86,7 +86,7 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<div className="flex grow flex-col justify-center items-stretch p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex flex-col justify-center items-stretch p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 		<div className="flex justify-stretch justify-items-start items-center gap-4">
 			<span className="text-3xl font-bold">ERS Deploy Mode</span>
@@ -106,7 +106,7 @@ const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 )
 
 const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosition }) => (
-	<div className="flex grow flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 		<div className="flex grow flex-col justify-center items-center">
 			<span className="text-center text-3xl">Recommended Lap to Pit</span>
@@ -126,7 +126,7 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<div className="flex grow justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 		<div className="flex flex-col justify-center items-start">
 			<WeatherIcon weather={weatherData.weather} />
 			<span className="text-4xl border-t-2 border-mainBorder/25">Air {weatherData.temperature_air}°C</span>
@@ -153,7 +153,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 		<div classname="flex grow flex-col justify-center content-center items-center gap-8 border-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
 
 			{/* First Row */}
-			<div className="flex grow justify-stretch content-center items-center p-4">
+			<div className="flex grow justify-stretch content-center items-stretch gap-8 p-4">
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
 				<TimingsCard timingsData={timingsData} />
@@ -168,13 +168,13 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 			</div>
 
 			{/* Second Row */}
-			<div className="flex grow justify-center content-center items-center p-4">
+			<div className="flex grow justify-center content-center items-stretch gap-8 p-4">
 				<WeatherCard weatherData={weatherData} />
 				<DeltasCard timingsData={timingsData} />
 			</div>
 
 			{/* Third Row */}
-			<div className="flex grow justify-center content-center items-center p-4">
+			<div className="flex grow justify-center content-center items-stretch gap-8 p-4">
 				<CarDeltasGraphic
 					behindCar={timingsData.driver_behind}
 					playerCar={timingsData.player}
