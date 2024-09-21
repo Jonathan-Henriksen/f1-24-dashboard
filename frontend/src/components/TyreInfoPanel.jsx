@@ -1,7 +1,9 @@
 import React from "react";
-import { getCarTopViewImage } from "helpers/helpers";
 import TyreInfoCard from "./TyreInfoCircle";
+import { getCarTopViewImage } from "helpers/imageHelper";
 import { getColorFromList } from "helpers/colorHelper";
+
+
 
 // C3 Range
 const colorRange = [

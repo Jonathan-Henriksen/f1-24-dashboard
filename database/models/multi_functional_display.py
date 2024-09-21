@@ -2,11 +2,12 @@ from .panels import *
 from typing import Union
 
 from telemetry.packets import *
-from telemetry.enums import SafetyCarTypes, SafetyCarStatus, PitStatus, FiaFlags, SessionTypes
+from telemetry.enums import SafetyCarTypes, SafetyCarStatus, PitStatus, FiaFlags, SessionTypes, ErsDeployMode
 
 class MultiFunctionDisplay:
 	def __init__(self):
 		self.active_panel_index: int = 0
+		self.focus_mode: bool = False
 		self.current_lap_invalid: bool = False
 		self.drs_activation_distance: int = 0
 		self.fia_flags: str = FiaFlags.NONE.name
@@ -16,6 +17,9 @@ class MultiFunctionDisplay:
 		self.pit_status: str = PitStatus.NONE.name
 		self.session_type: str = ""
 		self.player: Driver = Driver()
+		self.ers_deploy_mode: str = ErsDeployMode.NONE.name
+		self.brake_bias: int = 0
+		self.differential: int = 0
 		self.panels = [
 			TimingsPanel(),
 			TyresPanel(),
@@ -60,6 +64,9 @@ class MultiFunctionDisplay:
 		else:
 			self.active_panel_index += 1
 
+	def focus_mode_toggle(self):
+		self.focus_mode = not self.focus_mode
+
 	# Safety Car Event
 	def update_from_safety_car_event(self, event: SafetyCarEvent):
 		self.safety_car_type = SafetyCarTypes(event.safety_car_type).name
@@ -102,8 +109,16 @@ class MultiFunctionDisplay:
 
 		self.fia_flags = FiaFlags(player_data.vehicle_fia_flags).name
 		self.drs_activation_distance = player_data.drs_activation_distance
+		self.ers_deploy_mode = ErsDeployMode(player_data.ers_deploy_mode).name
+		self.brake_bias = player_data.front_brake_bias
 
 		self.tyres_panel().update_from_car_status_packet(car_status_packet)
+
+	## Car Status Packet
+	def update_from_car_setup_packet(self, car_status_packet: CarSetupPacket):
+		player_data = car_status_packet.player_data()
+
+		self.differential = player_data.diff_throttle_on
 
 	## Car Telemetry Packet
 	def update_from_car_telemetry_packet(self, car_telemetry_packet: CarTelemetryPacket):
@@ -118,7 +133,12 @@ class MultiFunctionDisplay:
 		self.session_type = SessionTypes(session_packet.session_type).name
 
 		self.timings_panel().update_from_session_packet(session_packet)
-		self.weather_panel().update_from_session(session_packet)
+
+		drivers = self.leaderboard_panel().drivers.values()
+		total_time_in_ms = sum(driver.lap_time_previous.to_milliseconds() for driver in drivers)
+		lap_time_avg = Time(ms_part=int(abs(total_time_in_ms / len(drivers))))
+		self.weather_panel().update_from_session(session_packet, lap_time_avg)
+		
 
 	# Tyre Sets Packet
 	def update_from_tyre_sets_packet(self, tyre_sets_packet: TyreSetsPacket):

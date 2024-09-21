@@ -1,5 +1,6 @@
 from .button_flags import *
 from .driver_status import *
+from .ers_deploy_mode import *
 from .event_codes import *
 from .fia_flags import *
 from .game_modes import *

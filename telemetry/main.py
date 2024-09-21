@@ -82,6 +82,9 @@ def handle_packet(data: bytes):
 						elif (event.button_status & ButtonFlags.UDP_ACTION_2):
 							multi_function_display.navigate_right()
 
+						elif (event.button_status & ButtonFlags.UDP_ACTION_3):
+							multi_function_display.focus_mode_toggle()
+
 					elif type(event) == SafetyCarEvent:
 						multi_function_display.update_from_safety_car_event(event)
 

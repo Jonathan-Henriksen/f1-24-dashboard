@@ -7,6 +7,7 @@ import TyreInfoPanel from './components/TyreInfoPanel';
 import LeaderboardPanel from './components/LeaderboardPanel';
 import WeatherPanel from './components/WeatherPanel';
 import DamagePanel from './components/DamagePanel';
+import FocusPanel from 'components/FocusPanel';
 
 function App() {
 	const [mfdData, setMfdData] = useState(null);
@@ -40,15 +41,34 @@ function App() {
 	};
 
 	return (
-		<div className="inline-flex flex-col h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
+		<div className="inline-flex grow h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
 
-			<div class="flex flex-col justify-stretch items-stretch pt-2 pb-6 px-16 border-b-2 border-b-mainBorder/25">
-				<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
-			</div>
+			{data.focus_mode ? (
+				<div classname="flex grow justify-center items-center">
+					<FocusPanel generalData={mfdData} timingsData={mfdData.panels[0]} tyreData={mfdData.panels[1]} strategyData={mfdData.panels[2]} sessionType={mfdData.session_type} />
+				</div>
 
-			<div className="flex grow flex-col justify-stretch content-stretch shadow-inner rounded-xl p-4 border-b-2 bg-mainLight shadow-mainDark border-y-mainBorder/25">
-				{renderActivePanel()}
-			</div>
+			) : (
+				<div className="flex grow flex-col justify-start">
+					{/* Navigation */}
+					<div class="flex flex-col justify-stretch items-stretch pt-2 pb-6 px-16 border-b-2 border-b-mainBorder/25">
+						<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
+					</div>
+
+					{/* Current Settings */}
+					<div class="flex justify-stretch items-center py-2 px-32 border-b-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
+						<span className="text-center text-xl font-bold">ERS Mode: <span className="capitalize">{mfdData.ers_deploy_mode}</span></span>
+						<span className="text-center text-xl font-bold">Differential: {mfdData.differential_pct}%</span>
+						<span className="text-center text-xl font-bold">Brake Bias: {mfdData.front_brake_bias}%</span>
+						<span className="text-center text-xl font-bold">Lap Time: <span className={`${mfdData.current_lap_invalid ? 'text-mainRed' : 'text-mainWhite/25'}`}>Invalid</span></span>
+					</div>
+
+					{/* Active Panel */}
+					<div className="flex grow flex-col justify-stretch content-stretch shadow-inner rounded-xl p-4 border-b-2 bg-mainLight shadow-mainDark border-y-mainBorder/25">
+						{renderActivePanel()}
+					</div>
+				</div>
+			)}
 
 		</div>
 	);

@@ -1,7 +1,7 @@
 import React from 'react';
 import CardRow from './CardRow';
 import CarDeltasGraphic from './CarDeltasGraphic';
-import { getTeamColor } from 'helpers/helpers';
+import { getTeamColor } from 'helpers/colorHelper'
 
 const TimingsPanel = ({ data, sessionType }) => {
 	const topRowCards = [

@@ -1,6 +1,7 @@
 // CarDeltasGraphic.jsx
 import React from 'react';
-import { formatTime, getCarImage, getTeamColor, capitalizeName } from 'helpers/helpers';
+import { getCarImage } from 'helpers/imageHelper'
+import { getTeamColor } from 'helpers/colorHelper'
 
 const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 	const carsToRender = [];
@@ -17,7 +18,7 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 						<div className="flex flex-row items-center">
 							<div className="flex justify-center items-center lg:text-lg text-xl font-bold w-12 h-10 mr-2 rounded-full border-2 shadow-lg text-mainWhite/75 bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">P{car.position}</div>
 							<div className={`capitalize xl:text-xl text-3xl ${getTeamColor(car.team)}`}>
-								{car.type === 'player' ? 'You' : capitalizeName(car.name)}
+								{car.type === 'player' ? 'You' : car.name}
 							</div>
 						</div>
 						<img src={getCarImage(car.team)} alt={car.name} className="max-w-full scale-x-[-1]" />

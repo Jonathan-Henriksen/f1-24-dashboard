@@ -6,6 +6,7 @@ class Driver():
 		self.name: str = ""
 		self.delta_to_player: Time = Time()
 		self.lap_time_current: Time = Time()
+		self.lap_time_previous: Time = ()
 		self.lap_time_current_invalid: bool = False
 		self.lap_time_personal_best: Time = Time()
 		self.pit_status: str = PitStatus.NONE.name

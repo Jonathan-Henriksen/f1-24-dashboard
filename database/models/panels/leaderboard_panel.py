@@ -60,7 +60,8 @@ class LeaderboardPanel():
 			self.drivers[car_index].position = lap_data.car_position
 			self.drivers[car_index].lap_time_current = Time(ms_part=lap_data.current_lap_time_in_ms)
 			self.drivers[car_index].lap_time_current_invalid = bool(lap_data.current_lap_invalid)
-			
+			self.drivers[car_index].lap_time_previous = Time(ms_part=lap_data.last_lap_time_in_ms)
+
 			self.drivers[car_index].pit_status = PitStatus(lap_data.pit_status).name
 			self.drivers[car_index].penalty_seconds = lap_data.penalties
 			self.drivers[car_index].driver_status = DriverStatus(lap_data.driver_status).name

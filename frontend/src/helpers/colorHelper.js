@@ -25,7 +25,12 @@ const blendColors = (color1, color2, percentage) => {
 	return rgbToHex(r, g, b);
 };
 
-// Updated function to handle color-value pairs
+
+/**
+ * Function to return a gradient color based on the colorRange and a value
+ * @param {string} colorRange - The range of colors and their correponding breakpoints - [ { color: 'green' value: 0 }, { color: 'red', value: 100 }]
+ * @returns {string} - Color code for input value, based on its location in the color range.
+ */
 export const getColorFromList = (colorRange, value) => {
 	// Sort the color range based on the value
 	colorRange.sort((a, b) => a.value - b.value);
@@ -53,4 +58,25 @@ export const getColorFromList = (colorRange, value) => {
 
 	// Interpolate the color based on the percentage
 	return blendColors(lowerColor.color, upperColor.color, percentage);
+};
+
+/**
+ * Function to map team names to their Tailwind text color class
+ * @param {string} team - The name of the team (e.g., 'MERCEDES', 'FERRARI', 'RED_BULL_RACING', etc.)
+ * @returns {string} - The Tailwind color class for the team's color
+ */
+export const getTeamColor = (team) => {
+	switch (team.toUpperCase()) {
+		case 'MERCEDES': return 'text-mercedes';
+		case 'FERRARI': return 'text-ferrari';
+		case 'RED_BULL_RACING': return 'text-redbull';
+		case 'WILLIAMS': return 'text-williams';
+		case 'ASTON_MARTIN': return 'text-astonmartin';
+		case 'ALPINE': return 'text-alpine';
+		case 'RB': return 'text-rb'; // RB (previously AlphaTauri)
+		case 'HAAS': return 'text-haas';
+		case 'MCLAREN': return 'text-mclaren';
+		case 'SAUBER': return 'text-sauber'; // Sauber (previously Alfa Romeo)
+		default: return 'text-white'; // Default to white if no matching team
+	}
 };
