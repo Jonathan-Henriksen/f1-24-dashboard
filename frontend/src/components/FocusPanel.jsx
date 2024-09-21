@@ -145,7 +145,9 @@ const WeatherCard = ({ weatherData }) => (
 	</div>
 )
 
-const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherData, sessionType = "" }) => {
+const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherData }) => {
+	let sessionType = generalData.session_type;
+
 	return (
 		<div classname="flex grow justify-center items-center">
 
