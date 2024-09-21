@@ -139,7 +139,7 @@ const WeatherCard = ({ weatherData }) => (
 				<span className="text 4xl border-t-2 border-mainBorder/25">Air {forecast.temperature_air}°C</span>
 				<span className="text-4xl">Track {forecast.temperature_track}°C</span>
 				<span className="text-4xl">Rain {forecast.rain_percentage}%</span>
-				<span className="text-3xl">+ {forecast.offset_in_minutes}min</span>
+				<span className="text-3xl">+ {forecast.time_offset_in_minutes}min</span>
 			</div>
 		))}
 	</div>
