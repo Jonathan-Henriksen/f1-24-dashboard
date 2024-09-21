@@ -21,7 +21,7 @@ class WeatherPanel:
         self.weather_forecasts = [
             WeatherForecast(
                 time_offset_in_minutes=forecast_sample.time_offset,
-                weather=forecast_sample.weather,
+                weather=Weather(forecast_sample.weather).name,
                 temperatur_air=forecast_sample.air_temperature,
                 temperatur_air_change=TemperatureChange(forecast_sample.air_temperature_change).name,
                 temperatur_track=forecast_sample.track_temperature,
