@@ -126,21 +126,21 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<div className="flex justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex justify-center items-center p-4 divide-x-2 gap-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 		<div className="flex flex-col justify-center items-start">
 			<WeatherIcon weather={weatherData.weather} />
-			<span className="text-4xl border-t-2 border-mainBorder/25">Air {weatherData.temperature_air}°C</span>
+			<span className="text-4xl">Air {weatherData.temperature_air}°C</span>
 			<span className="text-4xl">Track {weatherData.temperature_track}°C</span>
-			<span className="text-3xl">Now</span>
+			<span className="text-3xl pt-10">Now</span>
 		</div>
 
 		{weatherData.weather_forecasts.map((forecast, index) => (
 			<div key={index} className="flex flex-col justify-center items-start">
 				<WeatherIcon weather={forecast.weather} />
-				<span className="text 4xl border-t-2 border-mainBorder/25">Air {forecast.temperature_air}°C</span>
+				<span className="text 4xl">Air {forecast.temperature_air}°C</span>
 				<span className="text-4xl">Track {forecast.temperature_track}°C</span>
 				<span className="text-4xl">Rain {forecast.rain_percentage}%</span>
-				<span className="text-3xl">+ {forecast.time_offset_in_minutes}min</span>
+				<span className="text-3xl">+{forecast.time_offset_in_minutes} min</span>
 			</div>
 		))}
 	</div>
