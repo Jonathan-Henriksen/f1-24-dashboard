@@ -90,8 +90,6 @@ def handle_packet(data: bytes):
 
 					elif type(event) == FastestLapEvent:
 						multi_function_display.update_from_fastest_lap_event(event)
-			
-			print(f"{to_json(multi_function_display.active_panel())}\n\n\n\n\n")
 
 			save_mfd(multi_function_display)
 
