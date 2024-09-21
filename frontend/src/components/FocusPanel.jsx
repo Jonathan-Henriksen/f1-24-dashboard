@@ -69,7 +69,7 @@ const DeltasCard = ({ timingsData }) => {
 			{player && (
 				<div className="flex justify-center justify-items-start items-center gap-2 pt-4">
 					<span className="text-4xl font-bold">P{player.position}</span>
-					<span className="text-4xl br-2 border-mainBorder/25">{player.name}</span>
+					<span className={`text-4xl br-2 border-mainBorder/25 ${getTeamColor(player.team)}`}>{player.name}</span>
 				</div>
 			)}
 
