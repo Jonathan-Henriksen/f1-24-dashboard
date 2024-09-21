@@ -11,20 +11,19 @@ import { ReactComponent as LightRainNight } from "../icons/weather/light_rain_ni
 import { ReactComponent as HeavyRainNight } from "../icons/weather/heavy_rain_night.svg";
 
 const WeatherIcon = ({ weather, isDay = true }) => {
-	console.log(weather.toLowerCase())
 	switch (weather.toLowerCase()) {
 		case "clear":
-			return isDay ? Clear : ClearNight;
+			return isDay ? <Clear /> : <ClearNight />;
 		case "light_cloud":
-			return isDay ? LightCloud : LightCloudNight;
+			return isDay ? <LightCloud /> : <LightCloudNight />;
 		case "overcast":
-			return isDay ? Overcast : OvercastNight;
+			return isDay ? <Overcast /> : <OvercastNight />;
 		case "light_rain":
-			return isDay ? LightRain : LightRainNight;
+			return isDay ? <LightRain /> : <LightRainNight />;
 		case "heavy_rain":
-			return isDay ? HeavyRain : HeavyRainNight;
+			return isDay ? <HeavyRain /> : <HeavyRainNight />;
 		default:
-			return isDay ? Clear : ClearNight;
+			return isDay ? <Clear /> : <ClearNight />;
 	}
 }
 

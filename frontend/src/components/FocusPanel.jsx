@@ -163,7 +163,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 
 			<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
-			{/* <WeatherCard weatherData={weatherData} /> */}
+			<WeatherCard weatherData={weatherData} />
 		</div >
 	)
 }
