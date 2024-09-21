@@ -33,7 +33,7 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<div className="flex grow justify-center items-center divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 divide-mainBorder/40">
+	<div className="flex grow justify-center items-center divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/40">
 		<div className="flex grow flex-col p-2 gap-2">
 			<span className="text-center text-2xl font-semibold">Time Left</span>
 			<span className={`text-center text-4xl font-bold ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
