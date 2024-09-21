@@ -149,21 +149,38 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	let sessionType = generalData.session_type;
 
 	return (
-		<div classname="flex grow justify-center items-center gap-8">
+		<div classname="flex grow flex-col justify-center content-center items-center gap-8 border-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
 
-			<DeltasCard timingsData={timingsData} />
+			{/* First Row */}
+			<div className="flex grow justify-stretch content-center items-center p-4">
+				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
-			<TimingsCard timingsData={timingsData} />
+				<TimingsCard timingsData={timingsData} />
 
-			{(sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING')) ? (
-				<TimeLeftCard time={timingsData.session_time_left} />
-			) : (
-				<StrategyCard recommendedLapToPit={strategyData.lap_to_pit_recommended} latestLapToPit={strategyData.lap_to_pit_latest} expectedRejoinPosition={strategyData.expected_rejoin_position} />
-			)}
+				{(sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING')) ? (
+					<TimeLeftCard time={timingsData.session_time_left} />
 
-			<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
+				) : (
+					<StrategyCard recommendedLapToPit={strategyData.lap_to_pit_recommended} latestLapToPit={strategyData.lap_to_pit_latest} expectedRejoinPosition={strategyData.expected_rejoin_position} />
+				)}
 
-			<WeatherCard weatherData={weatherData} />
+			</div>
+
+			{/* Second Row */}
+			<div className="flex grow justify-center content-center items-center p-4">
+				<WeatherCard weatherData={weatherData} />
+				<DeltasCard timingsData={timingsData} />
+			</div>
+
+			{/* Third Row */}
+			<div className="flex grow justify-center content-center items-center p-4">
+				<CarDeltasGraphic
+					behindCar={timingsData.driver_behind}
+					playerCar={timingsData.player}
+					frontCar={timingsData.driver_in_front}
+					leaderCar={timingsData.race_leader}
+				/>
+			</div>
 		</div >
 	)
 }
