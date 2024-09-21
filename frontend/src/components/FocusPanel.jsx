@@ -126,46 +126,49 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<div className="flex justify-center items-center p-4 divide-x-2 gap-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
-		<div className="flex flex-col justify-center items-start">
+	<div className="flex justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+
+		{/* Now */}
+		<div className="flex grow flex-col justify-center items-start p-4 gap-4">
 
 			<WeatherIcon weather={weatherData.weather} />
 
 			<div className="flex grow justify-stretch justify-items-start items-center">
-				<span className="text-4xl">Air</span>
-				<span className="text-4xl">{weatherData.temperature_air}°C</span>
+				<span className="text-3xl">Air</span>
+				<span className="text-3xl">{weatherData.temperature_air}°C</span>
 			</div>
 
 			<div className="flex grow justify-stretch justify-items-start items-center">
-				<span className="text-4xl">Track</span>
-				<span className="text-4xl">{weatherData.temperature_track}°C</span>
+				<span className="text-3xl">Track</span>
+				<span className="text-3xl">{weatherData.temperature_track}°C</span>
 			</div>
 
-			<span className="text-3xl ">Now</span>
+			<span className="text-2xl ">Now</span>
 
 		</div>
 
+		{/* Forecasts */}
 		{weatherData.weather_forecasts.map((forecast, index) => (
-			<div key={index} className="flex flex-col justify-center items-start">
+			<div key={index} className="flex grow flex-col justify-center items-start p-4 gap-4">
 
 				<WeatherIcon weather={forecast.weather} />
 
-				<div className="flex grow justify-stretch justify-items-start items-center">
-					<span className="text-4xl">Air</span>
-					<span className="text-4xl">{forecast.temperature_air}°C</span>
+				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+					<span className="text-3xl font-semibold">Air</span>
+					<span className="text-3xl">{forecast.temperature_air}°C</span>
 				</div>
 
-				<div className="flex grow justify-stretch justify-items-start items-center">
-					<span className="text-4xl">Track</span>
-					<span className="text-4xl">{forecast.temperature_track}°C</span>
+				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+					<span className="text-3xl font-semibold">Track</span>
+					<span className="text-3xl">{forecast.temperature_track}°C</span>
 				</div>
 
-				<div className="flex grow justify-stretch justify-items-start items-center">
-					<span className="text-4xl">Rain</span>
-					<span className="text-4xl">{forecast.rain_percentage}%</span>
+				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+					<span className="text-3xl font-semibold">Rain</span>
+					<span className="text-3xl">{forecast.rain_percentage}%</span>
 				</div>
 
-				<span className="text-3xl ">+{forecast.time_offset_in_minutes} min</span>
+				<span className="justify-self-stretch text-center text-2xl font-bold">+{forecast.time_offset_in_minutes} min</span>
 
 			</div>
 		))}
