@@ -184,7 +184,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 		<div className="flex grow flex-col justify-center content-center items-center gap-8 border-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
 
 			{/* First Row */}
-			<div className="flex grow justify-stretch content-center items-stretch gap-8 p-4">
+			<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
 				<TimingsCard timingsData={timingsData} />
