@@ -181,7 +181,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	let sessionType = generalData.session_type;
 
 	return (
-		<div classname="flex grow flex-col justify-center content-center items-center gap-8 border-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
+		<div className="flex grow flex-col justify-center content-center items-center gap-8 border-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
 
 			{/* First Row */}
 			<div className="flex grow justify-stretch content-center items-stretch gap-8 p-4">
