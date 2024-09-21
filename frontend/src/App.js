@@ -45,7 +45,7 @@ function App() {
 
 			{mfdData.focus_mode ? (
 				<div classname="flex grow justify-center items-center">
-					<FocusPanel generalData={mfdData} timingsData={mfdData.panels[0]} tyreData={mfdData.panels[1]} strategyData={mfdData.panels[2]} weatherData={mfdData[4]} sessionType={mfdData.session_type} />
+					<FocusPanel generalData={mfdData} timingsData={mfdData.panels[0]} tyreData={mfdData.panels[1]} strategyData={mfdData.panels[2]} weatherData={mfdData.panels[4]} sessionType={mfdData.session_type} />
 				</div>
 
 			) : (
