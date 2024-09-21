@@ -54,7 +54,7 @@ const DeltasCard = ({ timingsData }) => {
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-bold">P{raceLeader.position}</span>
 					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(raceLeader.team)}`}>P{raceLeader.name}</span>
-					<span className="text-3xl text-mainRed">+{raceLeader.delta_to_player}</span>
+					<span className="text-3xl text-mainRed">+{formatTime(raceLeader.delta_to_player)}</span>
 				</div>
 			)}
 
@@ -62,7 +62,7 @@ const DeltasCard = ({ timingsData }) => {
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-bold">P{driverInFront.position}</span>
 					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(driverInFront.team)}`}>P{driverInFront.name}</span>
-					<span className="text-3xl text-mainRed">+{driverInFront.delta_to_player}</span>
+					<span className="text-3xl text-mainRed">+{formatTime(driverInFront.delta_to_player)}</span>
 				</div>
 			)}
 
@@ -77,7 +77,7 @@ const DeltasCard = ({ timingsData }) => {
 				<div className="flex justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-bold">P{driverBehind.position}</span>
 					<span className={`text-3xl br-2 border-mainBorder/25 ${getTeamColor(driverBehind.team)}`}>P{driverBehind.name}</span>
-					<span className="text-3xl text-lapTime-green">-{driverBehind.delta_to_player}</span>
+					<span className="text-3xl text-lapTime-green">-{formatTime(driverBehind.delta_to_player)}</span>
 				</div>
 			)}
 		</div>
