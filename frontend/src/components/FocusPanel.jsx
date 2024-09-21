@@ -48,7 +48,7 @@ const DeltasCard = ({ timingsData }) => {
 	let player = timingsData.player
 
 	return (
-		<div className="flex grow flex-col justify-center items-start p-4 gap-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+		<div className="flex flex-col justify-center items-start p-6 gap-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{raceLeader && raceLeader.position != player.position && (
 				<div className="flex justify-center justify-items-start items-center gap-2">
