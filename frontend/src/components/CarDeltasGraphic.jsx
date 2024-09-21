@@ -1,5 +1,5 @@
-// CarDeltasGraphic.jsx
 import React from 'react';
+import { formatTime } from "helpers/helpers";
 import { getCarImage } from 'helpers/imageHelper'
 import { getTeamColor } from 'helpers/colorHelper'
 
