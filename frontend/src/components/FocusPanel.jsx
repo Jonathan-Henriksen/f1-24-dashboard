@@ -4,7 +4,7 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 const TimingsCard = ({ timingsData }) => (
-	<div className="flex grow justify-stretch items-center p-4 divide-x-4 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
+	<div className="flex grow justify-stretch items-center p-4 divide-x-2 gap-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
 
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
