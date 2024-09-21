@@ -133,6 +133,8 @@ const WeatherCard = ({ weatherData }) => (
 
 			<WeatherIcon weather={weatherData.weather} />
 
+			<span className="flex  self-center text-xl font-semibold text-mainWhite/80">Now</span>
+
 			<div className="flex grow justify-stretch justify-items-start items-center gap-2">
 				<span className="text-3xl">Air</span>
 				<span className="text-3xl">{weatherData.temperature_air}°C</span>
@@ -143,8 +145,6 @@ const WeatherCard = ({ weatherData }) => (
 				<span className="text-3xl">{weatherData.temperature_track}°C</span>
 			</div>
 
-			<span className="text-2xl pt-10">Now</span>
-
 		</div>
 
 		{/* Forecasts */}
@@ -152,6 +152,8 @@ const WeatherCard = ({ weatherData }) => (
 			<div key={index} className="flex grow flex-col justify-center items-start p-4 gap-4">
 
 				<WeatherIcon weather={forecast.weather} />
+
+				<span className="flex self-center text-center text-xl font-semibold text-mainWhite/80">{forecast.time_offset_in_minutes} min</span>
 
 				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
 					<span className="text-3xl font-semibold">Air</span>
@@ -167,8 +169,6 @@ const WeatherCard = ({ weatherData }) => (
 					<span className="text-3xl font-semibold">Rain</span>
 					<span className="text-3xl">{forecast.rain_percentage}%</span>
 				</div>
-
-				<span className="justify-self-stretch text-center text-2xl font-bold">+{forecast.time_offset_in_minutes} min</span>
 
 			</div>
 		))}
