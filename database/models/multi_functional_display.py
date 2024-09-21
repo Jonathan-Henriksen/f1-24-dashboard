@@ -136,7 +136,7 @@ class MultiFunctionDisplay:
 
 		drivers = self.leaderboard_panel().drivers.values()
 		total_time_in_ms = sum(driver.lap_time_previous.to_milliseconds() for driver in drivers)
-		lap_time_avg = Time(ms_part=int(abs(total_time_in_ms / len(drivers))))
+		lap_time_avg = Time(ms_part=int(abs(total_time_in_ms / len(drivers)))) if len(drivers) > 0 else Time(ms_part=0)
 		self.weather_panel().update_from_session(session_packet, lap_time_avg)
 		
 
