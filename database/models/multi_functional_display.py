@@ -7,7 +7,7 @@ from telemetry.enums import SafetyCarTypes, SafetyCarStatus, PitStatus, FiaFlags
 class MultiFunctionDisplay:
 	def __init__(self):
 		self.active_panel_index: int = 0
-		self.focus_mode: bool = False
+		self.focus_mode: bool = True
 		self.current_lap_invalid: bool = False
 		self.drs_activation_distance: int = 0
 		self.fia_flags: str = FiaFlags.NONE.name
