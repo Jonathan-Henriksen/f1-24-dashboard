@@ -148,30 +148,31 @@ const WeatherCard = ({ weatherData }) => (
 		</div>
 
 		{/* Forecasts */}
-		{weatherData.weather_forecasts.map((forecast, index) => (
-			<div key={index} className="flex grow flex-col justify-center items-start p-4 gap-4">
+		{weatherData.weather_forecasts.map((forecast, index) =>
+			forecast.time_offset_in_minutes !== 0 && (
+				<div key={index} className="flex grow flex-col justify-center items-start p-4 gap-4">
 
-				<WeatherIcon weather={forecast.weather} />
+					<WeatherIcon weather={forecast.weather} />
 
-				<span className="flex self-center text-center text-xl font-semibold text-mainWhite/80">{forecast.time_offset_in_minutes} min</span>
+					<span className="flex self-center text-center text-xl font-semibold text-mainWhite/80">{forecast.time_offset_in_minutes} min</span>
 
-				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-					<span className="text-3xl font-semibold">Air</span>
-					<span className="text-3xl">{forecast.temperatur_air}°C</span>
+					<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+						<span className="text-3xl font-semibold">Air</span>
+						<span className="text-3xl">{forecast.temperatur_air}°C</span>
+					</div>
+
+					<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+						<span className="text-3xl font-semibold">Track</span>
+						<span className="text-3xl">{forecast.temperatur_track}°C</span>
+					</div>
+
+					<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+						<span className="text-3xl font-semibold">Rain</span>
+						<span className="text-3xl">{forecast.rain_percentage}%</span>
+					</div>
+
 				</div>
-
-				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-					<span className="text-3xl font-semibold">Track</span>
-					<span className="text-3xl">{forecast.temperatur_track}°C</span>
-				</div>
-
-				<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-					<span className="text-3xl font-semibold">Rain</span>
-					<span className="text-3xl">{forecast.rain_percentage}%</span>
-				</div>
-
-			</div>
-		))}
+			))}
 
 
 	</div>
