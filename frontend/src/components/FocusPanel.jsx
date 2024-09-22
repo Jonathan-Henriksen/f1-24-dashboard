@@ -8,27 +8,27 @@ import React from "react";
 
 
 const TimingsCard = ({ timingsData }) => (
-	<Card flex="flex grow items-stretch divide-x-2 divide-mainBorder/50">
+	<Card flex="flex items-stretch divide-x-2 divide-mainBorder/50">
 		{/* Fastest Lap*/}
-		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
+		<div className="flex flex-col items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
 			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-purple/90">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
-		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
+		<div className="flex flex-col items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Personal Best</span>
 			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-green/90">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
-		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
+		<div className="flex flex-col items-center p-4 gap-2">
 			<span className={"text-center text-4xl"}>Teammate Best</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
 		{/* Current Lap*/}
-		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
+		<div className="flex flex-col items-center p-4 gap-2">
 			<span className="text-center text-4xl">Current Lap</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
@@ -36,7 +36,7 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<Card flex="flex grow flex-col justify-center items-center min-w-72 max-w-96">
+	<Card flex="flex flex-col justify-center items-center">
 		<span className="text-center text-4xl tracking-wide">Time Left</span>
 		<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
 	</Card>
@@ -85,15 +85,15 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<Card flex="flex grow justify-center items-stretch min-w-72 max-w-96 h-full">
+	<Card flex="flex">
 
-		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 min- gap-2">
+		<div className="flex flex-col p-2 gap-2">
 			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
 			<span className="text-3xl font-semibold tracking-wide">Brake Bias</span>
 			<span className="text-3xl font-semibold tracking-wide">Differential</span>
 		</div>
 
-		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
+		<div className="flex flex-col p-2 gap-2">
 			<span className="text-3xl tracking-wide capitalize">{ersDeployMode.toLowerCase()}</span>
 			<span className="text-3xl tracking-wide">{brakeBias}%</span>
 			<span className="text-3xl tracking-wide">{differential}%</span>
