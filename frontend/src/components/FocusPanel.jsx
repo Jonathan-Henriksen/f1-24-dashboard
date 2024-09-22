@@ -23,7 +23,7 @@ const TimingsCard = ({ timingsData }) => (
 
 		{/* Teammate Best*/}
 		<div className="flex flex-col p-4 gap-2 w-1/4">
-			<span className={"text-center text-3xl font-semibold tracking-wide"}>Teammate Best</span>
+			<span className={"text-center text-3xl font-semibold"}>Teammate Best</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
