@@ -202,7 +202,7 @@ const TyreLifeCard = ({ tyreData }) => {
 					<span className="text-3xl tracking-wide text-mainWhite/80">Laps</span>
 
 					<LinearProgressBar
-						percentage={tyreAgePercentage * 2}
+						percentage={tyreAgePercentage}
 						showPercentage={false}
 						color={tyreAgeColor}
 						height="1.2rem"
@@ -222,7 +222,7 @@ const TyreLifeCard = ({ tyreData }) => {
 					<span className="text-3xl tracking-wide text-mainWhite/80">Wear</span>
 
 					<LinearProgressBar
-						percentage={tyreWearPercentage}
+						percentage={tyreWearPercentage * 2}
 						showPercentage={false}
 						color={tyreWearColor}
 						height="1.2rem"
