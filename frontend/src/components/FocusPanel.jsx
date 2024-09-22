@@ -241,14 +241,19 @@ const TyreLifeCard = ({ tyreData }) => {
 	)
 }
 
+const FocusPanelRow = ({ children }) => (
+	<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
+		{children}
+	</div>
+)
+
 const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherData }) => {
 	let sessionType = generalData.session_type;
 
 	return (
 		<div className="flex grow flex-col justify-center content-center items-center p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
 
-			{/* First Row */}
-			<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
+			<FocusPanelRow>
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
 				<TimingsCard timingsData={timingsData} />
@@ -259,26 +264,21 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 				) : (
 					<StrategyCard recommendedLapToPit={strategyData.lap_to_pit_recommended} latestLapToPit={strategyData.lap_to_pit_latest} expectedRejoinPosition={strategyData.expected_rejoin_position} />
 				)}
+			</FocusPanelRow>
 
-			</div>
-
-			{/* Second Row */}
-			<div className="flex grow justify-center content-center items-stretch gap-8 p-4">
+			<FocusPanelRow>
 				<WeatherCard weatherData={weatherData} />
 				<TyreLifeCard tyreData={tyreData} />
-			</div>
+			</FocusPanelRow>
 
-			{/* Third Row */}
-			<div className="flex grow justify-center content-center items-stretch gap-8 p-4">
+			<FocusPanelRow>
 				<CarDeltasGraphic
 					behindCar={timingsData.driver_behind}
 					playerCar={timingsData.player}
 					frontCar={timingsData.driver_in_front}
 					leaderCar={timingsData.race_leader}
 				/>
-
-
-			</div>
+			</FocusPanelRow>
 		</div >
 	)
 }
