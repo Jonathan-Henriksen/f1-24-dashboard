@@ -33,7 +33,9 @@ class LeaderboardPanel():
 
 	def update_from_lap_data_packet(self, lap_data_packet: LapDataPacket, session_type: str):
 		player_lap_data = lap_data_packet.player_data()
-		self.drivers[lap_data_packet.header.player_car_index].is_player = True if lap_data_packet.header.player_car_index >= 0 else False
+		
+		if (lap_data_packet.header.player_car_index >= 0):
+			self.drivers[lap_data_packet.header.player_car_index].is_player = True
 
 		# Update details for each driver
 		for car_index in self.drivers.keys():
