@@ -87,7 +87,7 @@ const DeltasCard = ({ timingsData }) => {
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 	<Card flex="flex grow justify-center items-stretch min-w-72 max-w-96 h-full">
 
-		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
+		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 min- gap-2">
 			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
 			<span className="text-3xl font-semibold tracking-wide">Brake Bias</span>
 			<span className="text-3xl font-semibold tracking-wide">Differential</span>
@@ -186,7 +186,7 @@ const TyreLifeCard = ({ tyreData }) => {
 		<Card flex="flex justify-center justify-items-start items-center">
 
 			{/* Compound */}
-			<div className="flex grow flex-col justify-center justify-items-center p-4 min-w-48">
+			<div className="flex grow flex-col justify-center justify-items-center p-4 min-w-20 max-w-28 min-h-20 max-h-28">
 				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} />
 				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80"></span>
 			</div>
