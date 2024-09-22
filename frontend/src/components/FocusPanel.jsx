@@ -194,7 +194,7 @@ const TyreLifeCard = ({ tyreData }) => {
 
 
 			{/* Percentage Bars */}
-			<div className="flex flex-col justify-center justify-items-center items-center divide-y-2 p-4 divide-mainBorder/50">
+			<div className="flex flex-col justify-stretch justify-items-center items-center divide-y-2 p-4 divide-mainBorder/50">
 
 				{/* Laps */}
 				<div className="flex grow justify-between justify-items-center items-center p-4">
