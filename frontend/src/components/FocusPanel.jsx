@@ -127,8 +127,7 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<div className="flex justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
-
+	<Card flex="justify-center items-center">
 		{weatherData.weather_forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
 				<div key={index} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
@@ -154,8 +153,7 @@ const WeatherCard = ({ weatherData }) => (
 
 				</div>
 			))}
-
-	</div>
+	</Card >
 )
 
 const TyreAgeRange = [
@@ -241,8 +239,16 @@ const TyreLifeCard = ({ tyreData }) => {
 	)
 }
 
+
+
 const FocusPanelRow = ({ children }) => (
 	<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
+		{children}
+	</div>
+)
+
+const Card = ({ children, flex = "flex justify-center justify-items-center items-center" }) => (
+	<div className={`flex ${flex} p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50`}>
 		{children}
 	</div>
 )
