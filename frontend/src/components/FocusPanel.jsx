@@ -184,7 +184,7 @@ const TyreLifeCard = ({ tyreData }) => {
 	let tyreWearColor = getColorFromList(TyreWearRange, tyreWearPercentage)
 
 	return (
-		<div className="flex justify-center justify-items-start items-center p-4 border-2 divide-x-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+		<div className="flex justify-center justify-items-start items-center p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
 
 			{/* Compound */}
 			<div className="flex grow flex-col justify-center justify-items-center p-4 min-w-48">
