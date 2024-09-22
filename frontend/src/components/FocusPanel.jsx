@@ -186,7 +186,7 @@ const TyreLifeCard = ({ tyreData }) => {
 		<Card flex="flex justify-center justify-items-start items-center">
 
 			{/* Compound */}
-			<div className="flex grow flex-col justify-center justify-items-center p-4 min-w-20 max-w-28 min-h-20 max-h-28">
+			<div className="flex grow flex-col justify-center justify-items-center items-center p-4 min-w-20 max-w-28 min-h-20 max-h-28">
 				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} />
 				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80"></span>
 			</div>
@@ -239,7 +239,7 @@ const TyreLifeCard = ({ tyreData }) => {
 }
 
 const Row = ({ children }) => (
-	<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
+	<div className="flex grow justify-between content-center items-center gap-8 p-4">
 		{children}
 	</div>
 )
