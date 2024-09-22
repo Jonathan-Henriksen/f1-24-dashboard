@@ -85,9 +85,9 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<Card flex="flex grow justify-center items-stretch">
+	<Card flex="flex grow justify-center items-stretch min-w-72 max-w-96 h-full">
 
-		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2 min-w-72 max-w-96 h-full">
+		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
 			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
 			<span className="text-3xl font-semibold tracking-wide">Brake Bias</span>
 			<span className="text-3xl font-semibold tracking-wide">Differential</span>
