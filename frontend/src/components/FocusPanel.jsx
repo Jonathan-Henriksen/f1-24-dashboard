@@ -183,10 +183,10 @@ const TyreLifeCard = ({ tyreData }) => {
 	let tyreWearColor = getColorFromList(TyreWearRange, tyreWearPercentage)
 
 	return (
-		<Card flex="flex items-center">
+		<Card flex="flex self-center items-center">
 
 			{/* Compound */}
-			<div className="flex flex-col justify-center items-center p-4">
+			<div className="flex flex-col justify-center items-center gap-2 p-4">
 				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80">{tyreData.tyre_compound}</span>
 				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="min-w-20 max-w-28 aspect-square" />
 			</div>
@@ -239,7 +239,7 @@ const TyreLifeCard = ({ tyreData }) => {
 }
 
 const Row = ({ children }) => (
-	<div className="flex grow justify-evenly items-center gap-8 p-4">
+	<div className="flex grow justify-evenly items-stretch gap-8 p-4">
 		{children}
 	</div>
 )
