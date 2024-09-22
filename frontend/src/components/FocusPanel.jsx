@@ -30,7 +30,7 @@ const TimingsCard = ({ timingsData, pitStatus }) => (
 		{/* Current Lap*/}
 		<div className="flex flex-col p-4 gap-2 w-1/4">
 			<span className="text-center text-3xl font-semibold tracking-wide">Current Lap</span>
-			<span className={`text-center text-5xl font-semibold tracking-wide capitalize ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>
+			<span className={`text-center text-5xl font-semibold tracking-wide capitalize ${timingsData.lap_time_current_invalid ? 'text-mainRed' : ''}`}>
 				{pitStatus.toLowerCase() == 'none' ? formatTime(timingsData.lap_time_current) : pitStatus.toLowerCase().replace("_", " ")}
 			</span>
 		</div>
@@ -174,11 +174,12 @@ const TyreWearRange = [
 
 
 const TyreLifeCard = ({ tyreData }) => {
-	let tyreAge = tyreData.tyre_set_laps_age;
-	let tyreAgeMax = tyreData.tyre_set_laps_max;
-	let tyreLapsRemaing = tyreData.tyre_set_laps_remaining;
+	let tyreDataClone = { ...tyreData }; // Ensure new object reference
+	let tyreAge = tyreDataClone.tyre_set_laps_age;
+	let tyreAgeMax = tyreDataClone.tyre_set_laps_max;
+	let tyreLapsRemaing = tyreDataClone.tyre_set_laps_remaining;
 
-	let tyreWearPercentage = tyreData.tyre_set_total_wear_percentage
+	let tyreWearPercentage = tyreDataClone.tyre_set_total_wear_percentage
 	let tyreAgePercentage = calculatePercentage(0, tyreAgeMax, tyreAge);
 
 	let tyreAgeColor = getColorFromList(TyreAgeRange, tyreAgePercentage)
@@ -189,8 +190,8 @@ const TyreLifeCard = ({ tyreData }) => {
 
 			{/* Compound */}
 			<div className="flex flex-col justify-center items-center gap-2 p-4">
-				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80">{tyreData.tyre_compound}</span>
-				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="min-w-20 max-w-28 aspect-square" />
+				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80">{tyreDataClone.tyre_compound}</span>
+				<img src={getTyreCompoundImage(tyreDataClone.tyre_compound_visual)} className="min-w-20 max-w-28 aspect-square" />
 			</div>
 
 			{/* Percentage Bars */}
@@ -201,7 +202,7 @@ const TyreLifeCard = ({ tyreData }) => {
 					<span className="text-3xl tracking-wide text-mainWhite/80">Laps</span>
 
 					<LinearProgressBar
-						percentage={tyreAgePercentage}
+						percentage={tyreAgePercentage * 2}
 						showPercentage={false}
 						color={tyreAgeColor}
 						height="1.2rem"
