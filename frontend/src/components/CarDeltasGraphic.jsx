@@ -11,7 +11,7 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 	if (behindCar) carsToRender.push({ type: 'behind', ...behindCar });
 
 	return (
-		<div className="flex grow justify-center p-4 items-center">
+		<div className="flex items-center">
 			{carsToRender.map((car, index) => (
 				<React.Fragment key={car.name}>
 					<div className="flex flex-shrink flex-col items-center">
