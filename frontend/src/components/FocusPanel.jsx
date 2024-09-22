@@ -124,7 +124,7 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCardRow = ({ forecast }) => (
-	<div key={index} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
+	<div key={`forecast-${forecast.time_offset_in_minutes}`} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
 
 		<WeatherIcon weather={forecast.weather} />
 
