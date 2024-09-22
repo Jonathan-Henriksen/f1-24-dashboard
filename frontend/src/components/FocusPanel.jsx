@@ -183,10 +183,10 @@ const TyreLifeCard = ({ tyreData }) => {
 	let tyreWearColor = getColorFromList(TyreWearRange, tyreWearPercentage)
 
 	return (
-		<Card flex="flex justify-center justify-items-start items-center">
+		<Card flex="flex items-center">
 
 			{/* Compound */}
-			<div className="flex grow flex-col justify-center justify-items-center items-center p-4">
+			<div className="flex flex-col justify-center items-center p-4">
 				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80"></span>
 				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="min-w-20 max-w-28 aspect-square" />
 			</div>
@@ -195,7 +195,7 @@ const TyreLifeCard = ({ tyreData }) => {
 			<div className="flex flex-col divide-y-2 divide-mainBorder/50">
 
 				{/* Laps */}
-				<div className="flex grow items-center p-4">
+				<div className="flex items-center p-4">
 					<span className="text-3xl tracking-wide text-mainWhite/80">Laps</span>
 
 					<LinearProgressBar
@@ -215,8 +215,8 @@ const TyreLifeCard = ({ tyreData }) => {
 				</div>
 
 				{/* Wear */}
-				<div className="flex grow items-center p-4">
-					<span className="flex self-center text-3xl tracking-wide text-mainWhite/80">Wear</span>
+				<div className="flex items-center p-4">
+					<span className="text-3xl tracking-wide text-mainWhite/80">Wear</span>
 
 					<LinearProgressBar
 						percentage={tyreWearPercentage}
