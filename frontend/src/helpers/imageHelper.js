@@ -11,5 +11,5 @@ export const getCarTopViewImage = (teamName) => {
 };
 
 export const getTyreCompoundImage = (compoundVisual) => {
-	return `/images/carTopView/${compoundVisual.toLowerCase()}.png`
+	return `/images/tyres/${compoundVisual.toLowerCase()}.png`
 }

@@ -175,7 +175,7 @@ const TyreLifeCard = ({ tyreData }) => {
 	let tyreAgeColor = getColorFromList(TyreAgeRange, tyreAgePercentage)
 
 	return (
-		<div className="flex justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+		<div className="flex justify-center items-center p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{/* Compund */}
 			<div className="flex flex-col justify-center justify-items-center items-center p-4 gap-2">
@@ -190,14 +190,13 @@ const TyreLifeCard = ({ tyreData }) => {
 			</div>
 
 			{/* Age/Life */}
-			<div className="flex justify-center justify-items-center items-center p-4 gap-2">
+			<div className="flex justify-center justify-items-center items-center p-4">
 				<span className="text-3xl tracking-wide">0</span>
 
 				<LinearProgressBar
 					percentage={tyreAgePercentage}
 					showPercentage={false}
 					color={tyreAgeColor}
-					trackColor="linear-gradient(to right , #2BDD1A ,#EC3B26)"
 					height="1.5rem"
 					text={`${tyreLapsRemaing} laps remaining`}
 					textStyle={{
