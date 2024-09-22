@@ -8,27 +8,27 @@ import React from "react";
 
 
 const TimingsCard = ({ timingsData }) => (
-	<Card flex="flex items-stretch divide-x-2 divide-mainBorder/50">
+	<Card flex="flex divide-x-2 divide-mainBorder/50">
 		{/* Fastest Lap*/}
-		<div className="flex flex-col items-center p-4 gap-2">
+		<div className="flex flex-col justify-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
 			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-purple/90">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
-		<div className="flex flex-col items-center p-4 gap-2">
+		<div className="flex flex-col justify-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Personal Best</span>
 			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-green/90">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
-		<div className="flex flex-col items-center p-4 gap-2">
+		<div className="flex flex-col justify-center p-4 gap-2">
 			<span className={"text-center text-4xl"}>Teammate Best</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
 		{/* Current Lap*/}
-		<div className="flex flex-col items-center p-4 gap-2">
+		<div className="flex flex-col justify-center p-4 gap-2">
 			<span className="text-center text-4xl">Current Lap</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
@@ -239,7 +239,7 @@ const TyreLifeCard = ({ tyreData }) => {
 }
 
 const Row = ({ children }) => (
-	<div className="flex grow justify-between content-center items-center gap-8 p-4">
+	<div className="flex grow justify-evenly gap-8 p-4">
 		{children}
 	</div>
 )
@@ -254,7 +254,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	let sessionType = generalData.session_type;
 
 	return (
-		<div className="flex grow flex-col justify-center content-center items-center p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
+		<div className="flex flex-col p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
 
 			<Row>
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
