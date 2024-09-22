@@ -8,7 +8,7 @@ import React from "react";
 
 
 const TimingsCard = ({ timingsData }) => (
-	<Card flex="flex divide-x-2 divide-mainBorder/50">
+	<Card flex="flex items-center divide-x-2 divide-mainBorder/50">
 		{/* Fastest Lap*/}
 		<div className="flex flex-col justify-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
@@ -187,7 +187,7 @@ const TyreLifeCard = ({ tyreData }) => {
 
 			{/* Compound */}
 			<div className="flex flex-col justify-center items-center p-4">
-				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80"></span>
+				<span className="text-center text-3xl font-semibold tracking-wide text-mainWhite/80">{tyreData.tyre_compound}</span>
 				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="min-w-20 max-w-28 aspect-square" />
 			</div>
 
@@ -239,7 +239,7 @@ const TyreLifeCard = ({ tyreData }) => {
 }
 
 const Row = ({ children }) => (
-	<div className="flex grow justify-evenly gap-8 p-4">
+	<div className="flex grow justify-evenly items-center gap-8 p-4">
 		{children}
 	</div>
 )
