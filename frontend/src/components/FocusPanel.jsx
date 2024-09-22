@@ -7,7 +7,7 @@ import WeatherIcon from "./WeatherIcon";
 import React from "react";
 
 
-const TimingsCard = ({ timingsData }) => (
+const TimingsCard = ({ timingsData, pitStatus }) => (
 	<Card flex="flex grow items-center divide-x-2 divide-mainBorder/50 min-w-card-lg max-w-card-lg">
 		{/* Fastest Lap*/}
 		<div className="flex flex-col p-4 gap-2 w-1/4">
@@ -30,7 +30,9 @@ const TimingsCard = ({ timingsData }) => (
 		{/* Current Lap*/}
 		<div className="flex flex-col p-4 gap-2 w-1/4">
 			<span className="text-center text-3xl font-semibold tracking-wide">Current Lap</span>
-			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
+			<span className={`text-center text-5xl font-semibold tracking-wide capitalize ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>
+				{pitStatus.toLowerCase() == 'none' ? formatTime(timingsData.lap_time_current) : pitStatus.toLowerCase().replace("_", " ")}
+			</span>
 		</div>
 	</Card>
 )
@@ -259,7 +261,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 			<Row>
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
-				<TimingsCard timingsData={timingsData} />
+				<TimingsCard timingsData={timingsData} pitStatus={generalData.pit_status} />
 
 				{(sessionType.includes('PRACTICE') || sessionType.includes('QUALIFYING')) ? (
 					<TimeLeftCard time={timingsData.session_time_left} />
