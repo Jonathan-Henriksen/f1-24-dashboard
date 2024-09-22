@@ -164,50 +164,80 @@ const TyreAgeRange = [
 	{ color: '#EC3B26', value: 100 }  // Red
 ];
 
+const TyreWearRange = [
+	{ color: '#2BDD1A', value: 0 },  // Green
+	{ color: '#FBCD4C', value: 20 },  // Yellow
+	{ color: '#EC3B26', value: 40 }  // Red
+	{ color: '#EC3B26', value: 100 }  // Red
+];
+
 
 const TyreLifeCard = ({ tyreData }) => {
 	let tyreAge = tyreData.tyre_set_laps_age;
 	let tyreAgeMax = tyreData.tyre_set_laps_max;
 	let tyreLapsRemaing = tyreData.tyre_set_laps_remaining;
 
+	let tyreWearPercentage = tyreData.tyre_set_total_wear_percentage
 	let tyreAgePercentage = calculatePercentage(0, tyreAgeMax, tyreAge);
 
 	let tyreAgeColor = getColorFromList(TyreAgeRange, tyreAgePercentage)
+	let tyreWearColor = getColorFromList(TyreWearRange, tyreWearPercentage)
 
 	return (
 		<div className="flex justify-center items-center p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{/* Compund */}
-			<div className="flex flex-col justify-center justify-items-center items-center p-4 gap-2">
+			<div className="flex grow flex-col justify-center justify-items-center items-center p-4 gap-2">
 				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} />
 				<span className="text-xl text-mainWhite/80">{tyreData.tyre_compound}</span>
 			</div>
 
-			{/* Wear */}
+
+			{/* Percentage Bars */}
 			<div className="flex flex-col justify-center justify-items-center items-center p-4 gap-2">
-				<span className="text-3xl font-semibold tracking-wide">Wear</span>
-				<span className="text-3xl tracking-wide">{tyreData.tyre_set_total_wear_percentage}%</span>
+
+				{/* Laps */}
+				<div className="flex justify-center justify-items-center items-center p-4">
+					<span className="flex justify-self-end text-center text-3xl tracking-wide text-mainWhite/80">Laps</span>
+
+					<LinearProgressBar
+						percentage={tyreAgePercentage}
+						showPercentage={false}
+						color={tyreAgeColor}
+						height="1.2rem"
+						text={`${tyreLapsRemaing}`}
+						textStyle={{
+							fontSize: '1.3rem',
+							fontStyle: 'italic',
+							textAlign: 'center'
+						}}
+					/>
+
+					<span className="text-3xl tracking-wide">{tyreAgeMax}</span>
+				</div>
+
+				{/* Wear */}
+				<div className="flex justify-center justify-items-center items-center p-4">
+					<span className="flex justify-self-end text-center text-3xl tracking-wide text-mainWhite/80">Wear</span>
+
+					<LinearProgressBar
+						percentage={tyreWearPercentage}
+						showPercentage={false}
+						color={tyreWearColor}
+						height="1.2rem"
+						text={`${tyreWearPercentage}%`}
+						textStyle={{
+							fontSize: '1.3rem',
+							fontStyle: 'italic',
+							textAlign: 'center'
+						}}
+					/>
+
+					<span className="text-3xl tracking-wide text-mainWhite/80">50%</span>
+				</div>
 			</div>
 
-			{/* Age/Life */}
-			<div className="flex justify-center justify-items-center items-center p-4">
-				<span className="text-3xl tracking-wide">0</span>
 
-				<LinearProgressBar
-					percentage={tyreAgePercentage}
-					showPercentage={false}
-					color={tyreAgeColor}
-					height="1.5rem"
-					text={`${tyreLapsRemaing} laps remaining`}
-					textStyle={{
-						fontSize: '1.3rem',
-						fontStyle: 'italic',
-						textAlign: 'center'
-					}}
-				/>
-
-				<span className="text-3xl tracking-wide">{tyreAgeMax}</span>
-			</div>
 		</div>
 	)
 }
