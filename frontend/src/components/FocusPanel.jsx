@@ -1,8 +1,11 @@
-import { formatTime } from "helpers/helpers";
-import { getTeamColor } from 'helpers/colorHelper'
+import { calculatePercentage, formatTime } from "helpers/helpers";
+import { getColorFromList, getTeamColor } from 'helpers/colorHelper'
+import { getTyreCompoundImage } from "helpers/imageHelper";
 import CarDeltasGraphic from './CarDeltasGraphic';
+import { LinearProgressBar } from "react-percentage-bar";
 import WeatherIcon from "./WeatherIcon";
 import React from "react";
+
 
 const TimingsCard = ({ timingsData }) => (
 	<div className="flex grow justify-stretch items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
@@ -155,6 +158,61 @@ const WeatherCard = ({ weatherData }) => (
 	</div>
 )
 
+const TyreAgeRange = [
+	{ color: '#2BDD1A', value: 0 },  // Green
+	{ color: '#FBCD4C', value: 50 },  // Yellow
+	{ color: '#EC3B26', value: 100 }  // Red
+];
+
+
+const TyreLifeCard = ({ tyreData }) => {
+	let tyreAge = tyreData.tyre_set_laps_age;
+	let tyreAgeMax = tyreData.tyre_set_laps_max;
+	let tyreLapsRemaing = tyreData.tyre_set_laps_remaining;
+
+	let tyreAgePercentage = calculatePercentage(0, tyreAgeMax, tyreAge);
+
+	let tyreAgeColor = getColorFromList(TyreAgeRange, tyreAgePercentage)
+
+	return (
+		<div className="flex justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+
+			{/* Compund */}
+			<div className="flex flex-col justify-center justify-items-center items-center p-4 gap-2">
+				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} />
+				<span className="text-xl text-mainWhite/80">{tyreData.tyre_compound}</span>
+			</div>
+
+			{/* Wear */}
+			<div className="flex flex-col justify-center justify-items-center items-center p-4 gap-2">
+				<span className="text-3xl font-semibold tracking-wide">Wear</span>
+				<span className="text-3xl tracking-wide">{tyreData.tyre_set_total_wear_percentage}%</span>
+			</div>
+
+			{/* Age/Life */}
+			<div className="flex justify-center justify-items-center items-center p-4 gap-2">
+				<span className="text-3xl tracking-wide">0</span>
+
+				<LinearProgressBar
+					percentage={tyreAgePercentage}
+					showPercentage={false}
+					color={tyreAgeColor}
+					trackColor="linear-gradient(to right , #2BDD1A ,#EC3B26)"
+					height="1.5rem"
+					text={`${tyreLapsRemaing} laps remaining`}
+					textStyle={{
+						fontSize: '1.3rem',
+						fontStyle: 'italic',
+						textAlign: 'center'
+					}}
+				/>
+
+				<span className="text-3xl tracking-wide">{tyreAgeMax}</span>
+			</div>
+		</div>
+	)
+}
+
 const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherData }) => {
 	let sessionType = generalData.session_type;
 
@@ -190,6 +248,8 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 					frontCar={timingsData.driver_in_front}
 					leaderCar={timingsData.race_leader}
 				/>
+
+				<TyreLifeCard tyreData={tyreData} />
 			</div>
 		</div >
 	)
