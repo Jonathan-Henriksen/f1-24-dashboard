@@ -13,13 +13,13 @@ const TimingsCard = ({ timingsData }) => (
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
-			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
+			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-purple/90">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
 		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Personal Best</span>
-			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
+			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-green/90">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
@@ -37,7 +37,7 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<div className="flex grow flex-col justify-center items-center p-4 gap-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
+	<div className="flex grow flex-col justify-center items-center px-8 py-4 gap-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
 		<span className="text-center text-4xl tracking-wide">Time Left</span>
 		<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
 	</div>
@@ -265,7 +265,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 			{/* Second Row */}
 			<div className="flex grow justify-center content-center items-stretch gap-8 p-4">
 				<WeatherCard weatherData={weatherData} />
-				<DeltasCard timingsData={timingsData} />
+				<TyreLifeCard tyreData={tyreData} />
 			</div>
 
 			{/* Third Row */}
@@ -277,7 +277,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 					leaderCar={timingsData.race_leader}
 				/>
 
-				<TyreLifeCard tyreData={tyreData} />
+
 			</div>
 		</div >
 	)
