@@ -239,7 +239,7 @@ const TyreLifeCard = ({ tyreData }) => {
 }
 
 const Row = ({ children }) => (
-	<div className="flex grow justify-evenly items-stretch gap-8 p-4">
+	<div className="flex grow justify-evenly p-4">
 		{children}
 	</div>
 )
@@ -254,7 +254,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	let sessionType = generalData.session_type;
 
 	return (
-		<div className="flex flex-col justify-center p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
+		<div className="flex flex-col justify-center p-4 gap-4 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
 
 			<Row>
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
