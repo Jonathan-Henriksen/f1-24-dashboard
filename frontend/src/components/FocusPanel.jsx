@@ -187,10 +187,10 @@ const TyreLifeCard = ({ tyreData }) => {
 		<div className="flex justify-center justify-items-start items-center p-4 border-2 divide-x-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{/* Compund */}
-			{/* <div className="flex grow flex-col justify-center justify-items-center items-center p-4 gap-2">
-				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="h-48 w-48" />
-				<span className="text-2xl text-mainWhite/80">{tyreData.tyre_compound}</span>
-			</div> */}
+			<div className="flex grow p-4">
+				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="h-auto" />
+				{/* <span className="text-2xl text-mainWhite/80">{tyreData.tyre_compound}</span> */}
+			</div>
 
 
 			{/* Percentage Bars */}
