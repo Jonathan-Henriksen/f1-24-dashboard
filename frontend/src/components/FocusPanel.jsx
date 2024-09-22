@@ -188,8 +188,8 @@ const TyreLifeCard = ({ tyreData }) => {
 
 			{/* Compund */}
 			<div className="flex grow flex-col justify-center justify-items-center items-center p-4 gap-2">
-				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} />
-				<span className="text-xl text-mainWhite/80">{tyreData.tyre_compound}</span>
+				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="h-48" />
+				<span className="text-2xl text-mainWhite/80">{tyreData.tyre_compound}</span>
 			</div>
 
 
@@ -197,8 +197,8 @@ const TyreLifeCard = ({ tyreData }) => {
 			<div className="flex flex-col justify-center justify-items-center items-center divide-y-2 p-4 divide-mainBorder/50">
 
 				{/* Laps */}
-				<div className="flex justify-center justify-items-center items-center p-2">
-					<span className="flex text-center text-3xl tracking-wide text-mainWhite/80">Laps</span>
+				<div className="flex grow justify-between justify-items-center items-center p-4">
+					<span className="flex justify-self-start text-center text-3xl tracking-wide text-mainWhite/80">Laps</span>
 
 					<LinearProgressBar
 						percentage={tyreAgePercentage}
@@ -213,12 +213,12 @@ const TyreLifeCard = ({ tyreData }) => {
 						}}
 					/>
 
-					<span className="flex grow justify-self-end text-2xl tracking-wide text-mainWhite/80">{tyreAgeMax}</span>
+					<span className="flex justify-self-end text-2xl tracking-wide text-mainWhite/80">{tyreAgeMax}</span>
 				</div>
 
 				{/* Wear */}
-				<div className="flex justify-center justify-items-center items-center p-2">
-					<span className="flex text-center text-3xl tracking-wide">Wear</span>
+				<div className="flex grow justify-between justify-items-center items-center p-4">
+					<span className="flex justify-self-start text-center text-3xl tracking-wide">Wear</span>
 
 					<LinearProgressBar
 						percentage={tyreWearPercentage}
@@ -233,7 +233,7 @@ const TyreLifeCard = ({ tyreData }) => {
 						}}
 					/>
 
-					<span className="flex grow justify-self-end text-2xl tracking-wide text-mainWhite/80">50%</span>
+					<span className="flex justify-self-end text-2xl tracking-wide text-mainWhite/80">50%</span>
 				</div>
 			</div>
 
