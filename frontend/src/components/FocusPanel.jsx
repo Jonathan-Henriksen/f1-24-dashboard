@@ -84,20 +84,20 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<div className="flex grow justify-center items-stretch p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex grow justify-center items-stretch p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
 
 		{/* Row Titles*/}
 		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
-			<span className="text-3xl font-bold">ERS Mode</span>
-			<span className="text-3xl font-bold">Brake Bias</span>
-			<span className="text-3xl font-bold">Differential</span>
+			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
+			<span className="text-3xl font-semibold tracking-wide">Brake Bias</span>
+			<span className="text-3xl font-semibold tracking-wide">Differential</span>
 		</div>
 
 		{/* Row Values*/}
 		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
-			<span className="text-3xl capitalize">{ersDeployMode.toLowerCase()}</span>
-			<span className="text-3xl">{brakeBias}%</span>
-			<span className="text-3xl">{differential}%</span>
+			<span className="text-3xl tracking-wide capitalize">{ersDeployMode.toLowerCase()}</span>
+			<span className="text-3xl tracking-wide">{brakeBias}%</span>
+			<span className="text-3xl tracking-wide">{differential}%</span>
 		</div>
 
 	</div>
@@ -126,29 +126,9 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 const WeatherCard = ({ weatherData }) => (
 	<div className="flex justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
-		{/* Now */}
-		<div className="flex grow flex-col justify-center items-start p-4 gap-4">
-
-			<WeatherIcon weather={weatherData.weather} />
-
-			<span className="flex  self-center text-xl font-semibold text-mainWhite/80">Now</span>
-
-			<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-				<span className="text-3xl">Air</span>
-				<span className="text-3xl">{weatherData.temperature_air}°C</span>
-			</div>
-
-			<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-				<span className="text-3xl">Track</span>
-				<span className="text-3xl">{weatherData.temperature_track}°C</span>
-			</div>
-
-		</div>
-
-		{/* Forecasts */}
 		{weatherData.weather_forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
-				<div key={index} className="flex grow flex-col justify-center items-start p-4 gap-4">
+				<div key={index} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
 
 					<WeatherIcon weather={forecast.weather} />
 
@@ -171,7 +151,6 @@ const WeatherCard = ({ weatherData }) => (
 
 				</div>
 			))}
-
 
 	</div>
 )
