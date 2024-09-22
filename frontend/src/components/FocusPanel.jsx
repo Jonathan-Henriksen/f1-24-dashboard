@@ -188,7 +188,7 @@ const TyreLifeCard = ({ tyreData }) => {
 
 			{/* Compund */}
 			<div className="flex grow p-4">
-				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="h-auto" />
+				<img src={getTyreCompoundImage(tyreData.tyre_compound_visual)} className="h-full" />
 				{/* <span className="text-2xl text-mainWhite/80">{tyreData.tyre_compound}</span> */}
 			</div>
 
