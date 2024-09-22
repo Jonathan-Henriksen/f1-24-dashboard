@@ -184,7 +184,7 @@ const TyreLifeCard = ({ tyreData }) => {
 	let tyreWearColor = getColorFromList(TyreWearRange, tyreWearPercentage)
 
 	return (
-		<div className="flex justify-center items-center p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+		<div className="flex justify-center justify-items-start items-center p-4 border-2 divide-x-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 			{/* Compund */}
 			<div className="flex grow flex-col justify-center justify-items-center items-center p-4 gap-2">
@@ -194,11 +194,11 @@ const TyreLifeCard = ({ tyreData }) => {
 
 
 			{/* Percentage Bars */}
-			<div className="flex flex-col justify-center justify-items-center items-center p-4 gap-2">
+			<div className="flex flex-col justify-center justify-items-center items-center divide-y-2 p-4 divide-mainBorder/50">
 
 				{/* Laps */}
-				<div className="flex justify-center justify-items-center items-center p-4">
-					<span className="flex justify-self-end text-center text-3xl tracking-wide text-mainWhite/80">Laps</span>
+				<div className="flex justify-center justify-items-center items-center p-2">
+					<span className="flex text-center text-3xl tracking-wide text-mainWhite/80">Laps</span>
 
 					<LinearProgressBar
 						percentage={tyreAgePercentage}
@@ -207,18 +207,18 @@ const TyreLifeCard = ({ tyreData }) => {
 						height="1.2rem"
 						text={`${tyreLapsRemaing}`}
 						textStyle={{
-							fontSize: '1.3rem',
+							fontSize: '1.5rem',
 							fontStyle: 'italic',
 							textAlign: 'center'
 						}}
 					/>
 
-					<span className="text-3xl tracking-wide">{tyreAgeMax}</span>
+					<span className="flex grow justify-self-end text-2xl tracking-wide text-mainWhite/80">{tyreAgeMax}</span>
 				</div>
 
 				{/* Wear */}
-				<div className="flex justify-center justify-items-center items-center p-4">
-					<span className="flex justify-self-end text-center text-3xl tracking-wide text-mainWhite/80">Wear</span>
+				<div className="flex justify-center justify-items-center items-center p-2">
+					<span className="flex text-center text-3xl tracking-wide">Wear</span>
 
 					<LinearProgressBar
 						percentage={tyreWearPercentage}
@@ -227,13 +227,13 @@ const TyreLifeCard = ({ tyreData }) => {
 						height="1.2rem"
 						text={`${tyreWearPercentage}%`}
 						textStyle={{
-							fontSize: '1.3rem',
+							fontSize: '1.5rem',
 							fontStyle: 'italic',
 							textAlign: 'center'
 						}}
 					/>
 
-					<span className="text-3xl tracking-wide text-mainWhite/80">50%</span>
+					<span className="flex grow justify-self-end text-2xl tracking-wide text-mainWhite/80">50%</span>
 				</div>
 			</div>
 
