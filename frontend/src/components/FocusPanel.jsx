@@ -197,8 +197,8 @@ const TyreLifeCard = ({ tyreData }) => {
 			<div className="flex flex-col divide-y-2 p-4 divide-mainBorder/50">
 
 				{/* Laps */}
-				<div className="flex grow p-4">
-					<span className="text-center text-3xl tracking-wide text-mainWhite/80">Laps</span>
+				<div className="flex grow items-center p-4">
+					<span className="text-3xl tracking-wide text-mainWhite/80">Laps</span>
 
 					<LinearProgressBar
 						percentage={tyreAgePercentage}
@@ -217,8 +217,8 @@ const TyreLifeCard = ({ tyreData }) => {
 				</div>
 
 				{/* Wear */}
-				<div className="flex p-4">
-					<span className="text-center text-3xl tracking-wide">Wear</span>
+				<div className="flex grow items-center p-4">
+					<span className="flex self-center text-3xl tracking-wide text-mainWhite/80">Wear</span>
 
 					<LinearProgressBar
 						percentage={tyreWearPercentage}
