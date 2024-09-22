@@ -5,28 +5,28 @@ import WeatherIcon from "./WeatherIcon";
 import React from "react";
 
 const TimingsCard = ({ timingsData }) => (
-	<div className="flex grow justify-stretch items-center p-4 divide-x-2 gap-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
+	<div className="flex grow justify-stretch items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
 
 		{/* Fastest Lap*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
+		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
 			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
+		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Personal Best</span>
 			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
+		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className={"text-center text-4xl"}>Teammate Best</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
 		{/* Current Lap*/}
-		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
+		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl">Current Lap</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
@@ -34,11 +34,9 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<div className="flex grow justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/40">
-		<div className="flex grow flex-col p-2 gap-2">
-			<span className="text-center text-4xl tracking-wide">Time Left</span>
-			<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
-		</div>
+	<div className="flex grow flex-col justify-center items-center p-4 gap-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
+		<span className="text-center text-4xl tracking-wide">Time Left</span>
+		<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
 	</div>
 )
 
@@ -89,14 +87,14 @@ const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 	<div className="flex grow justify-center items-stretch p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
 		{/* Row Titles*/}
-		<div className="flex flex-col justify-center justify-items-stretch items-start gap-2">
+		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
 			<span className="text-3xl font-bold">ERS Mode</span>
 			<span className="text-3xl font-bold">Brake Bias</span>
 			<span className="text-3xl font-bold">Differential</span>
 		</div>
 
 		{/* Row Values*/}
-		<div className="flex flex-col justify-center justify-items-stretch items-start gap-2">
+		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
 			<span className="text-3xl capitalize">{ersDeployMode.toLowerCase()}</span>
 			<span className="text-3xl">{brakeBias}%</span>
 			<span className="text-3xl">{differential}%</span>
