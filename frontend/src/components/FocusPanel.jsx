@@ -8,7 +8,7 @@ import React from "react";
 
 
 const TimingsCard = ({ timingsData }) => (
-	<Card flex="flex grow justify-stretch items-center divide-x-2 divide-mainBorder/50">
+	<Card flex="flex grow items-stretch divide-x-2 divide-mainBorder/50">
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
@@ -36,7 +36,7 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<Card flex="flex grow flex-col justify-center items-center">
+	<Card flex="flex grow flex-col justify-center items-center min-w-72 max-w-96">
 		<span className="text-center text-4xl tracking-wide">Time Left</span>
 		<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
 	</Card>
@@ -87,7 +87,7 @@ const DeltasCard = ({ timingsData }) => {
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 	<Card flex="flex grow justify-center items-stretch">
 
-		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
+		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2 min-w-72 max-w-96 h-full">
 			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
 			<span className="text-3xl font-semibold tracking-wide">Brake Bias</span>
 			<span className="text-3xl font-semibold tracking-wide">Differential</span>
