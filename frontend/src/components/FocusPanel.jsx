@@ -9,26 +9,26 @@ const TimingsCard = ({ timingsData }) => (
 
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className="text-center text-4xl font">Fastest Lap</span>
-			<span className="text-center text-4xl font-semibold text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
+			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
+			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className="text-center text-4xl font">Personal Best</span>
-			<span className="text-center text-4xl font-semibold text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
+			<span className="text-center text-4xl tracking-wide">Personal Best</span>
+			<span className="text-center text-5xl font-semibold tracking-wide text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className={"text-center text-4xl font"}>Teammate Best</span>
-			<span className={`text-center text-4xl font-semibold ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
+			<span className={"text-center text-4xl"}>Teammate Best</span>
+			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
 		{/* Current Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className="text-center text-4xl font">Current Lap</span>
-			<span className={`text-center text-4xl font-semibold ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
+			<span className="text-center text-4xl">Current Lap</span>
+			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
 	</div>
 )
@@ -36,8 +36,8 @@ const TimingsCard = ({ timingsData }) => (
 const TimeLeftCard = ({ time }) => (
 	<div className="flex grow justify-center items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/40">
 		<div className="flex grow flex-col p-2 gap-2">
-			<span className="text-center text-4xl font-bold">Time Left</span>
-			<span className={`text-center text-6xl font-semibold ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
+			<span className="text-center text-4xl tracking-wide">Time Left</span>
+			<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
 		</div>
 	</div>
 )
@@ -86,22 +86,22 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<div className="flex flex-col justify-center items-stretch p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<div className="flex grow justify-center items-stretch p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
 
-		<div className="flex justify-stretch justify-items-start items-center gap-4">
+		{/* Row Titles*/}
+		<div className="flex flex-col justify-center justify-items-stretch items-start gap-2">
 			<span className="text-3xl font-bold">ERS Mode</span>
-			<span className="text-3xl capitalize">{ersDeployMode.toLowerCase()}</span>
-		</div>
-
-		<div className="flex justify-stretch justify-items-start items-center gap-4">
 			<span className="text-3xl font-bold">Brake Bias</span>
-			<span className="text-3xl">{brakeBias}%</span>
+			<span className="text-3xl font-bold">Differential</span>
 		</div>
 
-		<div className="flex justify-stretch justify-items-start items-center gap-4">
-			<span className="text-3xl font-bold">Differential</span>
+		{/* Row Values*/}
+		<div className="flex flex-col justify-center justify-items-stretch items-start gap-2">
+			<span className="text-3xl capitalize">{ersDeployMode.toLowerCase()}</span>
+			<span className="text-3xl">{brakeBias}%</span>
 			<span className="text-3xl">{differential}%</span>
 		</div>
+
 	</div>
 )
 
