@@ -33,6 +33,12 @@ module.exports = {
         mclaren: '#FF8000',
         sauber: '#52E252',
       },
+      minWidth: {
+        'card-lg': '800px'
+      },
+      maxWidth: {
+        'card-lg': '1000px'
+      },
       screens: {
         xl: { max: "1279px" },
         lg: { max: "1023px" },
