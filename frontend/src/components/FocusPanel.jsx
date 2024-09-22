@@ -103,44 +103,44 @@ const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 )
 
 const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosition }) => (
-	<Card flex="flex-col justify-center items-center divide-y-2 divide-mainBorder/50">
+	<Card flex="flex-col items-center divide-y-2 divide-mainBorder/50">
 
-		<div className="flex grow flex-col justify-center items-center">
+		<div className="flex flex-col items-center">
 			<span className="text-center text-3xl">Recommended Lap to Pit</span>
-			<span className="text-center text-4xl font-bold">Lap{recommendedLapToPit}</span>
+			<span className="text-center text-4xl font-semibold">Lap{recommendedLapToPit}</span>
 		</div>
 
-		<div className="flex grow flex-col justify-center items-center">
+		<div className="flex flex-col items-center">
 			<span className="text-center text-3xl">Latest Lap to Pit</span>
-			<span className="text-center text-4xl font-bold">Lap {latestLapToPit}</span>
+			<span className="text-center text-4xl font-semibold">Lap {latestLapToPit}</span>
 		</div>
 
-		<div className="flex grow justify-center items-center">
+		<div className="flex flex-col items-center">
 			<span className="text-center text-3xl">Expected Rejoin Position</span>
-			<span className="text-center text-4xl font-bold">P{expectedRejoinPosition}</span>
+			<span className="text-center text-4xl font-semibold">P{expectedRejoinPosition}</span>
 		</div>
 
 	</Card>
 )
 
 const WeatherCardRow = ({ forecast }) => (
-	<div key={`forecast-${forecast.time_offset_in_minutes}`} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
+	<div key={`forecast-${forecast.time_offset_in_minutes}`} className="flex flex-col px-4 py-2 gap-4">
 
 		<WeatherIcon weather={forecast.weather} />
 
 		<span className="flex self-center text-center text-xl font-semibold text-mainWhite/80">{forecast.time_offset_in_minutes} min</span>
 
-		<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+		<div className="flex gap-2">
 			<span className="text-3xl font-semibold">Air</span>
 			<span className="text-3xl">{forecast.temperatur_air}°C</span>
 		</div>
 
-		<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+		<div className="flex gap-2">
 			<span className="text-3xl font-semibold">Track</span>
 			<span className="text-3xl">{forecast.temperatur_track}°C</span>
 		</div>
 
-		<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+		<div className="flex gap-2">
 			<span className="text-3xl font-semibold">Rain</span>
 			<span className="text-3xl">{forecast.rain_percentage}%</span>
 		</div>
@@ -149,7 +149,7 @@ const WeatherCardRow = ({ forecast }) => (
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<Card flex="flex justify-center items-center divide-x-2 divide-mainBorder/50">
+	<Card flex="flex divide-x-2 divide-mainBorder/50">
 		{weatherData.weather_forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
 				<WeatherCardRow forecast={forecast} />
