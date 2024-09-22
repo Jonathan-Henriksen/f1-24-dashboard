@@ -33,7 +33,7 @@ class LeaderboardPanel():
 
 	def update_from_lap_data_packet(self, lap_data_packet: LapDataPacket, session_type: str):
 		player_lap_data = lap_data_packet.player_data()
-		
+
 		if (lap_data_packet.header.player_car_index >= 0):
 			self.drivers[lap_data_packet.header.player_car_index].is_player = True
 
@@ -54,7 +54,7 @@ class LeaderboardPanel():
 				player_delta_to_race_leader = Time(minutes_part=player_lap_data.delta_to_race_leader_minutes_part, ms_part=player_lap_data.delta_to_race_leader_ms_part)
 				other_driver_delta_to_race_leader = Time(minutes_part=lap_data.delta_to_race_leader_minutes_part, ms_part=lap_data.delta_to_race_leader_ms_part)
 
-				delta_to_player_in_ms = abs(other_driver_delta_to_race_leader.to_milliseconds() - player_delta_to_race_leader)
+				delta_to_player_in_ms = abs(other_driver_delta_to_race_leader.to_milliseconds() - player_delta_to_race_leader.to_milliseconds())
 
 				self.drivers[car_index].delta_to_player = Time(ms_part=delta_to_player_in_ms)
 
