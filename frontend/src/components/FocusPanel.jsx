@@ -204,7 +204,7 @@ const TyreLifeCard = ({ tyreData }) => {
 						showPercentage={false}
 						color={tyreAgeColor}
 						height="1.2rem"
-						text={`${tyreLapsRemaing}`}
+						text={`${tyreAge} lap${tyreAge > 1 ? 's' : ''}`}
 						textStyle={{
 							fontSize: '1.5rem',
 							fontStyle: 'italic',
