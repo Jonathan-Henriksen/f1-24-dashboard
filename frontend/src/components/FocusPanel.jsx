@@ -1,4 +1,4 @@
-import { calculatePercentage, formatTime } from "helpers/helpers";
+import { calculatePercentage, formatTime } from "utils";
 import { getColorFromList, getTeamColor } from 'helpers/colorHelper'
 import { getTyreCompoundImage } from "helpers/imageHelper";
 import CarDeltasGraphic from './CarDeltasGraphic';
@@ -8,8 +8,7 @@ import React from "react";
 
 
 const TimingsCard = ({ timingsData }) => (
-	<div className="flex grow justify-stretch items-center p-4 divide-x-2 border-2 rounded-xl shadow-xl bg-mainDark/50 shadow-mainDark/50 border-mainBorder/25 divide-mainBorder/50">
-
+	<Card flex="flex grow justify-stretch items-center divide-x-2 divide-mainBorder/50">
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-4 gap-2">
 			<span className="text-center text-4xl tracking-wide">Fastest Lap</span>
@@ -33,14 +32,14 @@ const TimingsCard = ({ timingsData }) => (
 			<span className="text-center text-4xl">Current Lap</span>
 			<span className={`text-center text-5xl font-semibold tracking-wide ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
-	</div>
+	</Card>
 )
 
 const TimeLeftCard = ({ time }) => (
-	<div className="flex grow flex-col justify-center items-center px-8 py-4 gap-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
+	<Card flex="flex grow flex-col justify-center items-center">
 		<span className="text-center text-4xl tracking-wide">Time Left</span>
 		<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
-	</div>
+	</Card>
 )
 
 const DeltasCard = ({ timingsData }) => {
@@ -50,8 +49,7 @@ const DeltasCard = ({ timingsData }) => {
 	let player = timingsData.player
 
 	return (
-		<div className="flex flex-col justify-center items-start p-6 gap-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
-
+		<Card flex="flex-col justify-center items-start divide-y-2 divide-mainBorder/50">
 			{raceLeader && raceLeader.position != player.position && (
 				<div className="flex justify-center justify-items-start items-center gap-2">
 					<span className="text-4xl font-semibold">P{raceLeader.position}.</span>
@@ -82,32 +80,30 @@ const DeltasCard = ({ timingsData }) => {
 					<span className="text-3xl text-lapTime-green">-{formatTime(driverBehind.delta_to_player)}</span>
 				</div>
 			)}
-		</div>
+		</Card>
 	)
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<div className="flex grow justify-center items-stretch p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
+	<Card flex="flex grow justify-center items-stretch">
 
-		{/* Row Titles*/}
 		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
 			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
 			<span className="text-3xl font-semibold tracking-wide">Brake Bias</span>
 			<span className="text-3xl font-semibold tracking-wide">Differential</span>
 		</div>
 
-		{/* Row Values*/}
 		<div className="flex flex-col justify-center justify-items-stretch items-start p-2 gap-2">
 			<span className="text-3xl tracking-wide capitalize">{ersDeployMode.toLowerCase()}</span>
 			<span className="text-3xl tracking-wide">{brakeBias}%</span>
 			<span className="text-3xl tracking-wide">{differential}%</span>
 		</div>
 
-	</div>
+	</Card>
 )
 
 const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosition }) => (
-	<div className="flex flex-col justify-center items-center p-4 divide-y-2 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50 divide-mainBorder/50">
+	<Card flex="flex-col justify-center items-center divide-y-2 divide-mainBorder/50">
 
 		<div className="flex grow flex-col justify-center items-center">
 			<span className="text-center text-3xl">Recommended Lap to Pit</span>
@@ -123,35 +119,40 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 			<span className="text-center text-3xl">Expected Rejoin Position</span>
 			<span className="text-center text-4xl font-bold">P{expectedRejoinPosition}</span>
 		</div>
+
+	</Card>
+)
+
+const WeatherCardRow = ({ forecast }) => (
+	<div key={index} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
+
+		<WeatherIcon weather={forecast.weather} />
+
+		<span className="flex self-center text-center text-xl font-semibold text-mainWhite/80">{forecast.time_offset_in_minutes} min</span>
+
+		<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+			<span className="text-3xl font-semibold">Air</span>
+			<span className="text-3xl">{forecast.temperatur_air}°C</span>
+		</div>
+
+		<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+			<span className="text-3xl font-semibold">Track</span>
+			<span className="text-3xl">{forecast.temperatur_track}°C</span>
+		</div>
+
+		<div className="flex grow justify-stretch justify-items-start items-center gap-2">
+			<span className="text-3xl font-semibold">Rain</span>
+			<span className="text-3xl">{forecast.rain_percentage}%</span>
+		</div>
+
 	</div>
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<Card flex="justify-center items-center divide-x-2 divide-mainBorder/50">
+	<Card flex="flex justify-center items-center divide-x-2 divide-mainBorder/50">
 		{weatherData.weather_forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
-				<div key={index} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
-
-					<WeatherIcon weather={forecast.weather} />
-
-					<span className="flex self-center text-center text-xl font-semibold text-mainWhite/80">{forecast.time_offset_in_minutes} min</span>
-
-					<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-						<span className="text-3xl font-semibold">Air</span>
-						<span className="text-3xl">{forecast.temperatur_air}°C</span>
-					</div>
-
-					<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-						<span className="text-3xl font-semibold">Track</span>
-						<span className="text-3xl">{forecast.temperatur_track}°C</span>
-					</div>
-
-					<div className="flex grow justify-stretch justify-items-start items-center gap-2">
-						<span className="text-3xl font-semibold">Rain</span>
-						<span className="text-3xl">{forecast.rain_percentage}%</span>
-					</div>
-
-				</div>
+				<WeatherCardRow forecast={forecast} />
 			))}
 	</Card >
 )
@@ -182,7 +183,7 @@ const TyreLifeCard = ({ tyreData }) => {
 	let tyreWearColor = getColorFromList(TyreWearRange, tyreWearPercentage)
 
 	return (
-		<div className="flex justify-center justify-items-start items-center p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50">
+		<Card flex="flex justify-center justify-items-start items-center">
 
 			{/* Compound */}
 			<div className="flex grow flex-col justify-center justify-items-center p-4 min-w-48">
@@ -233,13 +234,9 @@ const TyreLifeCard = ({ tyreData }) => {
 					<span className="text-2xl tracking-wide text-mainWhite/80">50%</span>
 				</div>
 			</div>
-
-
-		</div>
+		</Card>
 	)
 }
-
-
 
 const Row = ({ children }) => (
 	<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
@@ -248,7 +245,7 @@ const Row = ({ children }) => (
 )
 
 const Card = ({ children, flex = "flex justify-center justify-items-center items-center" }) => (
-	<div className={`flex ${flex} p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50`}>
+	<div className={`${flex} p-4 border-2 rounded-xl shadow-xl bg-mainDark/50 border-mainBorder/25 shadow-mainDark/50`}>
 		{children}
 	</div>
 )

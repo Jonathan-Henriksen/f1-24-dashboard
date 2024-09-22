@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatTime } from 'helpers/helpers';
+import { formatTime } from 'utils';
 import { getTeamColor } from 'helpers/colorHelper'
 
 const LapTimeCard = ({ index, title, time, color, driverName, driverTeam, isInvalid, isFastest, excludeMs }) => {

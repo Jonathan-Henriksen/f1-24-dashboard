@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatTime } from "helpers/helpers";
+import { formatTime } from "utils";
 import { getCarImage } from 'helpers/imageHelper'
 import { getTeamColor } from 'helpers/colorHelper'
 
