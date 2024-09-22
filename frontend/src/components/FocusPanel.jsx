@@ -9,26 +9,26 @@ const TimingsCard = ({ timingsData }) => (
 
 		{/* Fastest Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className="text-center text-4xl font-bold">Fastest Lap</span>
-			<span className="text-center text-6xl font-semibold text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
+			<span className="text-center text-4xl font">Fastest Lap</span>
+			<span className="text-center text-4xl font-semibold text-lapTime-purple">{formatTime(timingsData.lap_time_fastest_driver.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Personal Best*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className="text-center text-4xl font-bold">Personal Best</span>
-			<span className="text-center text-6xl font-semibold text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
+			<span className="text-center text-4xl font">Personal Best</span>
+			<span className="text-center text-4xl font-semibold text-lapTime-green">{formatTime(timingsData.lap_time_personal_best)}</span>
 		</div>
 
 		{/* Teammate Best*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className={"text-center text-4xl font-bold"}>Teammate Best</span>
-			<span className={`text-center text-6xl font-semibold ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
+			<span className={"text-center text-4xl font"}>Teammate Best</span>
+			<span className={`text-center text-4xl font-semibold ${timingsData.player ? getTeamColor(timingsData.player.team) : ''}`}>{formatTime(timingsData.lap_time_teammate_best)}</span>
 		</div>
 
 		{/* Current Lap*/}
 		<div className="flex grow flex-col justify-center items-center p-2 gap-2">
-			<span className="text-center text-4xl font-bold">Current Lap</span>
-			<span className={`text-center text-6xl font-semibold ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
+			<span className="text-center text-4xl font">Current Lap</span>
+			<span className={`text-center text-4xl font-semibold ${timingsData.lap_time_current_invalidated ? 'text-mainRed' : ''}`}>{formatTime(timingsData.lap_time_current)}</span>
 		</div>
 	</div>
 )
@@ -53,7 +53,7 @@ const DeltasCard = ({ timingsData }) => {
 
 			{raceLeader && raceLeader.position != player.position && (
 				<div className="flex justify-center justify-items-start items-center gap-2">
-					<span className="text-4xl font-semibold">P{raceLeader.position}</span>
+					<span className="text-4xl font-semibold">P{raceLeader.position}.</span>
 					<span className={`text-4xl capitalize br-2 border-mainBorder/25 ${getTeamColor(raceLeader.team)}`}>{raceLeader.name.toLowerCase()}</span>
 					<span className="text-3xl text-mainRed">+{formatTime(raceLeader.delta_to_player)}</span>
 				</div>
@@ -61,7 +61,7 @@ const DeltasCard = ({ timingsData }) => {
 
 			{driverInFront && (
 				<div className="flex justify-center justify-items-start items-center gap-2">
-					<span className="text-4xl font-semibold">P{driverInFront.position}</span>
+					<span className="text-4xl font-semibold">P{driverInFront.position}.</span>
 					<span className={`text-4xl capitalize br-2 border-mainBorder/25 ${getTeamColor(driverInFront.team)}`}>{driverInFront.name.toLowerCase()}</span>
 					<span className="text-3xl text-mainRed">+{formatTime(driverInFront.delta_to_player)}</span>
 				</div>
@@ -69,14 +69,14 @@ const DeltasCard = ({ timingsData }) => {
 
 			{player && (
 				<div className="flex justify-center justify-items-start items-center gap-2">
-					<span className="text-4xl font-semibold">P{player.position}</span>
+					<span className="text-4xl font-semibold">P{player.position}.</span>
 					<span className={`text-4xl capitalize br-2 border-mainBorder/25 ${getTeamColor(player.team)}`}>{player.name.toLowerCase()}</span>
 				</div>
 			)}
 
 			{driverBehind && (
 				<div className="flex justify-center justify-items-start items-center gap-2">
-					<span className="text-4xl font-semibold">P{driverBehind.position}</span>
+					<span className="text-4xl font-semibold">P{driverBehind.position}.</span>
 					<span className={`text-4xl capitalize br-2 border-mainBorder/25 ${getTeamColor(driverBehind.team)}`}>{driverBehind.name.toLowerCase()}</span>
 					<span className="text-3xl text-lapTime-green">-{formatTime(driverBehind.delta_to_player)}</span>
 				</div>
