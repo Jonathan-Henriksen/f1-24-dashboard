@@ -36,7 +36,7 @@ const TimingsCard = ({ timingsData }) => (
 )
 
 const TimeLeftCard = ({ time }) => (
-	<Card flex="flex flex-col">
+	<Card flex="flex flex-col justify-center">
 		<span className="text-center text-4xl tracking-wide">Time Left</span>
 		<span className={`text-center text-5xl font-semibold tracking-wide ${time.minutes < 2 ? 'text-mainRed' : ''}`}>{formatTime(time, { excludeMs: true })}</span>
 	</Card>
@@ -85,7 +85,7 @@ const DeltasCard = ({ timingsData }) => {
 }
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
-	<Card flex="flex">
+	<Card flex="flex items-center">
 
 		<div className="flex flex-col p-2 gap-2">
 			<span className="text-3xl font-semibold tracking-wide">ERS Mode</span>
@@ -103,7 +103,7 @@ const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 )
 
 const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosition }) => (
-	<Card flex="flex-col items-center divide-y-2 divide-mainBorder/50">
+	<Card flex="flex-col justify-center divide-y-2 divide-mainBorder/50">
 
 		<div className="flex flex-col items-center">
 			<span className="text-center text-3xl">Recommended Lap to Pit</span>
@@ -149,7 +149,7 @@ const WeatherCardRow = ({ forecast }) => (
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<Card flex="flex divide-x-2 divide-mainBorder/50">
+	<Card flex="flex items-center divide-x-2 divide-mainBorder/50">
 		{weatherData.weather_forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
 				<WeatherCardRow forecast={forecast} />
@@ -254,7 +254,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	let sessionType = generalData.session_type;
 
 	return (
-		<div className="flex flex-col p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
+		<div className="flex flex-col justify-center p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
 
 			<Row>
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
