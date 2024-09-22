@@ -127,7 +127,7 @@ const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosit
 )
 
 const WeatherCard = ({ weatherData }) => (
-	<Card flex="justify-center items-center">
+	<Card flex="justify-center items-center divide-x-2 divide-mainBorder/50">
 		{weatherData.weather_forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
 				<div key={index} className="flex grow flex-col justify-center items-start px-4 py-2 gap-4">
@@ -241,7 +241,7 @@ const TyreLifeCard = ({ tyreData }) => {
 
 
 
-const FocusPanelRow = ({ children }) => (
+const Row = ({ children }) => (
 	<div className="flex grow justify-between content-center items-stretch gap-8 p-4">
 		{children}
 	</div>
@@ -259,7 +259,7 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 	return (
 		<div className="flex grow flex-col justify-center content-center items-center p-4 gap-8 border-2 shadow-inner rounded-xl bg-mainLight/80 border-mainBorder/50">
 
-			<FocusPanelRow>
+			<Row>
 				<SettingsCard ersDeployMode={generalData.ers_deploy_mode} brakeBias={generalData.brake_bias} differential={generalData.differential} />
 
 				<TimingsCard timingsData={timingsData} />
@@ -270,21 +270,21 @@ const FocusPanel = ({ generalData, timingsData, strategyData, tyreData, weatherD
 				) : (
 					<StrategyCard recommendedLapToPit={strategyData.lap_to_pit_recommended} latestLapToPit={strategyData.lap_to_pit_latest} expectedRejoinPosition={strategyData.expected_rejoin_position} />
 				)}
-			</FocusPanelRow>
+			</Row>
 
-			<FocusPanelRow>
+			<Row>
 				<WeatherCard weatherData={weatherData} />
 				<TyreLifeCard tyreData={tyreData} />
-			</FocusPanelRow>
+			</Row>
 
-			<FocusPanelRow>
+			<Row>
 				<CarDeltasGraphic
 					behindCar={timingsData.driver_behind}
 					playerCar={timingsData.player}
 					frontCar={timingsData.driver_in_front}
 					leaderCar={timingsData.race_leader}
 				/>
-			</FocusPanelRow>
+			</Row>
 		</div >
 	)
 }
