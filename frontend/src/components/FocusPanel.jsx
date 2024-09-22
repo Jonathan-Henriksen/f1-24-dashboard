@@ -167,7 +167,7 @@ const TyreAgeRange = [
 const TyreWearRange = [
 	{ color: '#2BDD1A', value: 0 },  // Green
 	{ color: '#FBCD4C', value: 20 },  // Yellow
-	{ color: '#EC3B26', value: 40 }  // Red
+	{ color: '#EC3B26', value: 40 },  // Red
 	{ color: '#EC3B26', value: 100 }  // Red
 ];
 
