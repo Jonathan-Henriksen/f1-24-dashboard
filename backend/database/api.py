@@ -11,8 +11,8 @@ def run_flask_app():
 @app.route('/api/drivers/<session_id>')
 def drivers(session_id):
     
-    player_driver_data = DriversClient.find(session_id, {'is_player' : True})
-    
+    player_driver_data = DriversClient.find(session_id, {'isPlayer' : True})
+
     if player_driver_data:
         return jsonify(player_driver_data)
     
