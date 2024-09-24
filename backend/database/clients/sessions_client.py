@@ -2,24 +2,21 @@ from .mongo_client import MongoDBClient
 
 _COLLECTION_NAME = "drivers"
 
-class DriversClient:
+class SessionsClient:
     @staticmethod
-    def update_or_insert(session_id: int, car_index: int, values: dict):
+    def update_or_insert(session_id: int, values: dict):
         collection = MongoDBClient.get_collection(_COLLECTION_NAME)
 
-        filter = {'sessionId': session_id, 'carIndex': car_index}
+        filter = {'sessionId': session_id}
 
         values["sessionId"] = session_id
-        values["carIndex"] = car_index
         
         new_values = {"$set": values}
 
         return collection.update_one(filter, new_values, upsert=True)
 
     @staticmethod
-    def find(session_id: int, query: dict):
+    def find(query: dict):
         collection = MongoDBClient.get_collection(_COLLECTION_NAME)
-
-        query['sessionId'] = session_id
 
         return collection.find_one(query)

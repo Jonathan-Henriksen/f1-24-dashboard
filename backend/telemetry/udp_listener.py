@@ -1,5 +1,6 @@
 import socket
-from services import DriverService as drivers
+from services import DriversService as drivers
+from services import SessionsService as sessions
 
 from .enums import PacketIDs
 from .packets import *
@@ -25,16 +26,10 @@ def handle_packet(data: bytes):
 			remaning_bytes = data[PACKET_HEADER_FORMAT_SIZE:]
 
 			match packet_header.packet_id:
-				case PacketIDs.CAR_TELEMETRY.value:
-					car_telemetry_packet = unpack_car_telemetry(packet_header, remaning_bytes)
-
 				case PacketIDs.CAR_STATUS.value:
 					car_status_packet = unpack_car_status(packet_header, remaning_bytes)
 
 					drivers.update_from_car_status_packet(car_status_packet)
-
-				case PacketIDs.CAR_DAMAGE.value:
-					car_damage_packet = unpack_car_damage(packet_header, remaning_bytes)
 
 				case PacketIDs.TYRE_SETS.value:
 					tyre_sets_packet = unpack_tyre_sets(packet_header, remaning_bytes)
@@ -53,6 +48,14 @@ def handle_packet(data: bytes):
 
 				case PacketIDs.SESSION.value:
 					session_packet = unpack_session(packet_header, remaning_bytes)
+
+					sessions.update_from_session_packet(session_packet)
+					drivers.update_from_session_packet(session_packet)
+
+				case PacketIDs.SESSION_HISTORY.value:
+					session_history_packet = unpack_session_history(packet_header, remaning_bytes)
+
+					drivers.update_from_session_history_packet(session_history_packet)
 
 				case PacketIDs.EVENT.value:
 					event_packet = unpack_event_packet(packet_header, remaning_bytes)

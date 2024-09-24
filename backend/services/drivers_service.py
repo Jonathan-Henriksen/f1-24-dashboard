@@ -1,8 +1,26 @@
 from database.clients import DriversClient as drivers
-from telemetry.packets import CarStatusPacket, LapDataPacket, ParticipantsPacket, TyreSetsPacket
+from telemetry.packets import CarStatusPacket, LapDataPacket, ParticipantsPacket, SessionPacket, SessionHistoryPacket, TyreSetsPacket
 from telemetry.enums import DriverStatus, Nationalities, PitStatus, Teams, TyreCompounds, TyreCompoundsVisual
 
-class DriverService:
+class DriversService:
+
+	@staticmethod
+	def update_from_session_packet(packet: SessionPacket):
+		drivers.update_or_insert(packet.header.session_uid, packet.header.player_car_index, {
+			'pitStop' : {
+				'lapIdeal' : packet.pit_stop_window_ideal_lap,
+				'lapLatest' : packet.pit_stop_window_latest_lap,
+				'rejoinPosition' : packet.pit_stop_rejoin_position
+			}
+		})
+
+	@staticmethod
+	def update_from_session_history_packet(packet: SessionHistoryPacket):
+		drivers.update_or_insert(packet.header.session_uid, packet.car_index, {
+			'lapTimes' : {
+				'personalBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
+			}
+		})		
 
 	@staticmethod
 	def update_from_car_status_packet(packet: CarStatusPacket):
@@ -14,6 +32,7 @@ class DriverService:
 					'compoundVisual' : TyreCompoundsVisual(driver.tyre_compound_visual).name
 				}
 			})
+
 
 	@staticmethod
 	def update_from_lap_data_packet(packet: LapDataPacket):

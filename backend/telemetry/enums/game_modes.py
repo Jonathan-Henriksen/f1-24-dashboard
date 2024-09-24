@@ -1,6 +1,6 @@
 from enum import Enum
 
-class GameModeIDs(Enum):
+class GameModes(Enum):
 	EVENT_MODE = 0
 	GRAND_PRIX = 3
 	GRAND_PRIX_23 = 4

@@ -1,6 +1,6 @@
 from enum import Enum
 
-class TrackIDs(Enum):
+class Tracks(Enum):
 	MELBOURNE = 0
 	PAUL_RICARD = 1
 	SHANGHAI = 2

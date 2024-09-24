@@ -11,6 +11,7 @@ from .penalty_types import *
 from .safety_car import *
 from .rulesets import *
 from .pit_status import *
+from .session_length import *
 from .session_types import *
 from .teams import *
 from .temperature_change import *
