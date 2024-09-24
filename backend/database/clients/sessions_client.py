@@ -7,9 +7,9 @@ class SessionsClient:
     def update_or_insert(session_id: int, values: dict):
         collection = MongoDBClient.get_collection(_COLLECTION_NAME)
 
-        filter = {'sessionId': session_id}
+        filter = {'sessionId': str(session_id)}
 
-        values["sessionId"] = session_id
+        values["sessionId"] = str(session_id)
         
         new_values = {"$set": values}
 

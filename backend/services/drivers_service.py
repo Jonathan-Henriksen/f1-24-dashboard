@@ -1,8 +1,12 @@
 from database.clients import DriversClient as drivers
-from telemetry.packets import CarStatusPacket, LapDataPacket, ParticipantsPacket, SessionPacket, SessionHistoryPacket, TyreSetsPacket
+from telemetry.packets import LapDataPacket, ParticipantsPacket, SessionPacket, SessionHistoryPacket, TyreSetsPacket
 from telemetry.enums import DriverStatus, Nationalities, PitStatus, Teams, TyreCompounds, TyreCompoundsVisual
 
 class DriversService:
+
+	@staticmethod
+	def find(session_id: int, query: dict):
+		return drivers.find(session_id, query)
 
 	@staticmethod
 	def update_from_session_packet(packet: SessionPacket):
@@ -17,21 +21,8 @@ class DriversService:
 	@staticmethod
 	def update_from_session_history_packet(packet: SessionHistoryPacket):
 		drivers.update_or_insert(packet.header.session_uid, packet.car_index, {
-			'lapTimes' : {
-				'personalBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
-			}
-		})		
-
-	@staticmethod
-	def update_from_car_status_packet(packet: CarStatusPacket):
-		for car_index, driver in enumerate(packet.car_status_list):
-			drivers.update_or_insert(packet.header.session_uid, car_index, {
-				'currentTyreSet' : {
-					'lapsAge' : driver.tyre_age_laps,
-					'compoundActual' : TyreCompounds(driver.tyre_compound).name,
-					'compoundVisual' : TyreCompoundsVisual(driver.tyre_compound_visual).name
-				}
-			})
+			'personalBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
+		})
 
 
 	@staticmethod
@@ -65,20 +56,22 @@ class DriversService:
 			available_tyre_sets.append({
 				'compoundActual': TyreCompounds(tyre_set.compound).name,
 				'compoundVisual': TyreCompoundsVisual(tyre_set.compound_visual).name,
+				'deltaTime': tyre_set.lap_delta_time,
 				'lapsLeft': tyre_set.num_of_laps_left,
 				'lapsMax': tyre_set.num_of_laps_max,
-				'lapDeltaTime': tyre_set.lap_delta_time,
 				'wear': tyre_set.wear,
 			})
 
 
 		drivers.update_or_insert(packet.header.session_uid, packet.car_index, {
+			'availableTyreSets' : available_tyre_sets,
 			'currentTyreSet' : {
+				'compoundActual' : TyreCompounds(fitted_tyre_set.compound).name,
+				'compoundVisual' : TyreCompoundsVisual(fitted_tyre_set.compound_visual).name,
 				'lapsLeft' : fitted_tyre_set.num_of_laps_left,
 				'lapsMax' : fitted_tyre_set.num_of_laps_max,
 				'wear' : fitted_tyre_set.wear,
-			},
-			'availableTyreSets' : available_tyre_sets
+			}
 		})
 
 	@staticmethod
