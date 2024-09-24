@@ -14,6 +14,7 @@ def drivers(session_id):
     player_driver_data = DriversClient.find(session_id, {'isPlayer' : True})
 
     if player_driver_data:
+        print(player_driver_data)
         return jsonify(player_driver_data)
     
     return jsonify({'error': 'No data available'}), 404
