@@ -7,7 +7,7 @@ class MongoDBClient:
     @classmethod
     def _get_client(cls):
         if cls._client is None:
-            cls._client = MongoClient("mongodb://localhost:27017/")
+            cls._client = MongoClient("mongodb://root:example@localhost:27017/")
             cls._db = cls._client["sessions"]
         return cls._db
 

@@ -1,6 +1,7 @@
 from enum import Enum
 
 class Nationalities(Enum):
+	NONE = 255
 	UNKNOWN = 0
 	AMERICAN = 1
 	ARGENTINEAN = 2

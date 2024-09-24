@@ -7,9 +7,9 @@ class DriversClient:
     def update_or_insert(session_id: int, car_index: int, values: dict):
         collection = MongoDBClient.get_collection(_COLLECTION_NAME)
 
-        filter = {'sessionId': session_id, 'carIndex': car_index}
+        filter = {'sessionId': str(session_id), 'carIndex': car_index}
 
-        values["sessionId"] = session_id
+        values["sessionId"] = str(session_id)
         values["carIndex"] = car_index
         
         new_values = {"$set": values}

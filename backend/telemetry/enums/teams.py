@@ -1,6 +1,7 @@
 from enum import Enum
 
 class Teams(Enum):
+	NONE = 255
 	MERCEDES = 0
 	FERRARI = 1
 	RED_BULL_RACING = 2
