@@ -1,4 +1,4 @@
-from database.clients import DriverCollection as drivers
+from database.clients import DriversClient as drivers
 from flask import Flask, jsonify
 from flask_cors import CORS
 

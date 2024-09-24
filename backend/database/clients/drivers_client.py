@@ -1,22 +1,24 @@
-from mongo_client import MongoDBClient
+from .mongo_client import MongoDBClient
 
 _COLLECTION_NAME = "drivers"
 
 class DriversClient:
     @staticmethod
-    def insert(car_index, driver_data: dict):
+    def update_or_insert(session_id: int, car_index: int, values: dict):
         collection = MongoDBClient.get_collection(_COLLECTION_NAME)
-        driver_data["car_index"] = car_index
-        return collection.insert_one(driver_data).inserted_id
 
-    @staticmethod
-    def update(car_index: int, values: dict):
-        collection = MongoDBClient.get_collection(_COLLECTION_NAME)
-        filter = {'car_index': car_index}
+        values["sessionId"] = session_id
+        values["carIndex"] = car_index
+
+        filter = {'sessionId': session_id, 'carIndex': car_index}
         new_values = {"$set": values}
-        return collection.update_one(filter, new_values)
+
+        return collection.update_one(filter, new_values, upsert=True)
 
     @staticmethod
-    def find(query: dict):
+    def find(session_id: int, query: dict):
         collection = MongoDBClient.get_collection(_COLLECTION_NAME)
+
+        query['sessionId'] = session_id
+
         return collection.find_one(query)

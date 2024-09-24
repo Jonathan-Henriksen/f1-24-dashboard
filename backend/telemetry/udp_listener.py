@@ -1,8 +1,8 @@
 import socket
 from services import DriverService as drivers
 
-from enums import PacketIDs
-from packets import *
+from .enums import PacketIDs
+from .packets import *
 
 _PORT = 9999
 _IP = '0.0.0.0'
