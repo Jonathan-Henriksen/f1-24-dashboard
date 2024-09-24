@@ -1,4 +1,5 @@
 from .clients import DriversClient
+from bson.json_util import dumps
 from flask import Flask, jsonify
 from flask_cors import CORS
 
@@ -15,6 +16,6 @@ def drivers(session_id):
 
     if player_driver_data:
         print(player_driver_data)
-        return jsonify(player_driver_data)
+        return dumps(player_driver_data)
     
     return jsonify({'error': 'No data available'}), 404
