@@ -2,8 +2,8 @@ import socket
 from services import DriversService as drivers
 from services import SessionsService as sessions
 
-from .enums import PacketIDs
-from .packets import *
+from telemetry.enums import PacketIDs
+from telemetry.packets import *
 
 _PORT = 9999
 _IP = '0.0.0.0'
@@ -56,16 +56,17 @@ def handle_packet(data: bytes):
 					event_packet = unpack_event_packet(packet_header, remaning_bytes)
 					event = event_packet.event
 
-					# Button Events
 					if type(event) == ButtonsEvent:
 						if (event.button_status & ButtonFlags.UDP_ACTION_1):
-							# Change Active Panel In Database
 							print("UDP_ACTION_1 Pressed")
 
 						elif (event.button_status & ButtonFlags.UDP_ACTION_2):
-							# Change Active Panel In Database
 							print("UDP_ACTION_2 Pressed")
 
 					elif type(event) == FastestLapEvent:
-						# Set Fastest Time In Database
-						print("Fastest Lap Time was set")
+						fastest_lap_driver = drivers.find(event_packet.header.session_uid, {'carIndex' : event.vehicle_index})
+
+						print(f"Fastest Lap Time was set by {fastest_lap_driver.name}")
+
+						sessions.update_from_fastest_lap_event(event_packet.header.session_uid, fastest_lap_driver.name, event)
+						

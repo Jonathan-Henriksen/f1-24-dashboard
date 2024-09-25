@@ -1,6 +1,7 @@
+from flask_app import run_flask_app
+from udp_listener import run_udp_listener
+
 import threading
-from database.api import run_flask_app
-from telemetry.udp_listener import run_udp_listener
 
 if __name__ == '__main__':
 	udp_thread = threading.Thread(target=run_udp_listener)

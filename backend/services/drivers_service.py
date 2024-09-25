@@ -1,4 +1,4 @@
-from database.clients import DriversClient as drivers
+from database import DriversClient as drivers
 from telemetry.packets import LapDataPacket, ParticipantsPacket, SessionPacket, SessionHistoryPacket, TyreSetsPacket
 from telemetry.enums import DriverStatus, Nationalities, PitStatus, Teams, TyreCompounds, TyreCompoundsVisual
 
@@ -21,7 +21,7 @@ class DriversService:
 	@staticmethod
 	def update_from_session_history_packet(packet: SessionHistoryPacket):
 		drivers.update_or_insert(packet.header.session_uid, packet.car_index, {
-			'personalBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
+			'lapTimeBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
 		})
 
 
@@ -32,18 +32,17 @@ class DriversService:
 				'isPlayer' : car_index == packet.header.player_car_index,
 				'position' : driver.car_position,
 				'gridPosition' : driver.grid_position,
-				'lapNumber' : driver.current_lap_num,
-				'lapDistance' : driver.lap_distance,
-				'totalWarnings' : driver.total_warnings,
-				'cornerCuttingWarnings' : driver.corner_cutting_warnings,
-				'lapTimes' : {
-					'current' : driver.current_lap_time_in_ms,
-					'currentIsInvalid' : bool(driver.current_lap_invalid),
-					'previous' :driver.last_lap_time_in_ms,
-				},
 				'driverStatus' : DriverStatus(driver.driver_status).name,
 				'pitStatus' : PitStatus(driver.pit_status).name,
-				'penaltySeconds' : driver.penalties
+				'penaltySeconds' : driver.penalties,
+				'cornerCuttingWarnings' : driver.corner_cutting_warnings,
+				'totalWarnings' : driver.total_warnings,
+				'lapNumber' : driver.current_lap_num,
+				'lapDistance' : driver.lap_distance,
+				'lapTimeCurrent' : driver.current_lap_time_in_ms,
+				'lapTimeCurrentInvalid' : bool(driver.current_lap_invalid),
+				'lapTimePrevious' : driver.last_lap_time_in_ms,
+				
 			})
 
 	@staticmethod

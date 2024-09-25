@@ -9,12 +9,15 @@ class DriversClient:
 
         filter = {'sessionId': str(session_id), 'carIndex': car_index}
 
-        values["sessionId"] = str(session_id)
-        values["carIndex"] = car_index
-        
-        new_values = {"$set": values}
+        update = {
+            "$set": values,
+            "$setOnInsert" : {
+                'sessionId' : str(session_id),
+                'carIndex' : car_index
+            }
+        }
 
-        return collection.update_one(filter, new_values, upsert=True)
+        return collection.update_one(filter, update, upsert=True)
 
     @staticmethod
     def find(session_id: int, query: dict):
