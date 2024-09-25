@@ -1,7 +1,7 @@
 from datetime import datetime
 from .mongo_client import MongoDBClient
 
-_COLLECTION_NAME = "drivers"
+_COLLECTION_NAME = "sessions"
 
 class SessionsClient:
     @staticmethod
