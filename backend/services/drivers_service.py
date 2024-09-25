@@ -10,7 +10,7 @@ class DriversService:
 
 	@staticmethod
 	def update_from_session_packet(packet: SessionPacket):
-		drivers.update_or_insert(packet.header.session_uid, packet.header.player_car_index, {
+		drivers.insert_or_update(packet.header.session_uid, packet.header.player_car_index, {
 			'pitStop' : {
 				'lapIdeal' : packet.pit_stop_window_ideal_lap,
 				'lapLatest' : packet.pit_stop_window_latest_lap,
@@ -20,7 +20,7 @@ class DriversService:
 
 	@staticmethod
 	def update_from_session_history_packet(packet: SessionHistoryPacket):
-		drivers.update_or_insert(packet.header.session_uid, packet.car_index, {
+		drivers.insert_or_update(packet.header.session_uid, packet.car_index, {
 			'lapTimeBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
 		})
 
@@ -28,7 +28,7 @@ class DriversService:
 	@staticmethod
 	def update_from_lap_data_packet(packet: LapDataPacket):
 		for car_index, driver in enumerate(packet.lap_data):
-			drivers.update_or_insert(packet.header.session_uid, car_index, {
+			drivers.insert_or_update(packet.header.session_uid, car_index, {
 				'isPlayer' : car_index == packet.header.player_car_index,
 				'position' : driver.car_position,
 				'gridPosition' : driver.grid_position,
@@ -62,7 +62,7 @@ class DriversService:
 			})
 
 
-		drivers.update_or_insert(packet.header.session_uid, packet.car_index, {
+		drivers.insert_or_update(packet.header.session_uid, packet.car_index, {
 			'availableTyreSets' : available_tyre_sets,
 			'currentTyreSet' : {
 				'compoundActual' : TyreCompounds(fitted_tyre_set.compound).name,
@@ -76,7 +76,7 @@ class DriversService:
 	@staticmethod
 	def update_from_participants_packet(packet: ParticipantsPacket):
 		for car_index, driver in enumerate(packet.participants):
-			drivers.update_or_insert(packet.header.session_uid, car_index, {
+			drivers.insert_or_update(packet.header.session_uid, car_index, {
 				'name' : driver.name,
 				'team': Teams(driver.team_id).name,
 				'raceNumber' : driver.race_number,

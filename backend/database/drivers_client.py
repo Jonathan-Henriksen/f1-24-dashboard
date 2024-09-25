@@ -1,11 +1,12 @@
-from .mongo_client import MongoDBClient
+from .mongo_client import MongoDBClient as client
 
 _COLLECTION_NAME = "drivers"
 
 class DriversClient:
+    
     @staticmethod
-    def update_or_insert(session_id: int, car_index: int, values: dict):
-        collection = MongoDBClient.get_collection(_COLLECTION_NAME)
+    def insert_or_update(session_id: int, car_index: int, values: dict):
+        collection = client.get_collection(_COLLECTION_NAME)
 
         filter = {'sessionId': str(session_id), 'carIndex': car_index}
 
@@ -21,7 +22,7 @@ class DriversClient:
 
     @staticmethod
     def find(session_id: int, query: dict):
-        collection = MongoDBClient.get_collection(_COLLECTION_NAME)
+        collection = client.get_collection(_COLLECTION_NAME)
 
         query['sessionId'] = session_id
 

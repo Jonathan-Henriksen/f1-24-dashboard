@@ -1,73 +1,66 @@
 import React, { useEffect, useState } from 'react';
-import { fetchMFDData } from './services/api';
-import Navigation from './components/Navigation';
-import TimingsPanel from './components/TimingsPanel';
-import StrategyPanel from './components/StrategyPanel';
-import TyreInfoPanel from './components/TyreInfoPanel';
-import LeaderboardPanel from './components/LeaderboardPanel';
-import WeatherPanel from './components/WeatherPanel';
-import DamagePanel from './components/DamagePanel';
 import FocusPanel from 'components/FocusPanel';
+import { fetchLatestSessionId, fetchSessionData } from 'utils';
 
 function App() {
-	const [mfdData, setMfdData] = useState(null);
+	const [sessionId, setSessionId] = useState(null);
+	const [sessionData, setSessionData] = useState(null);
 
-	// Fetch data every 200ms
+	// Continuously fetch the latest sessionId every 5 seconds
 	useEffect(() => {
-		const interval = setInterval(async () => {
-			const data = await fetchMFDData();
-			setMfdData(data);
-		}, 200);
+		const fetchSessionId = async () => {
+			try {
+				const sessionidData = await fetchLatestSessionId();
+				if (sessionidData?.sessionId !== sessionId) {
+					setSessionId(sessionidData.sessionId);
+				}
+			} catch (error) {
+				console.error('Failed to fetch sessionId:', error);
+			}
+		};
 
-		return () => clearInterval(interval); // Clean up interval on component unmount
+		const sessionIdInterval = setInterval(fetchSessionId, 5000);
+		fetchSessionId();
+
+		return () => clearInterval(sessionIdInterval);
 	}, []);
 
-	if (!mfdData || !mfdData.panels) {
-		return <div>Loading...</div>;
+	// Continuously fetch session data every 200ms using the current sessionId
+	useEffect(() => {
+		if (!sessionId) return;
+
+		const fetchData = async () => {
+			try {
+				const data = await fetchSessionData(sessionId);
+				setSessionData(data);
+			} catch (error) {
+				console.error('Failed to fetch session data:', error);
+			}
+		};
+
+		const sessionDataInterval = setInterval(fetchData, 200);
+		fetchData();
+
+		return () => clearInterval(sessionDataInterval);
+	}, [sessionId]);
+
+	if (!sessionData || !sessionData.drivers || !sessionData.sessionInfo) {
+		return <div>No data available</div>;
 	}
 
-	const activePanel = mfdData.panels[mfdData.active_panel_index] || null;
-
-	const renderActivePanel = () => {
-		switch (mfdData.active_panel_index) {
-			case 0: return <TimingsPanel data={activePanel} sessionType={mfdData.session_type} />;
-			case 1: return <TyreInfoPanel data={activePanel} teamName={mfdData.player ? mfdData.player.team : ''} />;
-			case 2: return <StrategyPanel data={activePanel} />;
-			case 3: return <LeaderboardPanel data={activePanel.drivers} />;
-			case 4: return <WeatherPanel data={activePanel} />;
-			case 5: return <DamagePanel data={activePanel} />;
-			default: return null;
+	const renderSessionData = (sessionType) => {
+		if (sessionType.toLowerCase().includes('practice')) {
+			return <FocusPanel sessionData={sessionData} />;
 		}
+		if (sessionType.toLowerCase().includes('qualifying')) {
+			return <FocusPanel sessionData={sessionData} />;
+		}
+		return <div>Unknown session type</div>;
 	};
 
 	return (
 		<div className="inline-flex grow place-content-center h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
-
-			{mfdData.focus_mode ? (
-				<FocusPanel generalData={mfdData} timingsData={mfdData.panels[0]} tyreData={mfdData.panels[1]} strategyData={mfdData.panels[2]} weatherData={mfdData.panels[4]} />
-
-			) : (
-				<div className="flex grow flex-col justify-start">
-					{/* Navigation */}
-					<div class="flex flex-col justify-stretch items-stretch pt-2 pb-6 px-16 border-b-2 border-b-mainBorder/25">
-						<Navigation panels={mfdData.panels} activePanelIndex={mfdData.active_panel_index} />
-					</div>
-
-					{/* Current Settings */}
-					<div class="flex justify-stretch items-center py-2 px-32 border-b-2 shadow-inner rounded-xl bg-mainLight/50 border-mainBorder/25">
-						<span className="text-center text-xl font-bold">ERS Mode: <span className="capitalize">{mfdData.ers_deploy_mode}</span></span>
-						<span className="text-center text-xl font-bold">Differential: {mfdData.differential_pct}%</span>
-						<span className="text-center text-xl font-bold">Brake Bias: {mfdData.front_brake_bias}%</span>
-						<span className="text-center text-xl font-bold">Lap Time: <span className={`${mfdData.current_lap_invalid ? 'text-mainRed' : 'text-mainWhite/25'}`}>Invalid</span></span>
-					</div>
-
-					{/* Active Panel */}
-					<div className="flex grow flex-col justify-stretch content-stretch shadow-inner rounded-xl p-4 border-b-2 bg-mainLight shadow-mainDark border-y-mainBorder/25">
-						{renderActivePanel()}
-					</div>
-				</div>
-			)}
-
+			{renderSessionData(sessionData.sessionInfo.sessionType)}
 		</div>
 	);
 }

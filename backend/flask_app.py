@@ -10,6 +10,12 @@ CORS(app)
 def run_flask_app():
     app.run(host='0.0.0.0', port=5000)
 
+@app.route('/api/sessions/latestId')
+def session_latest_id():
+    session = sessions.find_latest_session()
+
+    return jsonify({'sessionId' : session['sessionId']})
+
 @app.route('/api/sessions/latest')
 def session_latest():
     session = sessions.find_latest_session()
