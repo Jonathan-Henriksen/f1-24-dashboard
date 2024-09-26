@@ -11,32 +11,13 @@ function App() {
 		setSessionType(data);
 	};
 
-	// Poll only until sessionType is set for the first time
-	useEffect(() => {
-		const fetchAndSetSessionType = async () => {
-			const data = await fetchSessionType();
-			if (data && data.sessionType) {
-				setSessionType(data.sessionType);
-			}
-		};
+	useEffect(async () => {
+		const data = await fetchSessionType();
+		if (data && data.sessionType) {
+			setSessionType(data.sessionType);
+		}
 
-		const sessionIdInterval = setInterval(() => {
-			if (!sessionType) {
-				fetchAndSetSessionType();
-			} else {
-				clearInterval(sessionIdInterval); // Stop polling once sessionType is set
-			}
-		}, 5000);
-
-		fetchAndSetSessionType(); // Initial call on mount
-
-		// Clean up interval when component unmounts
-		return () => clearInterval(sessionIdInterval);
-	}, []); // No dependency on sessionType
-
-	if (!sessionType) {
-		return <div>Waiting for session data...</div>;
-	}
+	}, []);
 
 	const renderView = () => {
 		if (sessionType.toLowerCase().includes('practice')) {
@@ -52,7 +33,7 @@ function App() {
 
 	return (
 		<div className="inline-flex grow place-content-center h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
-			{renderView()}
+			{sessionType ? renderView() : <div>Waiting for session type...</div>}
 		</div>
 	);
 }
