@@ -1,5 +1,6 @@
 from services import DriversService as drivers
 from services import SessionsService as sessions
+from telemetry.enums import DriverStatus
 from bson.json_util import dumps
 from flask import Flask, jsonify
 from flask_cors import CORS
@@ -26,6 +27,7 @@ def practice():
     
     player = next(driver for driver in driver_list if driver['isPlayer'] == True)
     fastest_driver = max(driver_list, key=lambda driver: driver['lapTimeBest'])
+    drivers_on_track = [driver for driver in driver_list if driver['driverStatus'] != DriverStatus.IN_GARAGE.name]
 
     if not player:
         return jsonify({'error': 'No player found'}), 404
@@ -34,8 +36,10 @@ def practice():
         'sessionType' : session['sessionType'],
         'playerName' : player['name'],
         'playerTeam' : player['team'],
+        'currentSector' : "",
         'tyreSet' : player['currentTyreSet'],
         'timeLeftInSeconds' : session['timeLeft'],
+        'driversOnTrack' : drivers_on_track,
         'fastestLap' : {
             'driverName' : fastest_driver['name'],
             'driverTeam' : fastest_driver['team'],

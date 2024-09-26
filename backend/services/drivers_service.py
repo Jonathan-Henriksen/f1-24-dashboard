@@ -1,6 +1,6 @@
 from database import DriversClient as drivers
-from telemetry.packets import LapDataPacket, ParticipantsPacket, SessionPacket, SessionHistoryPacket, TyreSetsPacket
-from telemetry.enums import DriverStatus, Nationalities, PitStatus, Teams, TyreCompounds, TyreCompoundsVisual
+from telemetry.packets import CarStatusPacket, LapDataPacket, ParticipantsPacket, SessionPacket, SessionHistoryPacket, TyreSetsPacket
+from telemetry.enums import DriverStatus, Nationalities, PitStatus, Teams, TyreCompounds, TyreCompoundsVisual, FiaFlags
 
 class DriversService:
 
@@ -11,6 +11,13 @@ class DriversService:
 	@staticmethod
 	def find(session_id: int, query: dict = {}):
 		return drivers.find(session_id, query)
+
+	@staticmethod
+	def update_from_car_status_packet(packet: CarStatusPacket):
+		for car_index, driver in enumerate(packet.car_status_list):
+			drivers.insert_or_update(packet.header.session_uid, car_index, {
+				'vehicleFiaFlags' : FiaFlags(driver.vehicle_fia_flags).name
+			})
 
 	@staticmethod
 	def update_from_session_packet(packet: SessionPacket):
@@ -24,10 +31,30 @@ class DriversService:
 
 	@staticmethod
 	def update_from_session_history_packet(packet: SessionHistoryPacket):
-		drivers.insert_or_update(packet.header.session_uid, packet.car_index, {
-			'lapTimeBest' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms
-		})
+		if (packet.num_laps <= 1):
+			return
+		
+		completed_laps = packet.lap_history_list[:packet.num_laps-1]
 
+		best_sector_1_lap = packet.lap_history_list[packet.best_sector_1_lap_num]
+		best_sector_2_lap = packet.lap_history_list[packet.best_sector_2_lap_num]
+		best_sector_3_lap = packet.lap_history_list[packet.best_sector_3_lap_num]
+		best_lap = packet.lap_history_list[packet.best_sector_1_lap_num]
+
+		drivers.insert_or_update(packet.header.session_uid, packet.car_index, {
+			'personalBest' : {
+				'sector1' : sum(best_sector_1_lap.sector_1_time_ms_part + best_lap.sector_1_time_minutes_part * 60 * 1000),
+				'sector2' : sum(best_sector_2_lap.sector_2_time_ms_part + best_lap.sector_2_time_minutes_part * 60 * 1000),
+				'sector3' : sum(best_sector_3_lap.sector_3_time_ms_part + best_lap.sector_3_time_minutes_part * 60 * 1000),
+				'lap' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms,
+			},
+			'personalAverage' : {
+				'sector1' : sum((lap.sector_1_time_ms_part + lap.sector_1_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps),
+				'sector2' : sum((lap.sector_2_time_ms_part + lap.sector_2_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps),
+				'sector3' : sum((lap.sector_3_time_ms_part + lap.sector_3_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps),
+				'lap' : sum(lap.lap_time_in_ms for lap in completed_laps) / len(completed_laps)
+			},
+		})
 
 	@staticmethod
 	def update_from_lap_data_packet(packet: LapDataPacket):
@@ -41,12 +68,17 @@ class DriversService:
 				'penaltySeconds' : driver.penalties,
 				'cornerCuttingWarnings' : driver.corner_cutting_warnings,
 				'totalWarnings' : driver.total_warnings,
-				'lapNumber' : driver.current_lap_num,
-				'lapDistance' : driver.lap_distance,
-				'lapTimeCurrent' : driver.current_lap_time_in_ms,
-				'lapTimeCurrentInvalid' : bool(driver.current_lap_invalid),
 				'lapTimePrevious' : driver.last_lap_time_in_ms,
-				
+				'currentLap' : {
+					'number' : driver.current_lap_num,
+					'distance' : driver.lap_distance if driver.lap_distance >= 0 else 0,
+					'activeSector' : driver.sector + 1, # 0 == 1, 1 == 2, etc.
+					'sector1' : driver.sector1_time_ms_part + (driver.sector1_time_minutes_part * 60 * 1000),
+					'sector2' : driver.sector2_time_ms_part + (driver.sector2_time_minutes_part * 60 * 1000),
+					'sector3' : driver.current_lap_time_in_ms if driver.sector == 2 else 0,
+					'lapTime' : driver.current_lap_time_in_ms,
+					'invalidated' :bool(driver.current_lap_invalid),
+				}			
 			})
 
 	@staticmethod

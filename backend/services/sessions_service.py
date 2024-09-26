@@ -36,11 +36,12 @@ class SessionsService:
 		sessions.update_or_insert(packet.header.session_uid, {
 				'pitSpeedLimit' : packet.pit_speed_limit,
 				'track' : Tracks(packet.track_id).name,
-				'length' : SessionLength(packet.session_length).name,
+				'trackLength' : packet.track_length,
 				'totalLaps' : packet.total_laps,
 				'timeLeft' : packet.session_time_left,
 				'timeOfDay' : packet.time_of_day,
 				'gameMode' : GameModes(packet.game_mode).name,
+				'sessionLength' : SessionLength(packet.session_length).name,
 				'sessionType': SessionTypes(packet.session_type).name,
 				'playerCarIndex': packet.header.player_car_index,
 				'weather' : {

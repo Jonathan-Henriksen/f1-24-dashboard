@@ -26,6 +26,11 @@ def handle_packet(data: bytes):
 			remaning_bytes = data[PACKET_HEADER_FORMAT_SIZE:]
 
 			match packet_header.packet_id:
+				case PacketIDs.CAR_STATUS.value:
+					car_status_packet = unpack_car_status(packet_header, remaning_bytes)
+
+					drivers.update_from_car_status_packet(car_status_packet)
+
 				case PacketIDs.TYRE_SETS.value:
 					tyre_sets_packet = unpack_tyre_sets(packet_header, remaning_bytes)
 
