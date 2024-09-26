@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder="./build")
 CORS(app)
 
 def run_flask_app():
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=9998)
 
 @app.route('/api/sessionType')
 def current_session_type():
