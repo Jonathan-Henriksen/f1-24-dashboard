@@ -44,10 +44,12 @@ class SessionsService:
 				'sessionType': SessionTypes(packet.session_type).name,
 				'playerCarIndex': packet.header.player_car_index,
 				'weather' : {
-					'name' : Weather(packet.weather).name,
-					'temperature' : {
-						'air' : packet.air_temperature,
-						'track' :packet.track_temperature
+					'current' : {
+						'name' : Weather(packet.weather).name,
+						'temperature' : {
+							'air' : packet.air_temperature,
+							'track' :packet.track_temperature
+						}
 					},
 					'forecasts' : forecasts
 				}

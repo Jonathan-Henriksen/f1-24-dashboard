@@ -64,7 +64,7 @@ def handle_packet(data: bytes):
 							print("UDP_ACTION_2 Pressed")
 
 					elif type(event) == FastestLapEvent:
-						fastest_lap_driver = drivers.find(event_packet.header.session_uid, {'carIndex' : event.vehicle_index})
+						fastest_lap_driver = drivers.find_one(event_packet.header.session_uid, {'carIndex' : event.vehicle_index})
 
 						print(f"Fastest Lap Time was set by {fastest_lap_driver.name}")
 

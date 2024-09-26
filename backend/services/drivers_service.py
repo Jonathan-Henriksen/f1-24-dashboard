@@ -5,7 +5,11 @@ from telemetry.enums import DriverStatus, Nationalities, PitStatus, Teams, TyreC
 class DriversService:
 
 	@staticmethod
-	def find(session_id: int, query: dict):
+	def find_one(session_id: int, query: dict):
+		return drivers.find_one(session_id, query)
+	
+	@staticmethod
+	def find(session_id: int, query: dict = {}):
 		return drivers.find(session_id, query)
 
 	@staticmethod
