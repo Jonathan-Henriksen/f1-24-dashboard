@@ -19,7 +19,7 @@ def current_session_type():
 @app.route('/api/practice')
 def practice():
     session = sessions.find_latest_session()
-    driver_list = list(drivers.find(session['sessionId'],  { 'carIndex' : { '$lte': 20 } }))
+    driver_list = list(drivers.find(session['sessionId'],  { 'carIndex' : { '$lt': 20 } }))
 
     if not session or len(driver_list) == 0:
         return jsonify({'error': 'No data available'}), 404
