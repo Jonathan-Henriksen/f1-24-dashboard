@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 const SettingsCard = ({ ersDeployMode, brakeBias, differential }) => (
 	<Card flex="flex items-center">

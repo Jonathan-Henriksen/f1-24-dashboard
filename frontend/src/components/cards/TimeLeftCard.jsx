@@ -1,5 +1,6 @@
 import { formatTime } from "utils";
 import React from "react";
+import Card from "./Card";
 
 const TimeLeftCard = ({ time }) => (
 	<Card flex="flex flex-col justify-center">

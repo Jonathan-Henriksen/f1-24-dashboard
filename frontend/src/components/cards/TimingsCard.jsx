@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 const TimingsCard = ({ timingsData, pitStatus }) => (
 	<Card flex="flex grow items-center divide-x-2 divide-mainBorder/50 min-w-card-lg max-w-card-lg">

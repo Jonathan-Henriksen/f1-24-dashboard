@@ -1,5 +1,7 @@
 import React from "react";
 
+import Card from "./Card";
+
 import { ReactComponent as Clear } from "icons/weather/clear_day.svg";
 import { ReactComponent as LightCloud } from "icons/weather/light_cloud_day.svg";
 import { ReactComponent as Overcast } from "icons/weather/overcast_day.svg";

@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 const StrategyCard = ({ recommendedLapToPit, latestLapToPit, expectedRejoinPosition }) => (
 	<Card flex="flex-col justify-center divide-y-2 divide-mainBorder/50">

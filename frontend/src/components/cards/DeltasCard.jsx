@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 const DeltasCard = ({ timingsData }) => {
 	let driverInFront = timingsData.driver_in_front
