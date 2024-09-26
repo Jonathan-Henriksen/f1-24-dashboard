@@ -8,7 +8,7 @@ import { ReactComponent as Overcast } from "icons/weather/overcast_day.svg";
 import { ReactComponent as LightRain } from "icons/weather/light_rain_day.svg";
 import { ReactComponent as HeavyRain } from "icons/weather/heavy_rain_day.svg";
 
-import { ReactComponent as ClearNight } from "../icons/weather/clear_night.svg";
+import { ReactComponent as ClearNight } from "icons/weather/clear_night.svg";
 import { ReactComponent as LightCloudNight } from "icons/weather/light_cloud_night.svg";
 import { ReactComponent as OvercastNight } from "icons/weather/overcast_night.svg";
 import { ReactComponent as LightRainNight } from "icons/weather/light_rain_night.svg";
