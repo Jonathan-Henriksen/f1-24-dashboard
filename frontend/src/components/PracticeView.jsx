@@ -2,13 +2,15 @@ import { fetchPracticeData } from 'helpers/apiHelper';
 import TimeLeftCard from './cards/TimeLeftCard';
 import React from 'react';
 
-const PracticeView = () => {
+const PracticeView = ({ setSessionType }) => {
 	const [practiceData, setPracticeData] = useState(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchPracticeData();
-			if (data) setPracticeData(data);
+
+			if (data && !data.sessionType.toLowerCase().contains('practice')) setSessionType(data.sessionType);
+			else if (data) setPracticeData(data);
 		};
 
 		const practiceDataInterval = setInterval(fetchData, 200);

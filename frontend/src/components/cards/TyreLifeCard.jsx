@@ -19,7 +19,6 @@ const TyreWearRange = [
 	{ color: '#EC3B26', value: 100 }  // Red
 ];
 
-
 const TyreLifeCard = ({ tyreData }) => {
 	let tyreDataClone = { ...tyreData }; // Ensure new object reference
 	let tyreAge = tyreDataClone.tyre_set_laps_age;

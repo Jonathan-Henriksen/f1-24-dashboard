@@ -7,6 +7,10 @@ import RaceView from 'components/RaceView';
 function App() {
 	const [sessionType, setSessionType] = useState(null);
 
+	const setSSessionTypeFunc = (data) => {
+		setSessionType(data)
+	}
+
 	// Continuously fetch the session type every 5 seconds
 	useEffect(() => {
 		const fetchAndSetSessionType = async () => {
@@ -28,13 +32,13 @@ function App() {
 
 	const renderView = () => {
 		if (sessionType.toLowerCase().includes('practice')) {
-			return <PracticeView />;
+			return <PracticeView setSessionType={setSSessionTypeFunc} />;
 		}
 		else if (sessionType.toLowerCase().includes('qualifying')) {
-			return <QualificationView />;
+			return <QualificationView setSessionType={setSSessionTypeFunc} />;
 		}
 		else if (sessionType.toLowerCase().includes('race')) {
-			return <RaceView />;
+			return <RaceView setSessionType={setSSessionTypeFunc} />;
 		}
 		else {
 			return <div>Unknown session type</div>;
