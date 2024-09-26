@@ -3,7 +3,7 @@ import { formatTime } from "utils";
 import { getCarImage } from 'helpers/imageHelper'
 import { getTeamColor } from 'helpers/colorHelper'
 
-const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
+const DeltasGraphicCard = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 	const carsToRender = [];
 	if (leaderCar) carsToRender.push({ type: 'leader', ...leaderCar });
 	if (frontCar) carsToRender.push({ type: 'front', ...frontCar });
@@ -35,4 +35,4 @@ const CarDeltasGraphic = ({ behindCar, playerCar, frontCar, leaderCar }) => {
 	);
 };
 
-export default CarDeltasGraphic;
+export default DeltasGraphicCard;

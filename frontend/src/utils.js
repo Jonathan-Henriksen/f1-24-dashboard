@@ -16,24 +16,3 @@ export function calculatePercentage(scaleStart, scaleEnd, value) {
 	}
 	return Math.trunc(((value - scaleStart) / (scaleEnd - scaleStart)) * 100);
 }
-
-const API_URL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/api`;
-export const fetchLatestSessionId = async () => {
-	try {
-		const response = await axios.get(`${API_URL}:5000/sessions/latestId`);
-		return response.data;
-	} catch (error) {
-		console.error("Error fetching MFD data", error);
-		return null;
-	}
-};
-
-export const fetchSessionData = async (sessionId) => {
-	try {
-		const response = await axios.get(`${API_URL}:5000/sessions/${sessionId}`);
-		return response.data;
-	} catch (error) {
-		console.error("Error fetching MFD data", error);
-		return null;
-	}
-};

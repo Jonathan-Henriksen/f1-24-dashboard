@@ -1,66 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import FocusPanel from 'components/FocusPanel';
-import { fetchLatestSessionId, fetchSessionData } from 'utils';
+import { fetchSessionType } from 'helpers/apiHelper';
+import PracticeView from 'components/PracticeView';
+import QualificationView from 'components/QualiView';
+import RaceView from 'components/RaceView';
 
 function App() {
-	const [sessionId, setSessionId] = useState(null);
-	const [sessionData, setSessionData] = useState(null);
+	const [sessionType, setSessionType] = useState(null);
 
-	// Continuously fetch the latest sessionId every 5 seconds
+	// Continuously fetch the session type every 5 seconds
 	useEffect(() => {
-		const fetchSessionId = async () => {
-			try {
-				const sessionidData = await fetchLatestSessionId();
-				if (sessionidData?.sessionId !== sessionId) {
-					setSessionId(sessionidData.sessionId);
-				}
-			} catch (error) {
-				console.error('Failed to fetch sessionId:', error);
+		const fetchAndSetSessionType = async () => {
+			const data = await fetchSessionType();
+			if (data && data.sessionType !== sessionType) {
+				setSessionType(data.sessionType);
 			}
 		};
 
-		const sessionIdInterval = setInterval(fetchSessionId, 5000);
-		fetchSessionId();
+		const sessionIdInterval = setInterval(fetchAndSetSessionType, 5000);
+		fetchAndSetSessionType();
 
 		return () => clearInterval(sessionIdInterval);
 	}, []);
 
-	// Continuously fetch session data every 200ms using the current sessionId
-	useEffect(() => {
-		if (!sessionId) return;
-
-		const fetchData = async () => {
-			try {
-				const data = await fetchSessionData(sessionId);
-				setSessionData(data);
-			} catch (error) {
-				console.error('Failed to fetch session data:', error);
-			}
-		};
-
-		const sessionDataInterval = setInterval(fetchData, 200);
-		fetchData();
-
-		return () => clearInterval(sessionDataInterval);
-	}, [sessionId]);
-
-	if (!sessionData || !sessionData.drivers || !sessionData.sessionInfo) {
+	if (!sessionType) {
 		return <div>No data available</div>;
 	}
 
-	const renderSessionData = (sessionType) => {
+	const renderView = () => {
 		if (sessionType.toLowerCase().includes('practice')) {
-			return <FocusPanel sessionData={sessionData} />;
+			return <PracticeView />;
 		}
-		if (sessionType.toLowerCase().includes('qualifying')) {
-			return <FocusPanel sessionData={sessionData} />;
+		else if (sessionType.toLowerCase().includes('qualifying')) {
+			return <QualificationView />;
 		}
-		return <div>Unknown session type</div>;
+		else if (sessionType.toLowerCase().includes('race')) {
+			return <RaceView />;
+		}
+		else {
+			return <div>Unknown session type</div>;
+		}
 	};
 
 	return (
 		<div className="inline-flex grow place-content-center h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
-			{renderSessionData(sessionData.sessionInfo.sessionType)}
+			{renderView()}
 		</div>
 	);
 }

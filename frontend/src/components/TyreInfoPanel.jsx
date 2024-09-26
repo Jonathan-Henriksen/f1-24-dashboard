@@ -1,5 +1,5 @@
 import React from "react";
-import TyreInfoCard from "./TyreInfoCircle";
+import TyreInfoCard from "./cards/TyreInfoCard";
 import { getCarTopViewImage } from "helpers/imageHelper";
 import { getColorFromList } from "helpers/colorHelper";
 
