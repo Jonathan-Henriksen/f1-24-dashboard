@@ -19,13 +19,13 @@ def current_session_type():
 @app.route('/api/practice')
 def practice():
     session = sessions.find_latest_session()
-    driver_list = list(drivers.find(session['sessionId']))
+    driver_list = list(drivers.find(session['sessionId'],  { 'carIndex' : { '$lte': 20 } }))
 
     if not session or len(driver_list) == 0:
         return jsonify({'error': 'No data available'}), 404
     
     player = next(driver for driver in driver_list if driver['isPlayer'] == True)
-    fastest_driver = max(driver_list, key=lambda driver:driver['lapTimeBest'])
+    fastest_driver = max(driver_list, key=lambda driver: driver['lapTimeBest'])
 
     if not player:
         return jsonify({'error': 'No player found'}), 404
