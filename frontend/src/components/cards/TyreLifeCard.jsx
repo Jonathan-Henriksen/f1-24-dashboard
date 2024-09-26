@@ -1,8 +1,10 @@
+import React from "react";
+import Card from "./Card";
+
 import { getColorFromList } from "helpers/colorHelper";
 import { getTyreCompoundImage } from "helpers/imageHelper";
 import { calculatePercentage } from "utils";
-import React from "react";
-import Card from "./Card";
+import { LinearProgressBar } from "react-percentage-bar";
 
 const TyreAgeRange = [
 	{ color: '#2BDD1A', value: 0 },  // Green
