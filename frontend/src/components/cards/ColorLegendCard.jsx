@@ -1,9 +1,5 @@
 import React from "react";
-import TyreInfoCard from "./cards/TyreInfoCard";
-import { getCarTopViewImage } from "helpers/imageHelper";
 import { getColorFromList } from "helpers/colorHelper";
-
-
 
 // C3 Range
 const colorRange = [
@@ -26,7 +22,7 @@ const tempRange = () => {
 	return arr;
 }
 
-const ColorLegend = ({ tyreCompound }) => (
+const ColorLegendCard = ({ tyreCompound }) => (
 	<div className="flex flex-col justify-start items-center justify-self-start">
 		<span className="text-center text-3xl font-semibold rounded-full shadow-inner px-6 py-2 border-2 mb-2 -mt-6 border-mainBorder/25">{tyreCompound}</span>
 		<div className="flex grow">
@@ -50,46 +46,6 @@ const ColorLegend = ({ tyreCompound }) => (
 			</div>
 		</div>
 	</div>
-
 );
 
-const TyreInfoPanel = ({ data, teamName }) => {
-	return (
-		<div className="flex grow justify-start px-16 py-12">
-
-			<div className="flex pl-4">
-				<ColorLegend tyreCompound={data.tyre_compound} />
-			</div>
-
-			<div className="flex grow justify-center">
-				{/* Left Tyres */}
-				<div className="flex flex-col justify-between">
-
-					{/* Front */}
-					<TyreInfoCard tyre={data.tyre_front_left} colorRange={colorRange} inverted={true} />
-
-					{/* Rear */}
-					<TyreInfoCard tyre={data.tyre_rear_left} colorRange={colorRange} inverted={true} />
-				</div>
-
-				{/* Car Image */}
-				<div className="flex justify-center">
-					<img src={getCarTopViewImage(teamName)} alt={teamName} className="max-h-full" />
-				</div>
-
-				{/* Right Tyres */}
-				<div className="flex flex-col justify-between">
-
-					{/* Front */}
-					<TyreInfoCard tyre={data.tyre_front_right} colorRange={colorRange} />
-
-					{/* Rear */}
-					<TyreInfoCard tyre={data.tyre_rear_right} colorRange={colorRange} />
-				</div>
-			</div>
-
-		</div>
-	);
-}
-
-export default TyreInfoPanel;
+export default ColorLegendCard

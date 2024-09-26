@@ -28,7 +28,7 @@ const PracticeView = ({ setSessionType }) => {
 	}
 
 	return (
-		<TimeLeftCard time={{ minutes: 0, seconds: practiceData.timeLeftInSeconds, ms: 0 }} />
+		<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
 	);
 }
 

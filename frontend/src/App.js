@@ -33,7 +33,9 @@ function App() {
 
 	return (
 		<div className="inline-flex grow place-content-center h-dvh w-screen pt-4 pb-12 bg-mainDark text-mainWhite">
-			{sessionType ? renderView() : <div>Waiting for session type...</div>}
+			<div className='flex grow justify-center justify-items-center p-4 bg-mainLight/80'>
+				{sessionType ? renderView() : <div>Waiting for session type...</div>}
+			</div>
 		</div>
 	);
 }
