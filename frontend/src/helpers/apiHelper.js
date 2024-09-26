@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const API_URL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}:5000/api`;
 
 export const fetchSessionType = async () => {
