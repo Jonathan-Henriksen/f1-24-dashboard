@@ -30,6 +30,9 @@ const PracticeView = ({ setSessionType }) => {
 	return (
 		<>
 			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
+			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
+			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
+			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
 		</>
 	);
 }
