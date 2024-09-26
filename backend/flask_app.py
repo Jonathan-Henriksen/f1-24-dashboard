@@ -33,7 +33,7 @@ def practice():
     practice_data = {
         'playerName' : player['name'],
         'playerTeam' : player['team'],
-        'tyreSet' : session['currentTyreSet'],
+        'tyreSet' : player['currentTyreSet'],
         'timeLeftInSeconds' : session['timeLeft'],
         'fastestLap' : {
             'driverName' : fastest_driver['name'],
