@@ -31,6 +31,7 @@ def practice():
         return jsonify({'error': 'No player found'}), 404
 
     practice_data = {
+        'sessionType' : session['sessionType'],
         'playerName' : player['name'],
         'playerTeam' : player['team'],
         'tyreSet' : player['currentTyreSet'],
