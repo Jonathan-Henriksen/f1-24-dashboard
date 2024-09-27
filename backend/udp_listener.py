@@ -71,7 +71,5 @@ def handle_packet(data: bytes):
 					elif type(event) == FastestLapEvent:
 						fastest_lap_driver = drivers.find_one(event_packet.header.session_uid, {'carIndex' : event.vehicle_index})
 
-						print(f"Fastest Lap Time was set by {fastest_lap_driver.name}")
-
-						sessions.update_from_fastest_lap_event(event_packet.header.session_uid, fastest_lap_driver.name, event)
+						sessions.update_from_fastest_lap_event(event_packet.header.session_uid, event, fastest_lap_driver.name,fastest_lap_driver.team)
 						

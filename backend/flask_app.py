@@ -26,7 +26,7 @@ def practice():
         return jsonify({'error': 'No data available'}), 404
     
     player = next(driver for driver in driver_list if driver['isPlayer'] == True)
-    fastest_driver = max(driver_list, key=lambda driver: driver['lapTimeBest'])
+    teammate = next(driver for driver in driver_list if driver['team'] == player['team'] and driver['carIndex'] != player['carIndex'])
     drivers_on_track = [driver for driver in driver_list if driver['driverStatus'] != DriverStatus.IN_GARAGE.name]
 
     if not player:
@@ -36,20 +36,21 @@ def practice():
         'sessionType' : session['sessionType'],
         'playerName' : player['name'],
         'playerTeam' : player['team'],
-        'currentSector' : "",
+        'currentSector' : player['currentLap']['activeSector'],
         'tyreSet' : player['currentTyreSet'],
         'timeLeftInSeconds' : session['timeLeft'],
         'driversOnTrack' : drivers_on_track,
-        'fastestLap' : {
-            'driverName' : fastest_driver['name'],
-            'driverTeam' : fastest_driver['team'],
-            'time' : fastest_driver['lapTimeBest']
-        },
+        'pitStatus' : player['pitStatus'],
         'lapTimes' : {
-            'current' : player['lapTimeCurrent'],
-            'currentInvalid' : player['lapTimeCurrentInvalid'],
-            'personalBest' : player['lapTimeBest'],
-            'previous' : player['lapTimePrevious']
+            'currentLap' : {
+                'lapTime' : player['lapTimeCurrent'],
+                'isInvalid' : player['lapTimeCurrentInvalid']
+            },
+            'previousLap' : player['lapTimePrevious'],
+            'fastestLap' : session['fastestLap'],
+            'personalBest' : player['personalBest'],
+            'personalAverage' : player['personalAverage'],
+            'teammateBest' : teammate['personalBest']
         },
         'weather' : {
             'current' : session['weather']['current'],

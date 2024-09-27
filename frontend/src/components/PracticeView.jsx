@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchPracticeData } from 'helpers/apiHelper';
 import TimeLeftCard from './cards/TimeLeftCard';
+import TimingsCard from './cards/TimingsCard';
+import WeatherCard from './cards/WeatherCard';
 
 const PracticeView = ({ setSessionType }) => {
 	const [practiceData, setPracticeData] = useState(null);
@@ -29,10 +31,9 @@ const PracticeView = ({ setSessionType }) => {
 
 	return (
 		<>
+			<TimingsCard lapTimes={practiceData.lapTimes} playerTeam={practiceData.playerTeam} pitStatus={practiceData.pitStatus} />
 			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
-			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
-			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
-			<TimeLeftCard seconds={practiceData.timeLeftInSeconds} />
+			<WeatherCard weatherData={practiceData.weather} />
 		</>
 	);
 }

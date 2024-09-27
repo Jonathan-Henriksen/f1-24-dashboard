@@ -1,12 +1,16 @@
-export const formatTime = (timeObj, options = {}) => {
-	if (!timeObj) {
-		if (options.excludeMs)
-			return '0:00'
-
-		return '0:00.000'
+export const formatTime = (milliseconds, options = {}) => {
+	if (milliseconds == null) { // Handle null or undefined input
+		if (options.excludeMs) {
+			return '0:00';
+		}
+		return '0:00.000';
 	}
 
-	const { minutes, seconds, ms } = timeObj;
+	const totalSeconds = Math.floor(milliseconds / 1000); // Convert to total seconds
+	const ms = milliseconds % 1000; // Get remaining milliseconds
+	const minutes = Math.floor(totalSeconds / 60); // Get full minutes
+	const seconds = totalSeconds % 60; // Get remaining seconds
+
 	return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}${!options.excludeMs ? `.${ms.toString().padEnd(3, '0')}` : ''}`;
 };
 

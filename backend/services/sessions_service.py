@@ -57,9 +57,11 @@ class SessionsService:
 			})
 
 	@staticmethod
-	def update_from_fastest_lap_event(session_id: int, driver_name: str, event: FastestLapEvent):
+	def update_from_fastest_lap_event(session_id: int, event: FastestLapEvent, driver_name: str, driver_team: str):
 		sessions.update_or_insert(session_id, {
-			'fastestLapDriverName' : driver_name,
-			'fastestLapInMs' : int(abs(event.lap_time * 1000)),
-			'fastestLapCarIndex' : event.vehicle_index
+			'fastestLap': {
+				'driverName': driver_name,
+				'driverTeam' : driver_team,
+				'lapTime' : int(abs(event.lap_time * 1000))
+			}
 		})

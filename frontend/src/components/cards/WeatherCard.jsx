@@ -16,7 +16,7 @@ import { ReactComponent as HeavyRainNight } from "icons/weather/heavy_rain_night
 
 const WeatherCard = ({ weatherData }) => (
 	<Card flex="flex items-center divide-x-2 divide-mainBorder/50">
-		{weatherData.weather_forecasts.map((forecast, index) =>
+		{weatherData.forecasts.map((forecast, index) =>
 			forecast.time_offset_in_minutes !== 0 && (
 				<WeatherCardRow forecast={forecast} />
 			))}
