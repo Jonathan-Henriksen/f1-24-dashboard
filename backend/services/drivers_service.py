@@ -43,16 +43,16 @@ class DriversService:
 
 		drivers.insert_or_update(packet.header.session_uid, packet.car_index, {
 			'personalBest' : {
+				'lapTime' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms,
 				'sector1' : sum(best_sector_1_lap.sector_1_time_ms_part + best_lap.sector_1_time_minutes_part * 60 * 1000),
 				'sector2' : sum(best_sector_2_lap.sector_2_time_ms_part + best_lap.sector_2_time_minutes_part * 60 * 1000),
-				'sector3' : sum(best_sector_3_lap.sector_3_time_ms_part + best_lap.sector_3_time_minutes_part * 60 * 1000),
-				'lapTime' : packet.lap_history_list[packet.best_lap_time_lap_num].lap_time_in_ms,
+				'sector3' : sum(best_sector_3_lap.sector_3_time_ms_part + best_lap.sector_3_time_minutes_part * 60 * 1000)
 			},
 			'personalAverage' : {
+				'lapTime' : sum(lap.lap_time_in_ms for lap in completed_laps) / len(completed_laps),
 				'sector1' : sum((lap.sector_1_time_ms_part + lap.sector_1_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps),
 				'sector2' : sum((lap.sector_2_time_ms_part + lap.sector_2_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps),
-				'sector3' : sum((lap.sector_3_time_ms_part + lap.sector_3_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps),
-				'lapTime' : sum(lap.lap_time_in_ms for lap in completed_laps) / len(completed_laps)
+				'sector3' : sum((lap.sector_3_time_ms_part + lap.sector_3_time_minutes_part * 60 * 1000) for lap in completed_laps) / len(completed_laps)
 			},
 		})
 
@@ -68,16 +68,18 @@ class DriversService:
 				'penaltySeconds' : driver.penalties,
 				'cornerCuttingWarnings' : driver.corner_cutting_warnings,
 				'totalWarnings' : driver.total_warnings,
-				'lapTimePrevious' : driver.last_lap_time_in_ms,
+				'previousLap' : {
+					'lapTime' : driver.last_lap_time_in_ms
+				},
 				'currentLap' : {
-					'number' : driver.current_lap_num,
-					'distance' : driver.lap_distance if driver.lap_distance >= 0 else 0,
-					'activeSector' : driver.sector + 1, # 0 == 1, 1 == 2, etc.
+					'lapTime' : driver.current_lap_time_in_ms,
 					'sector1' : driver.sector1_time_ms_part + (driver.sector1_time_minutes_part * 60 * 1000),
 					'sector2' : driver.sector2_time_ms_part + (driver.sector2_time_minutes_part * 60 * 1000),
 					'sector3' : driver.current_lap_time_in_ms if driver.sector == 2 else 0,
-					'lapTime' : driver.current_lap_time_in_ms,
-					'invalidated' :bool(driver.current_lap_invalid),
+					'number' : driver.current_lap_num,
+					'distance' : driver.lap_distance if driver.lap_distance >= 0 else 0,
+					'activeSector' : driver.sector + 1, # 0 == 1, 1 == 2, etc.
+					'isInvalid' :bool(driver.current_lap_invalid),
 				}			
 			})
 
@@ -94,18 +96,19 @@ class DriversService:
 				'deltaTime': tyre_set.lap_delta_time,
 				'lapsLeft': tyre_set.num_of_laps_left,
 				'lapsMax': tyre_set.num_of_laps_max,
-				'wear': tyre_set.wear,
+				'wear': tyre_set.wear
 			})
 
-
 		drivers.insert_or_update(packet.header.session_uid, packet.car_index, {
-			'availableTyreSets' : available_tyre_sets,
-			'currentTyreSet' : {
-				'compoundActual' : TyreCompounds(fitted_tyre_set.compound).name,
-				'compoundVisual' : TyreCompoundsVisual(fitted_tyre_set.compound_visual).name,
-				'lapsLeft' : fitted_tyre_set.num_of_laps_left,
-				'lapsMax' : fitted_tyre_set.num_of_laps_max,
-				'wear' : fitted_tyre_set.wear,
+			'tyreSets': {
+				'available' :available_tyre_sets,
+				'current' :{
+					'compoundActual' : TyreCompounds(fitted_tyre_set.compound).name,
+					'compoundVisual' : TyreCompoundsVisual(fitted_tyre_set.compound_visual).name,
+					'lapsLeft' : fitted_tyre_set.num_of_laps_left,
+					'lapsMax' : fitted_tyre_set.num_of_laps_max,
+					'wear' : fitted_tyre_set.wear
+				}
 			}
 		})
 

@@ -42,14 +42,11 @@ def practice():
         'driversOnTrack' : drivers_on_track,
         'pitStatus' : player['pitStatus'],
         'lapTimes' : {
-            'currentLap' : {
-                'lapTime' : player['lapTimeCurrent'],
-                'isInvalid' : player['lapTimeCurrentInvalid']
-            },
-            'previousLap' : player['lapTimePrevious'],
-            'fastestLap' : session['fastestLap'],
+            'currentLap' : player['currentLap'],
+            'previousLap' : player['previousLap'],
             'personalBest' : player['personalBest'],
             'personalAverage' : player['personalAverage'],
+            'fastestLap' : session['fastestLap'],
             'teammateBest' : teammate['personalBest']
         },
         'weather' : {
